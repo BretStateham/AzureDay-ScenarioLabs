@@ -1,11 +1,11 @@
-﻿task <a name="Title"></a>
+﻿<a name="Title"></a>
 # Setting up an Azure Virtual Machine For Developers with Visual Studio 2013 Ultimate and SQL Server 2012 Express #
 
 ---
 <a name="Overview"></a>
 ## Overview ##
 
-This next section is about getting set up with Azure Virtual Machine that includes Visual Studio 2013 RC and SQL Server 2012 Express.
+This next section is about getting set up with Azure Virtual Machine that includes Visual Studio 2013 RC and SQL Server 2012 Express. This will be the starting point for other labs.
 
 In this hands-on lab, you will explore the basic elements of setting up an **Windows Azure Virtual Machine** using the Windows Azure Gallery for Vitual Machines. Once a basic virtual machine has been setup, we will add SQL Server 2012 Express Edition.
 
@@ -110,7 +110,8 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 ### Exercise 1: Using Remote Desktop to connect to the Virtual Machine ###
 
 In this section, you will log into the Windows Azure Portal and create an Azure Virtual Machine using the Windows Azure Gallery. 
-#### Task 1 – Using Remote Desktop to connect to the Virtual Machine ####
+
+#### Task 1 – Configuring Visual Studio 2013 RC and SQL Server 2012 Express ####
 
 You will now connect to the Virtual Machine and configure it to run both **Visual Studio 2013 Ultimate RC** and **SQL Server 2013 Express**.
 
@@ -174,119 +175,129 @@ You will also download and install software, such as **SQL Server 2012 Express M
 
 	_Connecting to SQL Express_
 
-1. x 
+1. In the **Server Name** name text box, type in **(local)\SQLEXPRESS**. The purpose is to 
 
-	![x-ing the ](Images/image033.png?raw=true)
+	![Verifying connectivity to SQLEXPRESS](Images/image033.png?raw=true)
 
-	_xyz_
+	_Verifying connectivity to SQLEXPRESS_
 
-1. x 
+1.	In order to enable downloads from Internet Explorer you will need to update **Internet Explorer Enhanced Security Configuration**. In the Azure Virtual Machine, open **Server Manager** from **Start | Administrative Tools | Server Manager**.
 
-	![x-ing the ](Images/image035.png?raw=true)
+ 	![Configuring IE ESC](./Images/image035.png?raw=true)
+ 
+	_Configuring IE ESC_
 
-	_xyz_
+1. In the **Server Manager**, click **Configure IE ESC** within **Security Information** section.
 
-1. x 
 
-	![x-ing the ](Images/image037.png?raw=true)
+1. In the **Internet explorer Enhanced Security** configuration, turn **off** the enhanced security for **Administrators** and click **OK**.
 
-	_xyz_
+	![Internet Explorer Enhanced Security(2)](Images/image037.png?raw=true)
+	 
+	_Internet Explorer Enhanced Security_
+ 
+	>**Note:** Modifying **Internet Explorer Enhanced Security** configurations is not good practice and is only for the purpose of this particular lab. The correct approach should be to download the files locally and then copy them to a shared folder or directly to the Virtual Machine.
 
-1. x 
 
-	![x-ing the ](Images/image039.png?raw=true)
 
-	_xyz_
+1.  For **Administrators**, turn the configuration to **Off**.
 
-1. x 
+	![Shutting configuration off](Images/image039.png?raw=true)
 
-	![x-ing the ](Images/image041.png?raw=true)
+	_Shutting configuration off_
 
-	_xyz_
+#### Task 2 – Configuring the browser to allow downloads and installation ####
 
-1. x 
+The next section if for downloading and installing **SQL Setup 2012 Express Management Studio**. To be able to download and install this software, you will to change the security settings in Internet Explorer.
 
-	![x-ing the ](Images/image043.png?raw=true)
+1. Start Internet Explorer. Right mouse click in the **title bar area** and choose **Menu bar**. This enable the menus within the browser.
 
-	_xyz_
+	![Enabling the menu in Internet Explorer](Images/image041.png?raw=true)
 
-1. x 
+	_Enabling the menu in Internet Explorer_
 
-	![x-ing the ](Images/image045.png?raw=true)
+1. From the menu, choose **Tools | Internet Options**.
 
-	_xyz_
+	![Bringing up the Internet Explorer Dialog Box](Images/image043.png?raw=true)
 
-1. x 
+	_Bringing up the Internet Explorer Dialog Box_
 
-	![x-ing the ](Images/image047.png?raw=true)
+1. Select the **Security** tab.
 
-	_xyz_
+	![Modifying Internet Explorer security settings](Images/image045.png?raw=true)
 
-1. x 
+	_Modifying Internet Explorer security settings_
 
-	![x-ing the ](Images/image049.png?raw=true)
+1. Scroll down to the **Downloads** section and **Enable .NET Framework setup**.
 
-	_xyz_
+	![Enabling .NET Framework setup](Images/image047.png?raw=true)
 
-1. x 
+	_Enabling .NET Framework setup_
 
-	![x-ing the ](Images/image051.png?raw=true)
+1. You will now prepare to download **SQL Server 2012 Express** tooling. Use Internet Explorer to navigate to bing.com. Type in **sql server 2012 express download**. Click the official download link.
 
-	_xyz_
+	![Finding SQL Server 2012 Express download](Images/image049.png?raw=true)
 
-1. x 
+	_Finding SQL Server 2012 Express dowload_
 
-	![x-ing the ](Images/image053.png?raw=true)
+1. Click **Download** from the web page. There will be several options.
 
-	_xyz_
+	![Downloading SQL Server 2012 Express](Images/image051.png?raw=true)
 
-1. x 
+	_Downloading SQL Server 2012 Express_
 
-	![x-ing the ](Images/image055.png?raw=true)
+1. A download windown will appear at the bottom of Internet Explorer. Select **Save As**. The file **SQLManagementStudio_x64_ENU.exe** will be downloaded to the **Downloads** folder.
 
-	_xyz_
+	![Downloading SQLManagementStudio_x64_ENU.exe](Images/image053.png?raw=true)
 
-1. x 
+	_Downloading SQLManagementStudio_x64_ENU.exe_
 
-	![x-ing the ](Images/image057.png?raw=true)
+1. Navigate to the **Downloads** folder. Double-click on **SQLManagementStudio_x64_ENU.exe** to begin the installation process.
 
-	_xyz_
+	![Navigating to the Downloads folder](Images/image055.png?raw=true)
 
-1. x 
+	_Navigating to the Downloads folder. Installing SQL Server 2012 Express Management Studio_
 
-	![x-ing the ](Images/image059.png?raw=true)
+1. You select **New SQL Server stand-alone installation or add features to an existing installation**
 
-	_xyz_
+	![Adding features to an existing installation](Images/image057.png?raw=true)
 
-1. x 
+	_Adding features to an existing installation_
 
-	![x-ing the ](Images/image061.png?raw=true)
+1. Wait as setup files are installed.
 
-	_xyz_
+	![Setting up dialog box](Images/image059.png?raw=true)
 
-1. x 
+	_Setting up dialog box_
 
-	![x-ing the ](Images/image063.png?raw=true)
+1. Select **Add features to an existing instancce of SQL Server 2012**. Then click **Next**.
 
-	_xyz_
+	![Adding features to an existing installation](Images/image061.png?raw=true)
 
-1. x 
+	_Adding features to an existing installation_
 
-	![x-ing the ](Images/image065.png?raw=true)
+1. In the checkboxes below, select **Management Tools - Basic**
 
-	_xyz_
+	![Intalling the Management Tools](Images/image063.png?raw=true)
 
-1. x 
+	_Intalling the Management Tools_
 
-	![x-ing the ](Images/image067.png?raw=true)
+1. Wait a few minutes. The **Complete** dialog box should appear.
 
-	_xyz_
+	![A successful installation](Images/image065.png?raw=true)
 
-1. x 
+	_A successful installation_
 
-	![x-ing the ](Images/image069.png?raw=true)
+1. Now that you have successfully installed **SQL Server 2012 Express Management Studio**, you should be able to select it from the **Start** screen.
 
-	_xyz_
+	![Navigating to the start screen](Images/image067.png?raw=true)
 
+	_Navigating to the start screen_
+
+1. The final step is to verify that we can connect to **(local)\SQLEXPRESS**. This final step concludes this lab and verifies that we now have a development machine with **Visual Studio 2013 Ultimate RC** and **SQL Server 2012 Express**.
+
+	![Final verification of success](Images/image069.png?raw=true)
+
+	_Final verification of success_
 
 
