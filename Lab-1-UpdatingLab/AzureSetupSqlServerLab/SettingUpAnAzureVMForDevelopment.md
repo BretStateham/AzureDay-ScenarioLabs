@@ -67,7 +67,7 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
  
 1. In the **Virtual Machine image Selection** page, click **Platform Images** on the left menu and select the **Visual Studio Ultimate 2013 RC** from the list. Click the arrow to continue.	
 
-	![Creating a new Virtual Machine With Visual Studio Ultimate 2013 RC](Images/image005.png?raw=true)
+	![Creating a new Virtual Machine With Visual Studio Ultimate 2013 RC](images/image006.png?raw=true)
 
 	_Selecting Visual Studio 2013 Ultimate 2013 RC_
 
@@ -84,6 +84,7 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 1. You will **Create a new cloud service**. You will also specify:
 
 	- Cloud Service DNS name (see note)
+   - Azure subscription to use for the VM (only appears if you have more than one subscription)
 	- Region (the data center to host your virtual machine)
 	
 
@@ -93,6 +94,8 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 	_Configuring the VM_
 
 	> **Note:** The URL used for the virtual machine corresponds to a DNS name and is subject to standard DNS naming rules. Moreover, the name is publicly visible and must therefore be unique. The portal ensures that the name is valid by verifying that the name complies with the naming rules and is currently available. A validation error will be shown if you enter a name that does not satisfy the rules.
+
+    > **Note:** If you have more than one Windows Azure Subscription associated with your Microsoft Account, you will also need to choose which subscription you want the Virtual Machine to be created on.  
 
 
 1. Once the virtual machines have been configured you will configure the public endpoints to allow connections from outside the Windows Azure data center. You will not need to change these values.
