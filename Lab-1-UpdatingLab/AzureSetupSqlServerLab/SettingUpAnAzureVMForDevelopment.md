@@ -1,4 +1,4 @@
-﻿<a name="Title"></a>
+﻿task <a name="Title"></a>
 # Setting up an Azure Virtual Machine For Developers with Visual Studio 2013 Ultimate and SQL Server 2012 Express #
 
 ---
@@ -107,8 +107,10 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 
 	_The virtual machine running_
 
-<a name="GettingStartedTask2"></a>
-#### Task 2 – Using Remote Desktop to connect to the Virtual Machine ####
+### Exercise 1: Using Remote Desktop to connect to the Virtual Machine ###
+
+In this section, you will log into the Windows Azure Portal and create an Azure Virtual Machine using the Windows Azure Gallery. 
+#### Task 1 – Using Remote Desktop to connect to the Virtual Machine ####
 
 You will now connect to the Virtual Machine and configure it to run both **Visual Studio 2013 Ultimate RC** and **SQL Server 2013 Express**.
 
