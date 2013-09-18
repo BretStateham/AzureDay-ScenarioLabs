@@ -1,5 +1,5 @@
 ﻿<a name="Title"></a>
-# Setting up an Azure Virtual Machine For Developers #
+# Setting up an Azure Virtual Machine For Developers with Visual Studio 2013 Ultimate and SQL Server 2012 Express #
 
 ---
 <a name="Overview"></a>
@@ -16,7 +16,6 @@ In this hands-on lab, you will learn how to:
 
 - Create a Virtual Machine with Visual Studio 2013 RC from the Windows Azure Management Portal
 - Download and install SQL Server 2012 Express
-- Upload and attach SQL Server Database files
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -50,138 +49,128 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 <a name="GettingStartedTask1"></a>
 #### Task 1 – Creating an Azure Virtual Machine using the Windows Azure Virtual Image Gallery ####
 
-1. Go to the [Windows Azure Management Portal](https://manage.windowsazure.com/) and sign in using the Microsoft credentials associated with your subscription.
+1. Go to the [Windows Azure Management Portal](https://manage.windowsazure.com/) and sign in using the Microsoft credentials associated with your subscription. On the left menu, select **Virtual Machines**.
 
-	![Log on to Windows Azure portal](Images/login.png?raw=true "Log on to the Windows Azure portal")
+	![Log on to Windows Azure portal](Images/image001.png?raw=true "Log on to the Windows Azure portal")
 
 	_Log on to the Windows Azure Management Portal_
 
-1. Click **New** on the command bar.
+1. Click **New** on the command bar. It is in the lower left corner.
 
-	![Creating a new Web Site](Images/new-website.png?raw=true "Creating a new Web Site")
-
-	_Creating a new Web Site_
+	
 
 1. In the menu located at the bottom, select **New | Compute | Virtual Machine | From Gallery** to start creating a new virtual machine.
 	 
-	![Creating a new Virtual Machine](Images/creating-a-new-virtual-machine.png?raw=true)
+	![Creating a new Virtual Machine](Images/image003.png?raw=true)
 
 	_Creating a new Virtual Machine_
  
 1. In the **Virtual Machine image Selection** page, click **Platform Images** on the left menu and select the **Visual Studio Ultimate 2013 RC** from the list. Click the arrow to continue.	
 
-	![Creating a new Virtual Machine With Visual Studio Ultimate 2013 RC](Images/vs2013.png?raw=true)
+	![Creating a new Virtual Machine With Visual Studio Ultimate 2013 RC](Images/image005.png?raw=true)
 
 	_Selecting Visual Studio 2013 Ultimate 2013 RC_
 
 1. The next arrow is located in the lower right corner of the portal screen.
 
-	![Clicking the next arrow](Images/nextbutton.png?raw=true)
+	
 
-	_Clicking the Next button_
-
-
-1. The wizard will start by having you specify a virtual machine name. You will also choose the machine size. Finally, you will need to know your username for later, you log into the machine. 
+1. The wizard will start by having you specify a **virtual machine name**. You will also choose the **machine size**. Finally, you will need to know your **user name** and **password** for later, when you log into the machine with **Remote Desktop**.
 
 	![Configuring the VM](Images/image007.png?raw=true)
 
 	_Configuring the VM_
 
-1. x 
+1. You will **Create a new cloud service**. You will also specify:
 
-	![x-ing the ](Images/image001.png?raw=true)
+	- Cloud Service DNS name (see note)
+	- Region (the data center to host your virtual machine)
+	
 
-	_xyz_
+	
+	![Configuring the VM ](Images/image009.png?raw=true)
 
-1. x 
+	_Configuring the VM_
 
-	![x-ing the ](Images/image003.png?raw=true)
+	> **Note:** The URL used for the virtual machine corresponds to a DNS name and is subject to standard DNS naming rules. Moreover, the name is publicly visible and must therefore be unique. The portal ensures that the name is valid by verifying that the name complies with the naming rules and is currently available. A validation error will be shown if you enter a name that does not satisfy the rules.
 
-	_xyz_
 
-1. x 
+1. Once the virtual machines have been configured you will configure the public endpoints to allow connections from outside the Windows Azure data center. You will not need to change these values.
 
-	![x-ing the ](Images/image005.png?raw=true)
+	![Endpoint configuration](Images/image011.png?raw=true)
 
-	_xyz_
+	_Endpoint Configuration_
 
-1. x 
+1. Validating that the virtual machine is running.
 
-	![x-ing the ](Images/image007.png?raw=true)
+	![The virtual machine running](Images/image013.png?raw=true)
 
-	_xyz_
+	_The virtual machine running_
 
-1. x 
+<a name="GettingStartedTask2"></a>
+#### Task 2 – Using Remote Desktop to connect to the Virtual Machine ####
 
-	![x-ing the ](Images/image009.png?raw=true)
+You will now connect to the Virtual Machine and configure it to run both **Visual Studio 2013 Ultimate RC** and **SQL Server 2013 Express**.
 
-	_xyz_
+You will also download and install software, such as **SQL Server 2012 Express Management Studio**.
 
-1. x 
+1. You will select the Virtual Machine you just created by clicking on the text, **Running** at the Windows Azure Portal's Virtual Machine section. It will be the VM just created in Task 1.
 
-	![x-ing the ](Images/image011.png?raw=true)
+	Click the **Connect** button in the bottom left menu bar. 
 
-	_xyz_
+	![The connect button](Images/image015.png?raw=true)
 
-1. x 
+	_The connect button_
 
-	![x-ing the ](Images/image013.png?raw=true)
+1. You will be asked to download the remote desktop settings file. Click **Open** and log on using the credentials you defined when creating the Virtual Machine. 
 
-	_xyz_
+	![Remoting into the virtual machine](Images/image017.png?raw=true)
 
-1. x 
+	_Remoting into the virtual machine_
 
-	![x-ing the ](Images/image015.png?raw=true)
+1. Once the login is complete and the desktop appears, on the left side click on the shortcut **Configure Development**.
 
-	_xyz_
+	![Configuring Development](Images/image019.png?raw=true)
 
-1. x 
+	_Configuring Development_
 
-	![x-ing the ](Images/image017.png?raw=true)
+1. The **ConfigureDeveloperDesktop** folder will open up. Click and navigate into the **Scripts** folder.
 
-	_xyz_
+	![Getting to the scripts folder](Images/image021.png?raw=true)
 
-1. x 
+	_Getting to the scripts folder_
 
-	![x-ing the ](Images/image019.png?raw=true)
+1. Right mouse click on **ConfigureSQLExpress** and choose **Run with Powershell**.
 
-	_xyz_
+	![Configuring SQL Express](Images/image023.png?raw=true)
 
-1. x 
+	_Configuring SQL Express_
 
-	![x-ing the ](Images/image021.png?raw=true)
+1. This process can take 5 to 15 minutes to complete. At the end, **Visual Studio 2013 Ultimate RC** will appear.
 
-	_xyz_
+	![Waiting for the configuration to complete](Images/image025.png?raw=true)
 
-1. x 
+	_Waiting for the configuration to complete_
 
-	![x-ing the ](Images/image023.png?raw=true)
+1. You will be asked to login with your **Live ID** once **Visual Studio** appears.
 
-	_xyz_
+	![Logging into Visual Studio](Images/image027.png?raw=true)
 
-1. x 
+	_Logging into Visual Studio_
 
-	![x-ing the ](Images/image025.png?raw=true)
+1. Select the **View | Server Explorer** menu from **Visual Studio**.
 
-	_xyz_
+	![Viewing Server Explorer](Images/image029.png?raw=true)
 
-1. x 
+	_Viewing Server Explorer_
 
-	![x-ing the ](Images/image027.png?raw=true)
+	> **Note:** The purpose of this section is to verify **SQL Express** is properly configured.
 
-	_xyz_
+1. Right mouse click on **Data Connections** and choose **Add Connection**.
 
-1. x 
+	![Connecting to SQL Express](Images/image031.png?raw=true)
 
-	![x-ing the ](Images/image029.png?raw=true)
-
-	_xyz_
-
-1. x 
-
-	![x-ing the ](Images/image031.png?raw=true)
-
-	_xyz_
+	_Connecting to SQL Express_
 
 1. x 
 
