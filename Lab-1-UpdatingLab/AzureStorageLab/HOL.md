@@ -245,15 +245,8 @@ In this exercise, you will create a new Windows Azure Storage account in the Win
 
 	_Empty "images" Container_
 
-1. On the "**images [Container]**" tab's toolbar, click the ![Upload Icon](images/upload-icon.png?raw=true) button to upload images into the container. 
 
-	![Upload Icon In Container](images/upload-icon-in-container.png?raw=true)
-
-	_Upload Button_
-
-1. Browse to the "**Assets\Alternate Images**" folder we viewed previously, select **ALL** of the files, and click "**OK**".
-
-
+>Note: We now have a Windows Azure Storage account, and a blob container that can store the images for our site.  In the next exercise, we'll upload images to the container and modify the website to reference the images in the cloud rather than locally. 
 
 ---
 
@@ -289,11 +282,93 @@ In this exercise, you will create a new Windows Azure Storage account in the Win
 	_Alternate Web Site Images_
 
 <a name="Exercise3Task2"></a>
-#### Task 1 – Upload the Alternate Images to Blob Storage####
+#### Task 2 – Upload the Alternate Images to Blob Storage####
+
+1. Return to Visaul Studio, and in the Server Explorer Window, esure you are in the "Windows Azure" | "On the "**images [Container]**" tab's toolbar, click the ![Upload Icon](images/upload-icon.png?raw=true) button to upload images into the container. 
+
+	![Upload Icon In Container](images/upload-icon-in-container.png?raw=true)
+
+	_Upload Button_
+
+1. Browse to the "**Assets\Alternate Images**" folder we viewed previously, select **ALL** of the files, and click "**Open**".
+
+	![Upload Alternate Images](images/upload-alternate-images.png?raw=true)
+
+	_Upload Alternate Images to Blob Storage_
+
+1. While the images are being uploaded, you can view the progress in Visual Studio's "**Windows Azure Activity Log**"
+
+	![Windows Azure Activity Log During Upload](images/windows-azure-activity-log-during-upload.png?raw=true)
+
+	_Window Azure Activity Log Showing Upload Progress_
+
+1. Once the upload has completed, you can see the blobs now in the image container.  If you expand the "URL column", you can view the entire URL to the image. Right click on any of the images, (for example orderedList0.png) and select "**Copy URL**"
+
+	![Copy URL for Image](images/copy-url-for-image.png?raw=true)
+
+	_Copy the URL for an Image_
+
+1. Because we marked the container with "Public Blob" permissions, anybody, anywhere in the world, can access the blobs in the container.  To test that out, open your browser, and paste the URL we just copied above, into the address bar.  Verify that the image appears in the browser.  
+
+	![Image From Plub Blob Container](images/image-from-plub-blob-container.png?raw=true)
+
+	_Image Loaded From Public Blob Conatiner_
+
+	>Note: Now that we have images in blob storage in the cloud, and we know we can access them publicly, we can now modify the website to reference those images rather than the local images
+
+1. In the Visual Studio "Solution Explorer" window, expand the "**MVC4SampleWeb**" | "**Content**" folder, and double click the "**Site.css**" file to open it in the editor, and scroll to **Line 108** to see the "**background**" property of the "**.main-content**" style
+
+	![Main Content Style](images/main-content-style.png?raw=true)
+
+	_Main Content Style_
+
+	>Note: To reference our new images in the cloud, we want to modify all "**../Images/**..." urls in the **Site.css** file to point to our "**image**" container in blob storage, "**http://*your_account_name*.blob.core.windows.net/images/**...".  The quickest way to do that is to let Visual Studio do the work for us.  
+
+1. From the Visual Studio menu bar, select "**EDIT**" | "**Find and Replace**" | "**Quick Replace**", (or just press **Ctrl+H**). Enter "**../Images/**" into the top box of the quick replace window, and enter your image container url (the URL we copied above, just without the image file name, keep the trailing "/" though).
+
+	![Quick Replace Window](images/quick-replace-window.png?raw=true)
+
+	_Quick Replace Window_
+
+	For example:
+
+	![Quick Replace Example](images/quick-replace-example.png?raw=true)
+
+	_Quick Replace Example_
+
+	>Note: If you make a mistake, just close the Site.css file and don't save the changes.  You can then open it back up and try again.  Of couse "**EDIT**" | "**Undo**" (or **Ctrl+Z**) is an option as well. 
+
+1. Click the "Replace All" (![Replace All Button](images/replace-all-button.png?raw=true)) button to replace all the "**../Images/**" occurrances with your container url.  Click "**OK**" to confirm the "**13 occurrence(s) replaced.**"
+
+	![Replace URLs](images/replace-urls.png?raw=true)
+
+	_"**../Images/**" URLs Replaced_
+
+1. From the Visual Studio toolbar, click the "**Debug in Internet Explorer**" button to open the site in the browser
+
+	![Debug in IE](images/debug-in-ie.png?raw=true)
+
+	_Debug in Internet Explorer_
+
+1. Verify that the images are being retrieved from blob storage in the cloud rather than locally.  You can tell easily by the green color in the images:
+
+	![Alternate Images Being Loaded From Cloud](images/alternate-images-being-loaded-from-cloud.png?raw=true)
+
+	_Website images are being retrieved from the cloud_
 
 
 	
 ---
 <a name="Summary"></a>
 ## Summary ##
-In this hands-on lab, you have created a new MVC web site using MVC 4 Scaffolding and published it to Windows Azure Web Sites. Web site publication and deployment has never been easier in Windows Azure. Using familiar tools such as Web Deploy or Git, and virtually no changes to the development workflow, Windows Azure Web Sites is the next step in the Microsoft Azure platform for web developers. 
+In this hands-on lab, you first verified the functionality of an existing MVC 4 website, **MVC4SampleWeb**. We then created a Windows Azure Storage account in the cloud, and provisioned a public container to store the website images in, and finally uploaded our website images into the container and modified the website to retrieve its images from the cloud.  
+
+This lab helps to serve as an example then of how you can leverage a portion of the Windows Azure platform (Windows Azure Storage in this case) while keeping the remainder of a legacy site untouched.  
+
+This concept could be extended to: 
+
+- Leveraging Windows Azure SQL Database or Table Storage to host your web site's data in the cloud, 
+- Using Windows Azure Active Directory and Access Control to authenticate your website users
+- Useing Windows Azure Media Services to stream video
+- And much more!  
+
