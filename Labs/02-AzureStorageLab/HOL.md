@@ -5,7 +5,7 @@
 <a name="Scenario"></a>
 ## Scenario ##
 
- You have a website running on premise, but to increase the availability of your site's assets, or to reduce the traffic against your own bandwidth, you want to move them into the cloud.
+In this scenario, assume you already have a website running on premise, but to increase the availability of your site's assets, or to reduce the traffic against your own bandwidth, you want to move them into the cloud.
 
 The are many beneifts you could gain by doing this, including:
 
@@ -32,11 +32,17 @@ The following is required to complete this hands-on lab:
 
 <!-- TODO: UPDATE THE Pre-Reqs to match the actual setup lab name  -->
 - A Windows Azure subscription -  [sign up for a free trial](http://aka.ms/WATK-FreeTrial) 
-- **Either** Completing the "**Setup**" lab to create a Windows Azure Virtual Machine for use as your development environment.  
+- **Either** Completing the "**01-SetupVS2013SQLVM**" lab to create a Windows Azure Virtual Machine for use as your development environment.  
 - **OR** A development workstation with **Visual Studio 2013 Ultimate RC** and **SQL Server 2012 Express** installed. 
 - Download of the [Lab Files]( https://github.com/BretStateham/AzureDay-ScenarioLabs/archive/master.zip)
 
 
+
+<!--
+========================================
+Exercise 1
+========================================
+-->
 
 ---
 <a name="Exercises"></a>
@@ -53,6 +59,7 @@ This hands-on lab includes the following exercises:
 
 In this section, you will open an existing MVC Website in Visual Studio.  This website simulates an existing on-premise website.  Later, we will create an Azure Storage Account and migrate the websites assets into that storage account. 
 
+>Note: The website created in this account is the same website that is created in the **Windows Azure Training Kit** [Building and Publishing ASP.NET Applications with Windows Azure Web Sites and Visual Studio 2012](https://github.com/WindowsAzure-TrainingKit/HOL-ASPNETAzureWebSitesVS2012) lab, but with one exception.  The database will be stored in a full SQL Server 2012 Express instance rather than LocalDB. 
 >Note: The website created in this account is the same website that is created in the **Windows Azure Training Kit** [Building and Publishing ASP.NET Applications with Windows Azure Web Sites and Visual Studio 2012](https://github.com/WindowsAzure-TrainingKit/HOL-ASPNETAzureWebSitesVS2012) lab, but with one exception.  The database will be stored in a full SQL Server 2012 Express instance rather than LocalDB. 
 
 <a name="Exercise1Task1"></a>
@@ -114,8 +121,14 @@ In this section, you will open an existing MVC Website in Visual Studio.  This w
 
 >Note: At this point, we have verified that the site is working correctly, and that SQL Server Express is successfully installed.
 
----
 
+<!--
+========================================
+Exercise 2
+========================================
+-->
+
+---
 <a name="Exercise2"></a>
 ### Exercise 2: Creating a Windows Azure Storage Account ###
 
@@ -248,8 +261,13 @@ In this exercise, you will create a new Windows Azure Storage account in the Win
 
 >Note: We now have a Windows Azure Storage account, and a blob container that can store the images for our site.  In the next exercise, we'll upload images to the container and modify the website to reference the images in the cloud rather than locally. 
 
----
+<!--
+========================================
+Exercise 3
+========================================
+-->
 
+---
 <a name="Exercise3"></a>
 ### Exercise 3: Uploading Web Site Assets to Azure Storage ###
 
