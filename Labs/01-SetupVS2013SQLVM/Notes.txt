@@ -1,2 +1,0 @@
-<add name="CustomerContext" connectionString="Data Source=(local)\SQLEXPRESS; Initial Catalog=MVC4Sample; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-
