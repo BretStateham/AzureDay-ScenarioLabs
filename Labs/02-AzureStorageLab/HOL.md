@@ -31,13 +31,18 @@ In this hands-on lab, you will learn how to:
 The following is required to complete this hands-on lab:
 
 <!-- TODO: UPDATE THE Pre-Reqs to match the actual setup lab name  -->
+<!-- TODO: FIX DOWNLOAD LINK -->
 - A Windows Azure subscription -  [sign up for a free trial](http://aka.ms/WATK-FreeTrial) 
 - **Either** Completing the **"01-SetupVS2013SQLVM"** lab to create a Windows Azure Virtual Machine for use as your development environment.  
 - **OR** A development workstation with **Visual Studio 2013 Ultimate RC** and **SQL Server 2012 Express** installed. 
-<!-- TODO: FIX DOWNLOAD LINK -->
 - Download of the [Lab Files](http://aka.ms/BLabs)
 
+<a name="Setup"></a>
+### Setup ###
 
+The instructions in the lab assume you are remoted into the development Virtual Machine created during the **"01-SetupVS2013SQLVM"** lab.  If you prefer can follow the exact same steps on a Windows machine with **Visual Studio 2013 Ultimate RC** and **SQL Server 2012 Express** installed, however the instructions assume the environment created in the setup lab.
+
+1. Open a **Remote Desktop Connection** to the development Virtual Machine you created in the **"01-SetupVS2013SQLVM"** lab. 
 
 <!--
 ========================================
@@ -61,8 +66,6 @@ This hands-on lab includes the following exercises:
 In this section, you will open an existing MVC Website in Visual Studio.  This website simulates an existing on-premise website.  Later, we will create an Azure Storage Account and migrate the websites assets into that storage account. 
 
 >**Note:** The website created in this account is the same website that is created in the **Windows Azure Training Kit** [Building and Publishing ASP.NET Applications with Windows Azure Web Sites and Visual Studio 2012](https://github.com/WindowsAzure-TrainingKit/HOL-ASPNETAzureWebSitesVS2012) lab, but with one exception.  The database will be stored in a full SQL Server 2012 Express instance rather than LocalDB. 
-
->**Note:** The steps below assume you are remoted into the development Virtual Machine created during the **"01-SetupVS2013SQLVM"** lab.  If you prefer can follow the exact same steps on a Windows machine with **Visual Studio 2013 Ultimate RC** and **SQL Server 2012 Express** installed, however the instructions assume the environment created in the setup lab.  
 
 <a name="Exercise1Task1"></a>
 #### Task 1 – Opening the MVC Sample Website in Visual Studio 2013 ####
