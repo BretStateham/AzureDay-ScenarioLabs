@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Markdown Preview</title>
+<style>
+body{font-family:helvetica, arial, freesans, clean, sans-serif;color:#333;line-height:1.6;font-size:14px}.markdown-body{line-height:1.6;font-size:14px}.markdown-body > *:first-child{margin-top:0 !important}.markdown-body > *:last-child{margin-bottom:0 !important}.markdown-body a.absent{color:#c00}.markdown-body h1{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:28px;margin:20px 0 10px;padding:0}.markdown-body h2{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:24px;border-bottom-color:#ccc;border-bottom-width:1px;border-bottom-style:solid;margin:20px 0 10px;padding:0}.markdown-body h3{font-weight:700;-webkit-font-smoothing:antialiased;font-size:18px;margin:20px 0 10px;padding:0}.markdown-body h4{font-weight:700;-webkit-font-smoothing:antialiased;font-size:16px;margin:20px 0 10px;padding:0}.markdown-body h5{font-weight:700;-webkit-font-smoothing:antialiased;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body h6{font-weight:700;-webkit-font-smoothing:antialiased;color:#777;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body blockquote{color:#777;border-left-color:#ddd;border-left-width:4px;border-left-style:solid;margin:15px 0;padding:0 15px}.markdown-body dl{margin:15px 0;padding:0}.markdown-body table{border-collapse:collapse;margin:15px 0;padding:0}.markdown-body pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;margin:15px 0;padding:6px 10px}.markdown-body li p.first{display:inline-block}.markdown-body dl dt{font-size:14px;font-style:italic;font-weight:700;margin:15px 0 5px;padding:0}.markdown-body dl dt:first-child{padding:0}.markdown-body dl dd{margin:0 0 15px;padding:0 15px}.markdown-body table tr{border-top-color:#ccc;border-top-width:1px;border-top-style:solid;background-color:#fff;margin:0;padding:0}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%}.markdown-body span.frame{overflow:hidden;display:block}.markdown-body span.frame > span{border:1px solid #ddd;width:auto;overflow:hidden;float:left;display:block;margin:13px 0 0;padding:7px}.markdown-body span.frame span img{float:left;display:block}.markdown-body span.frame span span{color:#333;clear:both;display:block;padding:5px 0 0}.markdown-body span.align-center > span{text-align:center;overflow:hidden;display:block;margin:13px auto 0}.markdown-body span.align-center span img{text-align:center;margin:0 auto}.markdown-body span.align-right > span{text-align:right;overflow:hidden;display:block;margin:13px 0 0}.markdown-body span.align-right span img{text-align:right;margin:0}.markdown-body span.float-left{overflow:hidden;margin-right:13px;float:left;display:block}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{overflow:hidden;margin-left:13px;float:right;display:block}.markdown-body span.float-right > span{text-align:right;overflow:hidden;display:block;margin:13px auto 0}.markdown-body pre > code{border:currentColor;white-space:pre;margin:0;padding:0}.markdown-body .highlight pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;padding:6px 10px}.markdown-body p,.markdown-body li{margin:15px 0}.markdown-body ul,.markdown-body ol{padding-left:30px;margin:15px 0}.markdown-body > h2:first-child,.markdown-body > h1:first-child,.markdown-body > h1:first-child + h2{border:0 currentColor;padding-top:0;margin-top:0}.markdown-body > h3:first-child,.markdown-body > h4:first-child,.markdown-body > h5:first-child,.markdown-body > h6:first-child{padding-top:0;margin-top:0}.markdown-body h1 + p,.markdown-body h2 + p,.markdown-body h3 + p,.markdown-body h4 + p,.markdown-body h5 + p,.markdown-body h6 + p,.markdown-body ul li > :first-child,.markdown-body ol li > :first-child,.markdown-body dl dt > :first-child,.markdown-body dl dd > :first-child,.markdown-body blockquote > :first-child,.markdown-body table tr th > :first-child,.markdown-body table tr td > :first-child{margin-top:0}.markdown-body ul li > :last-child,.markdown-body ol li > :last-child,.markdown-body dl dt > :last-child,.markdown-body dl dd > :last-child,.markdown-body blockquote > :last-child,.markdown-body table tr th > :last-child,.markdown-body table tr td > :last-child{margin-bottom:0}.markdown-body table tr th,.markdown-body table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}.markdown-body span.align-center,.markdown-body span.align-right{overflow:hidden;clear:both;display:block}.markdown-body code,.markdown-body tt{border-radius:3px;border:1px solid #eaeaea;white-space:nowrap;background-color:#f8f8f8;margin:0 2px;padding:0 5px}.markdown-body pre code,.markdown-body pre tt{border:currentColor;background-color:transparent}span.codelanguage{display:none}
+</style>
+</head>
+<body>
+<div class="markdown-body">
+<p><a name="Title"></a></p>
+
+<h1 id="Migrating_an_On-Premises_a_Web_Site_to_Windows_Azure_Web_Site">Migrating an On-Premises a Web Site to Windows Azure Web Site</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2 id="Overview">Overview</h2>
+
+<p>This hands-on lab walks you through the process of migrating an on-premise Web Site to a Windows Azure Web Site.  In the previous lab the database was either exported to a Windows Azure SQL Database or to a database on SQL Server running in a Windows Azure Virtual Machine.  In this lab you will migrate the Web Site into Azure as well and connect it to the Database in Azure.  </p>
+
+<p><a name="Objectives"></a></p>
+
+<h3 id="Objectives">Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Migrate an On-Premise Web Site into Windows Azure</li>
+<li>Connect an Azure Web Site to a Database in Azure.</li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3 id="Prerequisites">Prerequisites</h3>
+
+<p>The following is required to complete this hands-on lab:</p>
+
+<!-- TODO: UPDATE THE Pre-Reqs to match the actual setup lab name  -->
+
+<!-- TODO: FIX DOWNLOAD LINK -->
+
+<ul>
+<li>A Windows Azure subscription -  <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a> </li>
+<li><strong>Either</strong> Completing the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab to create a Windows Azure Virtual Machine for use as your development environment, <strong>OR</strong> A development workstation with <strong>Visual Studio 2013 Ultimate RC</strong> and <strong>SQL Server 2012 Express</strong> installed. </li>
+<li>Successful completion of the <strong>&quot;02-AzureStorageLab&quot;</strong>.  The steps in that lab create the <strong>&quot;MVC4Sample&quot;</strong> database we will export in this lab. </li>
+<li>Successful completion of the <strong>&quot;03-CreatingBacPacInAzureStorage&quot;</strong> lab and either the <strong>&quot;04-MigratingDBToSQLDatabase&quot;</strong> or <strong>&quot;04-MigratingDBToSQLVM&quot;</strong> labs.</li>
+</ul>
+
+<p><a name="Setup"></a></p>
+
+<h3 id="Setup">Setup</h3>
+
+<p>The instructions in the lab assume you are remoted into the development Virtual Machine created during the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab.  If you prefer can follow the exact same steps on a Windows machine with <strong>Visual Studio 2013 Ultimate RC</strong> and <strong>SQL Server 2012 Express</strong> installed, however the instructions assume the environment created in the setup lab.</p>
+
+<ol>
+<li>Open a <strong>Remote Desktop Connection</strong> to the development Virtual Machine you created in the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab.</li>
+</ol>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2 id="Exercises">Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Migrate a Web Site to Windows Azure</a></li>
+</ul>
+
+<!--
+========================================
+Exercise 1
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise1"></a></p>
+
+<h3 id="Exercise_1_Migrate_a_Web_Site_to_Windows_Azure">Exercise 1: Migrate a Web Site to Windows Azure</h3>
+
+<p>In this exercise, you will create a new <strong>Windows Azure Web Site</strong>.  Then you will open the <strong>MVC4Sample.Web</strong> application we used previously and <strong>Publish</strong> it to the new <strong>Windows Azure Web Site</strong>.  </p>
+
+<p><a name="Exercise1Task1"></a></p>
+
+<h4 id="Task_1__Create_a_Windows_Azure_Web_Site">Task 1 – Create a Windows Azure Web Site</h4>
+
+<ol>
+<li><p>On the remote development Virtual Machine, open the <strong>Windows Azure Management Portal</strong>, and select the <strong>&quot;Web Sites&quot;</strong> icon along the left.  Then, click the <strong>&quot;+ NEW&quot;</strong> button in the lower left corner. </p>
+
+<p><img src="images/01-new-web-site.png?raw=true" alt="01-New-Web-Site" title="New Web Site">
+</p>
+
+<p><em>New Web Site</em></p></li>
+<li><p>In the &quot;NEW&quot; panel, select <strong>&quot;COMPUTE&quot;</strong> | <strong>&quot;WEB SITE&quot;</strong> | <strong>&quot;QUICK CREATE&quot;</strong>.  Give the new Web Site a unique name, a region, and if needed a subscription, then click <strong>&quot;CREATE WEB SITE&quot;</strong>.</p>
+
+<p><img src="images/02-create-web-site.png?raw=true" alt="02-Create-Web-Site" title="Create Web Site">
+</p>
+
+<p><em>Create a new Web Site</em></p></li>
+<li><p>Verify that the new Web Site was created successfully:</p>
+
+<p><img src="images/03-verify-new-site.png?raw=true" alt="03-Verify-New-Site" title="Verify the New Web Site">
+</p>
+
+<p><em>Verify the new web site was created successfully</em></p></li>
+</ol>
+
+<p><a name="Exercise1Task2"></a></p>
+
+<h4 id="Task_2__Publish_the_on-premise_Web_Site_to_the_new_Windows_Azure_Web_Site">Task 2 – Publish the on-premise Web Site to the new Windows Azure Web Site</h4>
+
+<ol>
+<li><p>On the development Virtual Machine, open <strong>Visual Studio 2013</strong> and open the <strong>&quot;MVC4Sample.Web&quot;</strong> project we worked with previously. </p>
+
+<p><img src="images/04-open-web-project.png?raw=true" alt="04-Open-Web-Project" title="Open the Web Site Project">
+</p>
+
+<p><em>Open the Web Site Project</em></p></li>
+<li><p>In the Visual Studio <strong>&quot;Solution Explorer&quot;</strong> window, select the <strong>&quot;MVC4Sample.Web&quot;</strong> project.  Then from the menu bar select <strong>&quot;BUILD&quot;</strong> | <strong>&quot;Publish MVC4Sample.Web&quot;</strong>.</p>
+
+<p><img src="images/05-publish-menu-option.png?raw=true" alt="05-Publish-Menu-Option" title="Publish Menu Option">
+</p>
+
+<p><em>Publish Web Site Menu Option</em></p></li>
+<li><p>In the <strong>&quot;Publish Web&quot;</strong> window, on the <strong>&quot;Profile&quot;</strong> page, click the <strong>&quot;Import...&quot;</strong> button to import publisher settings from Windows Azure:</p>
+
+<p><img src="images/06-publish-import.png?raw=true" alt="06-Publish-Import" title="Import Publisher">
+</p>
+
+<p><em>Import Publisher Settings</em></p></li>
+<li><p>In the &quot;Import Publish Profile&quot; window, select &quot;Import from a Windows Azure web site&quot; then click the &quot;Add Windows Azure subscription&quot; link:</p>
+
+<p><img src="images/07-add-azure-subscription.png?raw=true" alt="07-Add-Azure-Subscription" title="Add a Windows Azure Subscription">
+</p>
+
+<p><em>Add a Windows Azure Subscription</em></p></li>
+<li><p>In the &quot;Import Windows Azure Subscriptions&quot; window, click the &quot;Download subscription file&quot; link:</p>
+
+<p><img src="images/08-download-subscription-file.png?raw=true" alt="08-Download-Subscription-File" title="Download Subscription File">
+</p>
+
+<p><em>Download Subscription File</em></p></li>
+<li><p>The browser window will open, if you are prompted to login to the Windows Azure Management Portal, enter your credentials.  Once connected, you will be prompted to download the <strong>&quot;.publishsettings&quot;</strong> file for your subscription.  Click the &quot;Save&quot; button to save the file to the default <strong>&quot;Downloads&quot;</strong> folder on the development Virtual Machine.</p>
+
+<p><img src="images/09-save-publishsettings.png?raw=true" alt="09-Save-PublishSettings" title="Save Publisher Settings">
+</p>
+
+<p><em>Save the <strong>&quot;.publishsettings&quot;</strong> file to the <strong>&quot;Downloads&quot;</strong> folder</em></p></li>
+<li><p>Close the browser and return to Visual Studio's <strong>&quot;Import Windows Azure Subscriptions&quot;</strong> window.  Click the <strong>&quot;Browse...&quot;</strong> button and navigate to the &quot;Downloads&quot; folder and select the &quot;.publishsettings&quot; file you just downloaded.</p>
+
+<p><img src="images/10-select-publishsettings.png?raw=true" alt="10-Select-PublishSettings" title="Select Publish Settings">
+</p>
+
+<p><em>Import the downloaded <strong>&quot;.publishsettings&quot;</strong> file</em></p></li>
+<li><p>Click the &quot;Import&quot; button to import the publisher settings:</p>
+
+<p><img src="images/11-import-publisher-settings.png?raw=true" alt="11-Import-Publisher-Settings" title="Import Publisher Settings">
+</p>
+
+<p><em>Import Publisher Settings</em></p></li>
+<li><p>Back in the &quot;Import Publish Profile&quot; window, select the web site we created above from the drop-down list, and click &quot;OK&quot; to configure Visual Studio to publish to the Web Site:</p>
+
+<p><img src="images/12-select-new-web-site.png?raw=true" alt="12-Select-New-Web-Site" title="Select New Web Site">
+</p>
+
+<p><em>Select the New Web Site</em></p></li>
+<li><p>On the <strong>&quot;Publish Web&quot;</strong> window's <strong>&quot;Connection&quot;</strong> page, you don't need to change any settings, but you can click a1oaiinx6l.database.windows.net and verify that the connection succeeds (by the green circle and checkmark appearing).  Click <strong>&quot;Next&quot;</strong> to continue. </p>
+
+<p><img src="images/13-validate-connection.png?raw=true" alt="13-Validate-Connection" title="Validate Connection">
+</p>
+
+<p><em>Validate the Connection</em></p></li>
+<li><p>On the &quot;Settings&quot; page, click the ellipsis (&quot;...&quot;) button to the right of the &quot;CustomerContext&quot; connection string.  We will change this connection to point to either the Azure SQL Database, or to the SQL Database running in a Windows Azure Virtual Machine, depending on whether you completed the <strong>&quot;04-MigratingDBToSQLDatabase&quot;</strong> lab or the <strong>&quot;04-MigratingDBToSQLVM&quot;</strong> lab.</p>
+
+<p><img src="images/14-customercontext.png?raw=true" alt="14-CustomerContext" title="Customer Context Connection">
+</p>
+
+<p><em>Modify the CustomerContext Connection</em></p></li>
+<li><p>In the <strong>&quot;Destination Connection String&quot;</strong> window, for the server name enter the fully qualified DNS name for either your <strong>Azure SQL Database Server</strong> (<strong>&quot;<em>&lt;AzureSQLDatabaseServer&gt;</em>.database.windows.net&quot;</strong>), or for the <strong>Cloud Service</strong> that houses your <strong>Windows Azure Virtual Machine</strong> with <strong>SQL Server</strong> installed (<strong>&quot;<em>&lt;CloudServiceName&gt;</em>.cloudapp.net&quot;</strong>).  Then enter the appropriate <strong>user name</strong> and <strong>password</strong> for the SQL Database (you created these credential earlier when you migrated the database to Windows Azure), and finally, select the <strong>&quot;MVC4Sample&quot;</strong> database you deployed earlier. Click <strong>&quot;OK&quot;</strong> to close the dialog.</p>
+
+<p><img src="images/15-destination-connection-settings.png?raw=true" alt="15-Destination-Connection-Settings" title="Destination Connection Settings">
+</p>
+
+<p>Destination Connection Settings_</p></li>
+<li><p>Back on the &quot;Settings&quot; page, click &quot;Next&quot; to continue:</p>
+
+<p><img src="images/16-settings-next.png?raw=true" alt="16-Settings-Next" title="Settings then Next">
+</p>
+
+<p><em>Settings</em></p></li>
+<li><p>On the &quot;Preview&quot; page, simply click &quot;Publish&quot;:</p>
+
+<p><img src="images/18-publish.png?raw=true" alt="18-Publish" title="Publish">
+</p>
+
+<p><em>Publish</em></p></li>
+<li><p>You can monitor the progress of the Publish operation in the &quot;Web Publish Activity&quot; window.  When the publish succeeds, click on the link to the web site to open it in the browser:</p>
+
+<p><img src="images/19-web-publish-activity-window.png?raw=true" alt="19-Web-Publish-Activity-Window" title="Web Publish Activity Window">
+</p>
+
+<p><em>Web Publish Activity Window</em></p></li>
+<li><p>Confirm that the web site opens properly in the browser, and that the URL points to the Web Site in Windows Azure:</p>
+
+<p><img src="images/20-web-site-running-in-azure.png?raw=true" alt="20-Web-Site-Running-In-Azure" title="Web Site Running In Azure">
+</p>
+
+<p><em>Web Site Running in Windows Azure</em></p></li>
+<li><p>Open the <strong>http://<em>&lt;sitename&gt;</em>.azurewebsites.net/Customer/</strong> page to verify that the customer data is being properly served by the SQL Database in Azure:</p>
+
+<p><img src="images/21-data-coming-from-sql-in-azure.png?raw=true" alt="21-Data-Coming-From-SQL-In-Azure" title="Data Coming from SQL in Azure">
+</p>
+
+<p><em>Customer data coming from SQL in Azure</em></p></li>
+</ol>
+
+<!--
+========================================
+Summary
+========================================
+-->
+
+<hr>
+
+<p><a name="Summary"></a></p>
+
+<h2 id="Summary">Summary</h2>
+
+<p>You have now successfully exported the <strong>bacpac</strong> file to <strong>Windows Azure Storage</strong>. You are now able to leverage this <strong>blob</strong> or <strong>bacpac</strong> file and import into an Azure SQL Database or a Windows Azure SQL VM.</p>
+
+</div>
+</body>
+</html>

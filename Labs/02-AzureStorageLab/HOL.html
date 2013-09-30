@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Markdown Preview</title>
+<style>
+body{font-family:helvetica, arial, freesans, clean, sans-serif;color:#333;line-height:1.6;font-size:14px}.markdown-body{line-height:1.6;font-size:14px}.markdown-body > *:first-child{margin-top:0 !important}.markdown-body > *:last-child{margin-bottom:0 !important}.markdown-body a.absent{color:#c00}.markdown-body h1{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:28px;margin:20px 0 10px;padding:0}.markdown-body h2{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:24px;border-bottom-color:#ccc;border-bottom-width:1px;border-bottom-style:solid;margin:20px 0 10px;padding:0}.markdown-body h3{font-weight:700;-webkit-font-smoothing:antialiased;font-size:18px;margin:20px 0 10px;padding:0}.markdown-body h4{font-weight:700;-webkit-font-smoothing:antialiased;font-size:16px;margin:20px 0 10px;padding:0}.markdown-body h5{font-weight:700;-webkit-font-smoothing:antialiased;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body h6{font-weight:700;-webkit-font-smoothing:antialiased;color:#777;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body blockquote{color:#777;border-left-color:#ddd;border-left-width:4px;border-left-style:solid;margin:15px 0;padding:0 15px}.markdown-body dl{margin:15px 0;padding:0}.markdown-body table{border-collapse:collapse;margin:15px 0;padding:0}.markdown-body pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;margin:15px 0;padding:6px 10px}.markdown-body li p.first{display:inline-block}.markdown-body dl dt{font-size:14px;font-style:italic;font-weight:700;margin:15px 0 5px;padding:0}.markdown-body dl dt:first-child{padding:0}.markdown-body dl dd{margin:0 0 15px;padding:0 15px}.markdown-body table tr{border-top-color:#ccc;border-top-width:1px;border-top-style:solid;background-color:#fff;margin:0;padding:0}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%}.markdown-body span.frame{overflow:hidden;display:block}.markdown-body span.frame > span{border:1px solid #ddd;width:auto;overflow:hidden;float:left;display:block;margin:13px 0 0;padding:7px}.markdown-body span.frame span img{float:left;display:block}.markdown-body span.frame span span{color:#333;clear:both;display:block;padding:5px 0 0}.markdown-body span.align-center > span{text-align:center;overflow:hidden;display:block;margin:13px auto 0}.markdown-body span.align-center span img{text-align:center;margin:0 auto}.markdown-body span.align-right > span{text-align:right;overflow:hidden;display:block;margin:13px 0 0}.markdown-body span.align-right span img{text-align:right;margin:0}.markdown-body span.float-left{overflow:hidden;margin-right:13px;float:left;display:block}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{overflow:hidden;margin-left:13px;float:right;display:block}.markdown-body span.float-right > span{text-align:right;overflow:hidden;display:block;margin:13px auto 0}.markdown-body pre > code{border:currentColor;white-space:pre;margin:0;padding:0}.markdown-body .highlight pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;padding:6px 10px}.markdown-body p,.markdown-body li{margin:15px 0}.markdown-body ul,.markdown-body ol{padding-left:30px;margin:15px 0}.markdown-body > h2:first-child,.markdown-body > h1:first-child,.markdown-body > h1:first-child + h2{border:0 currentColor;padding-top:0;margin-top:0}.markdown-body > h3:first-child,.markdown-body > h4:first-child,.markdown-body > h5:first-child,.markdown-body > h6:first-child{padding-top:0;margin-top:0}.markdown-body h1 + p,.markdown-body h2 + p,.markdown-body h3 + p,.markdown-body h4 + p,.markdown-body h5 + p,.markdown-body h6 + p,.markdown-body ul li > :first-child,.markdown-body ol li > :first-child,.markdown-body dl dt > :first-child,.markdown-body dl dd > :first-child,.markdown-body blockquote > :first-child,.markdown-body table tr th > :first-child,.markdown-body table tr td > :first-child{margin-top:0}.markdown-body ul li > :last-child,.markdown-body ol li > :last-child,.markdown-body dl dt > :last-child,.markdown-body dl dd > :last-child,.markdown-body blockquote > :last-child,.markdown-body table tr th > :last-child,.markdown-body table tr td > :last-child{margin-bottom:0}.markdown-body table tr th,.markdown-body table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}.markdown-body span.align-center,.markdown-body span.align-right{overflow:hidden;clear:both;display:block}.markdown-body code,.markdown-body tt{border-radius:3px;border:1px solid #eaeaea;white-space:nowrap;background-color:#f8f8f8;margin:0 2px;padding:0 5px}.markdown-body pre code,.markdown-body pre tt{border:currentColor;background-color:transparent}span.codelanguage{display:none}
+</style>
+</head>
+<body>
+<div class="markdown-body">
+<p><a name="Title"></a></p>
+
+<h1 id="Migrating_a_Websites_Assets_to_AzureStorage">Migrating a Website's Assets to AzureStorage</h1>
+
+<hr>
+
+<p><a name="Scenario"></a></p>
+
+<h2 id="Scenario">Scenario</h2>
+
+<p>In this scenario, assume you already have a website running on premise, but to increase the availability of your site's assets, or to reduce the traffic against your own bandwidth, you want to move them into the cloud.</p>
+
+<p>The are many beneifts you could gain by doing this, including:</p>
+
+<ul>
+<li>Reducing the network congestion on connections coming in to your on premise networks</li>
+<li>Reducing the amount storage consumed by these assets on your on premise storage systems.</li>
+<li>Leveraging the Windows Azure Content Distribution Network (CDN) features</li>
+</ul>
+
+<p>In this hands-on lab, you will explore the basic process for creating an Azure Storage account, uploading your website assets (images, videos, etc) to blob containers in the storage account, and modifying your on-premise site to reference the new cloud based assets. </p>
+
+<p><a name="Objectives"></a></p>
+
+<h3 id="Objectives">Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Create a Windows Azure Storage account</li>
+<li>Use the Visual Studio tooling to manage Windows Azure Store</li>
+<li>Use the Visual Studio tooling to upload assets into Windows Azure Storage blob containers</li>
+<li>Reference public assets stored in Windows Azure Storage blob containers from anywhere in the world. </li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3 id="Prerequisites">Prerequisites</h3>
+
+<p>The following is required to complete this hands-on lab:</p>
+
+<!-- TODO: UPDATE THE Pre-Reqs to match the actual setup lab name  -->
+
+<!-- TODO: FIX DOWNLOAD LINK -->
+
+<ul>
+<li>A Windows Azure subscription -  <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a> </li>
+<li><strong>Either</strong> Completing the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab to create a Windows Azure Virtual Machine for use as your development environment.<br></li>
+<li><strong>OR</strong> A development workstation with <strong>Visual Studio 2013 Ultimate RC</strong> and <strong>SQL Server 2012 Express</strong> installed. </li>
+<li>Download of the <a href="http://aka.ms/BLabs">Lab Files</a></li>
+</ul>
+
+<p><a name="Setup"></a></p>
+
+<h3 id="Setup">Setup</h3>
+
+<p>The instructions in the lab assume you are remoted into the development Virtual Machine created during the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab.  If you prefer can follow the exact same steps on a Windows machine with <strong>Visual Studio 2013 Ultimate RC</strong> and <strong>SQL Server 2012 Express</strong> installed, however the instructions assume the environment created in the setup lab.</p>
+
+<ol>
+<li>Open a <strong>Remote Desktop Connection</strong> to the development Virtual Machine you created in the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab. </li>
+</ol>
+
+<!--
+========================================
+Exercise 1
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2 id="Exercises">Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Opening and running the MVC4Sample Website</a></li>
+<li><a href="#Exercise2">Exercise 2: Creating a Windows Azure Storage Account</a></li>
+<li><a href="#Exercise3">Exercise 3: Uploading Web Site Assets to Azure Storage</a></li>
+</ul>
+
+<p><a name="Exercise1"></a></p>
+
+<h3 id="Exercise_1_Opening_and_running_the_MVC4Sample_Website">Exercise 1: Opening and running the MVC4Sample Website</h3>
+
+<p>In this section, you will open an existing MVC Website in Visual Studio.  This website simulates an existing on-premise website.  Later, we will create an Azure Storage Account and migrate the websites assets into that storage account. </p>
+<blockquote>
+<p><strong>Note:</strong> The website created in this account is the same website that is created in the <strong>Windows Azure Training Kit</strong> <a href="https://github.com/WindowsAzure-TrainingKit/HOL-ASPNETAzureWebSitesVS2012">Building and Publishing ASP.NET Applications with Windows Azure Web Sites and Visual Studio 2012</a> lab, but with one exception.  The database will be stored in a full SQL Server 2012 Express instance rather than LocalDB. </p>
+</blockquote>
+<p><a name="Exercise1Task1"></a></p>
+
+<h4 id="Task_1__Opening_the_MVC_Sample_Website_in_Visual_Studio_2013">Task 1 – Opening the MVC Sample Website in Visual Studio 2013</h4>
+
+<!-- TODO: FIX DOWNLOAD LINK -->
+
+<ol>
+<li><p>Open a Remote Desktop Connection to the development Virtual Machine. </p></li>
+<li><p>Open Internet Explorer and download the lab files <strong><a href="http://aka.ms/BLabs">Lab Files</a></strong> from <strong><a href="http://aka.ms/BLabs">http://aka.ms/BLabs</a></strong> and save the file to a folder in the development workstation VM.</p></li>
+<li><p>Locate the downloaded .zip file, <strong>right click</strong> on it, and select <strong>&quot;Properties&quot;</strong>.</p></li>
+<li><p>In the properites window, click the &quot;<strong>Unblock</strong>&quot; button and click &quot;<strong>OK</strong>&quot;.</p>
+
+<p><img src="images/01-download-properties.png?raw=true" alt="Download Properties">
+</p>
+
+<p><em>Unblock the downloaded .zip file</em></p>
+<blockquote>
+<p><strong>Note:</strong> Unblocking the .zip file before you extract will keep Visual Studio from showing a security warning each time you open a project in the .zip file. </p>
+</blockquote></li>
+<li><p><strong>Right click</strong> on the downloaded .zip file again, and select <strong>&quot;Extract All...&quot;</strong></p></li>
+<li><p>In the <strong>&quot;Extract Compressed (Zipped) Folders&quot;</strong> dialog, under <strong>&quot;Files will be extracted to this folder:&quot;</strong> <strong><em>type</em></strong> &quot;<strong>C:\Labs</strong>&quot; as the target folder.  The folder doesn't currently exist, but will be created as part of the extraction.   </p>
+
+<p><img src="images/02-extract-labs.png?raw=true" alt="Extract Labs">
+</p>
+
+<p><em>Extract labs to <strong>C:\Labs</strong></em></p></li>
+<li><p>Open <strong>Microsoft Visual Studio Ultimate 2013 RC</strong> and click the <strong>Open Project</strong> link in the start page, or from the menu bar select <strong>File</strong> | <strong>Open</strong> | <strong>Project/Solution...</strong>. Browse to <strong>&quot;C:\Labs\AzureDay-ScenarioLabs-master\Labs\02-AzureStorageLab\Source\MVC4Sample.Web&quot;</strong> and open the <strong>MVC4Sample.Web.sln</strong> solution file.  </p>
+
+<p><img src="images/03-open-the-starter-web-project.png?raw=true" alt="Open the Starter Web Project">
+</p>
+
+<p><em>Open the starter web project</em>  </p></li>
+<li><p><strong>Debug the application in Internet Explorer</strong> by clicking on the debug button on the toolbar:</p>
+
+<p><img src="images/04-debug-the-application-in-the-browser.png?raw=true" alt="Debug the application in the browser">
+</p>
+
+<p><em>Debug the sample web site in Internet Explorer</em></p></li>
+<li><p>In the address bar, go to the <strong>/Customer</strong> view for the site (<strong><em>http://localhost:&lt;port&gt;/Customer</em></strong>), and click the &quot;<strong>Create New</strong>&quot; link.  </p>
+
+<p><img src="images/05-customer-view.png?raw=true" alt="Customer View">
+</p>
+
+<p><em>Customer View</em></p>
+<blockquote>
+<p>Note: The sample application includes an MVC Customer model, controller and view.  The model saves it's data in a SQL Express database named MVC4Sample.  If the MVC4Sample database or Customer table don't already exist, they will be created by the model on the fly. </p>
+</blockquote></li>
+<li><p>Complete the &quot;<strong>Create</strong>&quot; form to create a new customer with sample data, and click the &quot;<strong>Create</strong>&quot; button.</p>
+
+<p><img src="images/06-create-customer.png?raw=true" alt="Create Customer">
+</p>
+
+<p><em>Create a new customer</em></p></li>
+<li><p>Verify that the new customer data was saved correctly.  </p>
+
+<p><img src="images/07-saved-customer.png?raw=true" alt="Saved Customer">
+</p>
+
+<p><em>Verify the saved customer</em></p></li>
+<li><p>Close the browser window to stop the debug session.</p></li>
+</ol>
+<blockquote>
+<p>Note: At this point, we have verified that the site is working correctly, and that SQL Server Express is successfully installed.</p>
+</blockquote>
+<!--
+========================================
+Exercise 2
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise2"></a></p>
+
+<h3 id="Exercise_2_Creating_a_Windows_Azure_Storage_Account">Exercise 2: Creating a Windows Azure Storage Account</h3>
+
+<p>In this exercise, you will create a new Windows Azure Storage account in the Windows Azure Management Portal.  We will then create a container in the Blob storage as a repository for the website's images.  </p>
+
+<p><a name="Exercise2Task1"></a></p>
+
+<h4 id="Task_1__Creating_the_Azure_Storage_Account">Task 1 – Creating the Azure Storage Account</h4>
+
+<ol>
+<li><p>Ensure that you are connected via remote desktop to your development virtual machine.  </p></li>
+<li><p>Open the <a href="https://manage.windowsazure.com">Windows Azure Management Portal</a> (<a href="https://manage.windowsazure.com">https://manage.windowsazure.com</a>) in the browser, and login with your credentials.</p></li>
+<li><p>Click on &quot;<strong>STORAGE</strong>&quot; along the left had side</p>
+
+<p><img src="images/08-storage-icon.png?raw=true" alt="Storage Icon">
+</p>
+
+<p><em>Storage</em></p></li>
+<li><p>Click the &quot;+ NEW&quot; button in the lower left corner</p>
+
+<p><img src="images/09-new-icon.png?raw=true" alt="New Icon">
+</p>
+
+<p><em>Click New</em></p></li>
+<li><p>Click &quot;<strong>DATA SERVICES</strong>&quot; | &quot;<strong>STORAGE</strong>&quot; | &quot;<strong>QUICK CREATE</strong>&quot;.  </p>
+
+<ul>
+<li>Give your storage account a unique name.  Ensure that the green circle with a checkmark appears.</li>
+<li>Choose an appropriate &quot;<strong>LOCATION/AFFINITY GROUP</strong>&quot; for your storage account</li>
+<li>If you have more than one subscription, choose the &quot;<strong>SUBSCRIPTION</strong>&quot; the storage account should be created in</li>
+<li>Leave the &quot;<strong>Enable Geo-Replication</strong>&quot; box CHECKED</li>
+<li>Click the &quot;<strong>CREATE STORAGE ACCOUNT</strong>&quot;</li>
+</ul>
+
+<p><img src="images/10-storage-account-creation.png?raw=true" alt="Storage Account Creation">
+</p>
+
+<p><em>Storage Account Creation</em></p>
+<blockquote>
+<p>Note: Your storage account name must be globally unique. Enter a valid host name (no spaces or special characters) that isn't used anywhere else.  The storage account name creates the hostname portion of the fully qualified <em><strong>&lt;accountname&gt;.*.core.windows.net</strong></em> URLs for the storage services endpoints.  If you have entered a valid name, a green circle with a white checkmark will appear.  </p>
+</blockquote></li>
+<li><p>Once the storage account has been successfully created (it should only take a couple of minutes at most), you should see a notification along the bottom of the browser window. Once you have viewed the notification, click &quot;<strong>OK</strong>&quot; to continue.</p>
+
+<p><img src="images/11-storage-account-creation-notification.png?raw=true" alt="Storage Account Creation Notification">
+</p>
+
+<p><em>Storage Account Created Successfully</em></p></li>
+</ol>
+
+<p><a name="Exercise2Task2"></a></p>
+
+<h4 id="Task_2__Create_a_Blob_Storage_Container_for_Public_Access">Task 2 – Create a Blob Storage Container for Public Access</h4>
+
+<ol>
+<li><p>Back on the &quot;STORAGE&quot; page in the Windows Azure Management Portal, click the name of your newly created storage account</p>
+
+<p><img src="images/12-click-new-storage-account.png?raw=true" alt="Click New Storage Account">
+</p>
+
+<p><em>Open the new storage account</em></p></li>
+<li><p>Click on the &quot;<strong>CONTAINERS</strong>&quot; link along the top to view the current containers in the account's blob storage, the click &quot;<strong>CREATE A CONTAINER</strong>&quot;...</p>
+
+<p><img src="images/13-blob-containers.png?raw=true" alt="Blob Containers">
+</p>
+
+<p><em>Blob Storage Containers</em></p></li>
+<li><p>For the new container set the:</p>
+
+<ul>
+<li>&quot;<strong>NAME</strong>&quot; to &quot;<strong>images</strong>&quot;</li>
+<li>&quot;<strong>ACCESS</strong>&quot; to &quot;<strong>Public Blob</strong>&quot;</li>
+<li>If you hover over the <img src="images/14-question-mark.png?raw=true" alt="Question Mark" title="Question Mark">
+ next to &quot;<strong>ACCESS</strong>&quot; you can read the differences between the &quot;Private&quot;,&quot;Public Blob&quot;, and &quot;Public Container&quot; access levels.</li>
+<li>Click the <img src="images/15-check-mark-ok.png?raw=true" alt="Check Mark OK">
+ button to create the new container.</li>
+</ul>
+
+<p><img src="images/16-create-images-container.png?raw=true" alt="Create Images Container">
+</p>
+
+<p><em>Create the &quot;images&quot; container</em></p></li>
+<li><p>Verify that the new container was created properly, and note the fully qualified URL for it.  </p>
+
+<p><img src="images/17-image-container-details.png?raw=true" alt="Image Container Details">
+</p>
+
+<p><em>Image Container Details</em></p>
+<blockquote>
+<p>Note: At this point, you have successfully created a new storage account in your Windows Azure Subscription, and provisioned a blob storage container that allows public access to the blobs in it.  In the next exercise, we will upload the images for our website into the blob storage &quot;images&quot; container, and modify the website's CSS to reference the images in blob storage. </p>
+</blockquote></li>
+</ol>
+
+<p><a name="Exercise2Task3"></a></p>
+
+<h4 id="Task_3__Configure_Visual_Studio_for_Storage_Account_Management">Task 3 – Configure Visual Studio for Storage Account Management</h4>
+
+<ol>
+<li><p>With the <a href="https://manage.windowsazure.com/">Windows Azure Management Portal</a> still open, change to the &quot;<strong>DASHBOARD</strong>&quot; page for the new storage account we just created, and click the &quot;<strong>MANAGE ACCESS KEYS</strong>&quot; link along the bottom. </p>
+
+<p><img src="images/18-storage-account-dashboard.png?raw=true" alt="Storage Account Dashboard">
+</p>
+
+<p><em>Storage Account Dashboard</em></p></li>
+<li><p>In the &quot;<strong>Manage Access Keys</strong>&quot; window, click the <img src="images/19-copy-icon.png?raw=true" alt="Copy Icon">
+ icon to the right of the &quot;<strong>PRIMARY ACCESS KEY</strong>&quot; value.</p>
+
+<p><img src="images/20-copy-primary-access-key.png?raw=true" alt="Copy Primary Access Key">
+</p>
+
+<p><em>Copy the Primary Access Key to the Clipboard</em></p></li>
+<li><p>If you are prompted to allow access to the clipboard, click &quot;<strong>Allow access</strong>&quot;</p>
+
+<p><img src="images/21-allow-clipboard-access.png?raw=true" alt="Allow Clipboard Access">
+</p>
+
+<p><em>Allow Clipboard Access</em></p></li>
+<li><p>Return to Visual Studio Ultimate 2013 RC.  From the menu bar, select &quot;<strong>View</strong>&quot; | &quot;<strong>Server Explorer</strong>&quot; (or use the keybaord combination: <strong>Ctrl+W,L</strong>).  Expand &quot;<strong>Windows Azure</strong>&quot; | &quot;<strong>Storage</strong>&quot;.</p>
+
+<p><img src="images/22-azure-storage-in-server-explorer.png?raw=true" alt="Azure Storage In Server Explorer">
+</p>
+
+<p><em>Azure Storage In Server Explorer</em></p></li>
+<li><p>Right click the &quot;<strong>Storage</strong>&quot; node, and select &quot;<strong>Attach External Storage...</strong>&quot; </p>
+
+<p><img src="images/23-attach-external-storage.png?raw=true" alt="Attach External Storage">
+</p>
+
+<p><em>Attach External Storage</em></p></li>
+<li><p>In the &quot;Add New Storage Account&quot; window, enter the &quot;<strong>Account name</strong>&quot; of your storage account (created previously), and for the &quot;<strong>Account key</strong>&quot; paste in the primary access key we just copied from the portal.  Leave all other settings at their default values, and click &quot;OK.</p>
+
+<p><img src="images/24-add-new-storage-account.png?raw=true" alt="Add New Storage Account">
+</p>
+
+<p><em>Add Your Storage Account</em></p>
+
+<p>For example: </p>
+
+<p><img src="images/25-add-storage-account-example.png?raw=true" alt="Add Storage Account Example">
+</p>
+
+<p><em>Example Account</em></p></li>
+<li><p>Back in the Visual Studio &quot;Server Explorer&quot; window, you can now expand the node for the storage account you just added, then &quot;<strong>Blobs</strong>&quot; | &quot;<strong>images</strong>&quot;.  Double click on the &quot;<strong>images</strong>&quot; container to open it in Visual Studio.  The container should be empty (for now). </p>
+
+<p><img src="images/26-empty-image-container.png?raw=true" alt="Empty Image Container">
+</p>
+
+<p><em>Empty &quot;images&quot; Container</em></p></li>
+</ol>
+<blockquote>
+<p>Note: We now have a Windows Azure Storage account, and a blob container that can store the images for our site.  In the next exercise, we'll upload images to the container and modify the website to reference the images in the cloud rather than locally. </p>
+</blockquote>
+<!--
+========================================
+Exercise 3
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise3"></a></p>
+
+<h3 id="Exercise_3_Uploading_Web_Site_Assets_to_Azure_Storage">Exercise 3: Uploading Web Site Assets to Azure Storage</h3>
+
+<p>In this exercise, you will create a new Windows Azure Storage account in the Windows Azure Management Portal.  We will then create a container in the Blob storage as a repository for the website's images.  </p>
+
+<p><a name="Exercise3Task1"></a></p>
+
+<h4 id="Task_1__View_the_existing_images">Task 1 – View the existing images</h4>
+
+<ol>
+<li><p>If needed, open the sample website in Visual Studio Ultimate 2013 RC.</p></li>
+<li><p>In the &quot;Solution Explorer&quot; window, expand the &quot;<strong>MVC4SampleWeb</strong>&quot; project, right-click the &quot;<strong>Images</strong>&quot; folder, and select &quot;<strong>Open Folder in File Explorer</strong>&quot;</p>
+
+<p><img src="images/27-open-images-in-explorer.png?raw=true" alt="Open Images In Explorer">
+</p>
+
+<p><em>Open the Images folder in the Windows File Explorer</em></p></li>
+<li><p>In the Windows Explorer window, click the &quot;<strong>View</strong>&quot; menu, and change the view to &quot;<strong>Large icons</strong>&quot; to view the images in the folder:</p>
+
+<p><img src="images/28-default-site-images.png?raw=true" alt="Default Site Images">
+</p>
+
+<p><em>Default web site images</em></p>
+<blockquote>
+<p>Note: The images in this folder are the default images used by the sample website.  </p>
+</blockquote></li>
+<li><p>In the Windows Explorer Window, change to the &quot;<strong>text here</strong>Assets/AlternateImages**&quot; folder for the lab to view a set of images that are similar to the originals, but have different colors, soon we will upload these images to blob storage, and modify the website to point to them instead of the default images.  The change in color will help to verify that the images in blob storage are being used:</p>
+
+<p><img src="images/29-alternate-web-site-images.png?raw=true" alt="Alternate Web Site Images">
+</p>
+
+<p><em>Alternate Web Site Images</em></p></li>
+</ol>
+
+<p><a name="Exercise3Task2"></a></p>
+
+<h4 id="Task_2__Upload_the_Alternate_Images_to_Blob_Storage">Task 2 – Upload the Alternate Images to Blob Storage</h4>
+
+<ol>
+<li><p>Return to Visaul Studio, and in the Server Explorer Window, esure you are in the &quot;Windows Azure&quot; | &quot;On the &quot;<strong>images [Container]</strong>&quot; tab's toolbar, click the <img src="images/30-upload-icon.png?raw=true" alt="Upload Icon">
+ button to upload images into the container. </p>
+
+<p><img src="images/31-upload-icon-in-container.png?raw=true" alt="Upload Icon In Container">
+</p>
+
+<p><em>Upload Button</em></p></li>
+<li><p>Browse to the &quot;<strong>Assets\Alternate Images</strong>&quot; folder we viewed previously, select <strong>ALL</strong> of the files, and click &quot;<strong>Open</strong>&quot;.</p>
+
+<p><img src="images/32-upload-alternate-images.png?raw=true" alt="Upload Alternate Images">
+</p>
+
+<p><em>Upload Alternate Images to Blob Storage</em></p></li>
+<li><p>While the images are being uploaded, you can view the progress in Visual Studio's &quot;<strong>Windows Azure Activity Log</strong>&quot;</p>
+
+<p><img src="images/33-windows-azure-activity-log-during-upload.png?raw=true" alt="Windows Azure Activity Log During Upload">
+</p>
+
+<p><em>Window Azure Activity Log Showing Upload Progress</em></p></li>
+<li><p>Once the upload has completed, you can see the blobs now in the image container.  If you expand the &quot;URL column&quot;, you can view the entire URL to the image. Right click on any of the images, (for example orderedList0.png) and select &quot;<strong>Copy URL</strong>&quot;</p>
+
+<p><img src="images/34-copy-url-for-image.png?raw=true" alt="Copy URL for Image">
+</p>
+
+<p><em>Copy the URL for an Image</em></p></li>
+<li><p>Because we marked the container with &quot;Public Blob&quot; permissions, anybody, anywhere in the world, can access the blobs in the container.  To test that out, open your browser, and paste the URL we just copied above, into the address bar.  Verify that the image appears in the browser.  </p>
+
+<p><img src="images/35-image-from-plub-blob-container.png?raw=true" alt="Image From Plub Blob Container">
+</p>
+
+<p><em>Image Loaded From Public Blob Conatiner</em></p>
+<blockquote>
+<p>Note: Now that we have images in blob storage in the cloud, and we know we can access them publicly, we can now modify the website to reference those images rather than the local images</p>
+</blockquote></li>
+<li><p>In the Visual Studio &quot;Solution Explorer&quot; window, expand the &quot;<strong>MVC4Sample.Web</strong>&quot; | &quot;<strong>Content</strong>&quot; folder, and double click the &quot;<strong>Site.css</strong>&quot; file to open it in the editor, and scroll to <strong>Line 108</strong> to see the &quot;<strong>background</strong>&quot; property of the &quot;<strong>.main-content</strong>&quot; style</p>
+
+<p><img src="images/36-main-content-style.png?raw=true" alt="Main Content Style">
+</p>
+
+<p><em>Main Content Style</em></p>
+<blockquote>
+<p>Note: To reference our new images in the cloud, we want to modify all &quot;<strong>../Images/</strong>...&quot; urls in the <strong>Site.css</strong> file to point to our &quot;<strong>image</strong>&quot; container in blob storage, &quot;<strong>http://<em>your_account_name</em>.blob.core.windows.net/images/</strong>...&quot;.  The quickest way to do that is to let Visual Studio do the work for us.  </p>
+</blockquote></li>
+<li><p>From the Visual Studio menu bar, select &quot;<strong>EDIT</strong>&quot; | &quot;<strong>Find and Replace</strong>&quot; | &quot;<strong>Quick Replace</strong>&quot;, (or just press <strong>Ctrl+H</strong>). Enter &quot;<strong>../Images/</strong>&quot; into the top box of the quick replace window, and enter your image container url (the URL we copied above, just without the image file name, keep the trailing &quot;/&quot; though).</p>
+
+<p><img src="images/37-quick-replace-window.png?raw=true" alt="Quick Replace Window">
+</p>
+
+<p><em>Quick Replace Window</em></p>
+
+<p>For example:</p>
+
+<p><img src="images/38-quick-replace-example.png?raw=true" alt="Quick Replace Example">
+</p>
+
+<p><em>Quick Replace Example</em></p>
+<blockquote>
+<p>Note: If you make a mistake, just close the Site.css file and don't save the changes.  You can then open it back up and try again.  Of couse &quot;<strong>EDIT</strong>&quot; | &quot;<strong>Undo</strong>&quot; (or <strong>Ctrl+Z</strong>) is an option as well. </p>
+</blockquote></li>
+<li><p>Click the &quot;Replace All&quot; (<img src="images/39-replace-all-button.png?raw=true" alt="Replace All Button">
+) button to replace all the &quot;<strong>../Images/</strong>&quot; occurrances with your container url.  Click &quot;<strong>OK</strong>&quot; to confirm the &quot;<strong>13 occurrence(s) replaced.</strong>&quot;</p>
+
+<p><img src="images/40-replace-urls.png?raw=true" alt="Replace URLs">
+</p>
+
+<p><em>&quot;<strong>../Images/</strong>&quot; URLs Replaced</em></p></li>
+<li><p>From the Visual Studio toolbar, click the &quot;<strong>Debug in Internet Explorer</strong>&quot; button to open the site in the browser</p>
+
+<p><img src="images/41-debug-in-ie.png?raw=true" alt="Debug in IE">
+</p>
+
+<p><em>Debug in Internet Explorer</em></p></li>
+<li><p>Verify that the images are being retrieved from blob storage in the cloud rather than locally.  You can tell easily by the green color in the images.  If you still see the old black images, not the green ones, try hitting the refresh button in the browser:</p>
+
+<p><img src="images/42-alternate-images-being-loaded-from-cloud.png?raw=true" alt="Alternate Images Being Loaded From Cloud">
+</p>
+
+<p><em>Website images are being retrieved from the cloud</em></p></li>
+</ol>
+
+<hr>
+
+<p><a name="Summary"></a></p>
+
+<h2 id="Summary">Summary</h2>
+
+<p>In this hands-on lab, you first verified the functionality of an existing MVC 4 website, <strong>MVC4SampleWeb</strong>. We then created a Windows Azure Storage account in the cloud, and provisioned a public container to store the website images in, and finally uploaded our website images into the container and modified the website to retrieve its images from the cloud.  </p>
+
+<p>This lab helps to serve as an example then of how you can leverage a portion of the Windows Azure platform (Windows Azure Storage in this case) while keeping the remainder of a legacy site untouched.  </p>
+
+<p>This concept could be extended to: </p>
+
+<ul>
+<li>Leveraging Windows Azure SQL Database or Table Storage to host your web site's data in the cloud, </li>
+<li>Using Windows Azure Active Directory and Access Control to authenticate your website users</li>
+<li>Useing Windows Azure Media Services to stream video</li>
+<li>And much more!<br></li>
+</ul>
+
+</div>
+</body>
+</html>

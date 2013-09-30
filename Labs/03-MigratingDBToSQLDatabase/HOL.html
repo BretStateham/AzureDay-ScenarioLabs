@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Markdown Preview</title>
+<style>
+body{font-family:helvetica, arial, freesans, clean, sans-serif;color:#333;line-height:1.6;font-size:14px}.markdown-body{line-height:1.6;font-size:14px}.markdown-body > *:first-child{margin-top:0 !important}.markdown-body > *:last-child{margin-bottom:0 !important}.markdown-body a.absent{color:#c00}.markdown-body h1{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:28px;margin:20px 0 10px;padding:0}.markdown-body h2{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:24px;border-bottom-color:#ccc;border-bottom-width:1px;border-bottom-style:solid;margin:20px 0 10px;padding:0}.markdown-body h3{font-weight:700;-webkit-font-smoothing:antialiased;font-size:18px;margin:20px 0 10px;padding:0}.markdown-body h4{font-weight:700;-webkit-font-smoothing:antialiased;font-size:16px;margin:20px 0 10px;padding:0}.markdown-body h5{font-weight:700;-webkit-font-smoothing:antialiased;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body h6{font-weight:700;-webkit-font-smoothing:antialiased;color:#777;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body blockquote{color:#777;border-left-color:#ddd;border-left-width:4px;border-left-style:solid;margin:15px 0;padding:0 15px}.markdown-body dl{margin:15px 0;padding:0}.markdown-body table{border-collapse:collapse;margin:15px 0;padding:0}.markdown-body pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;margin:15px 0;padding:6px 10px}.markdown-body li p.first{display:inline-block}.markdown-body dl dt{font-size:14px;font-style:italic;font-weight:700;margin:15px 0 5px;padding:0}.markdown-body dl dt:first-child{padding:0}.markdown-body dl dd{margin:0 0 15px;padding:0 15px}.markdown-body table tr{border-top-color:#ccc;border-top-width:1px;border-top-style:solid;background-color:#fff;margin:0;padding:0}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%}.markdown-body span.frame{overflow:hidden;display:block}.markdown-body span.frame > span{border:1px solid #ddd;width:auto;overflow:hidden;float:left;display:block;margin:13px 0 0;padding:7px}.markdown-body span.frame span img{float:left;display:block}.markdown-body span.frame span span{color:#333;clear:both;display:block;padding:5px 0 0}.markdown-body span.align-center > span{text-align:center;overflow:hidden;display:block;margin:13px auto 0}.markdown-body span.align-center span img{text-align:center;margin:0 auto}.markdown-body span.align-right > span{text-align:right;overflow:hidden;display:block;margin:13px 0 0}.markdown-body span.align-right span img{text-align:right;margin:0}.markdown-body span.float-left{overflow:hidden;margin-right:13px;float:left;display:block}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{overflow:hidden;margin-left:13px;float:right;display:block}.markdown-body span.float-right > span{text-align:right;overflow:hidden;display:block;margin:13px auto 0}.markdown-body pre > code{border:currentColor;white-space:pre;margin:0;padding:0}.markdown-body .highlight pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;padding:6px 10px}.markdown-body p,.markdown-body li{margin:15px 0}.markdown-body ul,.markdown-body ol{padding-left:30px;margin:15px 0}.markdown-body > h2:first-child,.markdown-body > h1:first-child,.markdown-body > h1:first-child + h2{border:0 currentColor;padding-top:0;margin-top:0}.markdown-body > h3:first-child,.markdown-body > h4:first-child,.markdown-body > h5:first-child,.markdown-body > h6:first-child{padding-top:0;margin-top:0}.markdown-body h1 + p,.markdown-body h2 + p,.markdown-body h3 + p,.markdown-body h4 + p,.markdown-body h5 + p,.markdown-body h6 + p,.markdown-body ul li > :first-child,.markdown-body ol li > :first-child,.markdown-body dl dt > :first-child,.markdown-body dl dd > :first-child,.markdown-body blockquote > :first-child,.markdown-body table tr th > :first-child,.markdown-body table tr td > :first-child{margin-top:0}.markdown-body ul li > :last-child,.markdown-body ol li > :last-child,.markdown-body dl dt > :last-child,.markdown-body dl dd > :last-child,.markdown-body blockquote > :last-child,.markdown-body table tr th > :last-child,.markdown-body table tr td > :last-child{margin-bottom:0}.markdown-body table tr th,.markdown-body table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}.markdown-body span.align-center,.markdown-body span.align-right{overflow:hidden;clear:both;display:block}.markdown-body code,.markdown-body tt{border-radius:3px;border:1px solid #eaeaea;white-space:nowrap;background-color:#f8f8f8;margin:0 2px;padding:0 5px}.markdown-body pre code,.markdown-body pre tt{border:currentColor;background-color:transparent}span.codelanguage{display:none}
+</style>
+</head>
+<body>
+<div class="markdown-body">
+<p><a name="Title"></a></p>
+
+<h1 id="Migrating_an_On-Premises_SQL_Server_2012_Database_to_Windows_Azure_SQL_Database">Migrating an On-Premises SQL Server 2012 Database to Windows Azure SQL Database</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2 id="Overview">Overview</h2>
+
+<p>This next lab is about migrating an on-premises database to the cloud. As the diagram below suggests, there are two ways to support SQL Server databases in the public cloud.</p>
+
+<p>The concept is simple - how do you take an on-premises database and move it to the cloud. You have two choices. In this lab we will move the database to <strong>Windows Azure SQL Database</strong>.</p>
+
+<p><img src="Images/highlevel.png?raw=true" alt="SQL Database">
+</p>
+
+<p><em>SQL Database</em></p>
+
+<p>Because <strong>Windows Azure SQL Database</strong> is indeed a database as a service, there are some real advantages. First, it can be fantastically economical—some companies have reduced their database costs by more than 90 percent by using <strong>Windows Azure SQL Database</strong>. Second, it provides self-managing capabilities, enabling organizations to provision data services for applications throughout the enterprise without adding to the support burden of the central IT department. Third, the service replicates three copies of your data, and in the case of a hardware failure, it provides automatic failover. </p>
+
+<p>But there are limitations. The maximum database size is 150GB, though this can be increased through  sharding (the horizontal partitioning of data). This approach is also subject to more latency issues, due to the fact that it runs on a shared infrastructure in the Microsoft  datacenter. Another drawback is that you must expect transient faults and program your code accordingly. Finally, <strong>Windows Azure SQL Database</strong> represents a subset of SQL Server, meaning that some features, such as XML, system stored procedures, distributed transactions, synonyms, CLR procedures, Full Text Search and the ability  to have linked servers are not supported. Because of these limitations, migrating to <strong>Windows Azure SQL Database</strong> may not work for some scenarios. </p>
+
+<p><a name="Objectives"></a></p>
+
+<h3 id="Objectives">Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Create a <strong>Server</strong>  to host our <strong>Windows Azure SQL Database</strong></li>
+<li>Open IP addresses on the <strong>Server</strong> virtual machine to allow for incoming connections</li>
+<li>Use <strong>SQL Server Management Studio</strong> 2012 to export an on-premises database to the <strong>Server</strong> you previously created</li>
+<li>Validate the migration using the portal tooling and <strong>SQL Server Management Studio</strong></li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3 id="Prerequisites">Prerequisites</h3>
+
+<p>The following is required to complete this hands-on lab:</p>
+
+<ul>
+<li>A Windows Azure subscription</li>
+<li>An on-premises SQL Server 2012 Management Studio</li>
+<li>MVC4Sample database</li>
+</ul>
+
+<p><a name="Setup"></a></p>
+
+<h3 id="Setup">Setup</h3>
+
+<p>In order to execute the exercises in this hands-on lab you need to set up your environment.</p>
+
+<ol>
+<li>Start by logging into the <strong>Windows Azure Portal</strong> (<a href="http://manage.windowsazure.com">http://manage.windowsazure.com</a>).</li>
+<li>Complete the previous lab of configuration <strong>SQL Server 2012 Management Studio (Express)</strong></li>
+</ol>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2 id="Exercises">Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#GettingStarted">Getting Started: How to migrate an on-premises database to Windows Azure SQL Database</a></li>
+</ul>
+
+<p><a name="GettingStarted"></a></p>
+
+<h3 id="Getting_Started_Creating_an_MVC_4_Application_using_Entity_Framework_Code_First">Getting Started: Creating an MVC 4 Application using Entity Framework Code First</h3>
+
+<p>In this section, you will log into the Windows Azure Portal and create an Azure Virtual Machine using the Windows Azure Gallery. </p>
+
+<p><a name="GettingStartedTask1"></a></p>
+
+<h4 id="Task_1__Provisioning_a_Server_in_strongWindows_Azure_SQL_Virtual_Machinestrong">Task 1 – Provisioning a Server in <strong>Windows Azure SQL Virtual Machine</strong></h4>
+
+<ol>
+<li><p>On the left menu pane, select <strong>SQL Databases</strong>. You will see a list of existing databases. Toward the top you will see <strong>Servers</strong> as an option. Select <strong>Servers</strong>. </p>
+
+<p><img src="Images/image001.png?raw=true" alt="Creating a server to host your **Windows Azure SQL Database**">
+</p>
+
+<p><em>Creating a server to host your <strong>Windows Azure SQL Database</strong></em></p></li>
+<li><p>You will see a list of servers. You could simply get the name of an existing server or you can choose to click on the <strong>Add</strong> button on the lower menu bar. This will create an additional <strong>server</strong>. </p>
+
+<p><img src="Images/image002.png?raw=true" alt="Creating a server to host your **Windows Azure SQL Database**">
+</p>
+
+<p><em>Creating a server to host your <strong>Windows Azure SQL Database</strong></em></p></li>
+<li><p>Before the <strong>Server</strong> is actually created, you will need to indicate the <strong>Login Name</strong>, <strong>Login Password</strong>, and the <strong>Region</strong>. You can optionally indicate, <strong>Allow Windows Azure Services to access the server</strong> - if you want to expose the server through TCP/IP to other servers in a Microsoft data center. </p>
+
+<p><img src="Images/image003.png?raw=true" alt="Specifying Login, and Region">
+</p>
+
+<p><em>Specifying Login, and Region</em></p></li>
+<li><p>The new <strong>Server</strong> should appear in the portal. The name of the <strong>Server</strong> is <strong>s9d2fjlu9s</strong>. The full name is <strong>s9d2fjlu9s.database.windows.net</strong>. </p>
+
+<p><img src="Images/image004.png?raw=true" alt="Verifying server creation">
+</p>
+
+<p><em>Verifying server creation</em></p></li>
+<li><p>The name of the <strong>Server</strong> is <strong>s9d2fjlu9s</strong>. Take note of the <strong>Server</strong> name. It will be needed by <strong>SQL Server Management Studio</strong> during the migration process. </p>
+
+<p><img src="Images/image005.png?raw=true" alt="Verifying server creation">
+</p>
+
+<p><em>Verifying server creation</em></p></li>
+</ol>
+
+<p><a name="GettingStartedTask1"></a></p>
+
+<h4 id="Task_2__Configuring_Allowed_IP_Access">Task 2 – Configuring Allowed IP Access</h4>
+
+<p>In this task you will return back to the <strong>Windows Azure Portal</strong> and configure the firewall for your <strong>Windows Azure SQL Database</strong>. The goal of this task is to configure <strong>Windows Azure SQL Database</strong> to detect the IP address used by a client trying to connect connection and accept accept the connection requests from the client.</p>
+
+<p>If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.</p>
+
+<p>You will enter a name for the firewall rule, such as the name of your computer or company.</p>
+
+<ol>
+<li><p>In this step you will be required to access the <strong>Configure</strong> menu near the top. It will allow you to enter a range of IP addresses that can have access to the server. One or more ranges can be added. Each range of IP addresses represents <strong>allowed IP addresses</strong> to access the server. This is a way to enforce some degree of security. It assumes that you know the potential IP addresses of clients connecting to your server. </p>
+
+<p><img src="Images/image006.png?raw=true" alt="Selecting the Configure Menu">
+</p>
+
+<p><em>Selecting the Configure Menu</em></p></li>
+<li><p>Note that to keep this demo simple we <strong>allowed all clients</strong> to connect to the server <strong>s9d2fjlu9s</strong>. This is not a recommended practice.</p>
+
+<p><img src="Images/image007.png?raw=true" alt="Adding Allowed IP addresses">
+</p>
+
+<p><em>Adding Allowed IP addresses</em></p></li>
+<li><p>To be clear, this is not a recommended practice. Notice the rule name is <strong>DoNotUse</strong>. Notice the <strong>allowed IP range</strong> is <strong>0.0.0.0 to 255.255.255.255</strong>. </p>
+
+<p><img src="Images/image008.png?raw=true" alt="Adding Allowed IP addresses">
+</p>
+
+<p><em>Adding Allowed IP addresses</em></p></li>
+</ol>
+
+<p><a name="GettingStartedTask1"></a></p>
+
+<h4 id="Task_3__Deploying_from_On-Premises_SQL_Server_to_Windows_Azure_SQL_Database">Task 3 – Deploying from On-Premises SQL Server to Windows Azure SQL Database</h4>
+
+<p>In this task you use ##Microsoft SQL Server 2012 Express Management Studio ## to deploy the database to <strong>Windows Azure SQL Database</strong>. We will need the <strong>Server Name</strong> to accomplish this task. We created this server in a previous step.</p>
+
+<ol>
+<li><p>We will perform the migration to <strong>Windows Azure SQL Database</strong> from an on-premises database. But to do so, we need the <strong>full address</strong> of our <strong>server</strong> (the server for <strong>Windows Azure SQL Database</strong>). The name of the <strong>Server</strong> is <strong>s9d2fjlu9s</strong>. The full name is <strong>s9d2fjlu9s.database.windows.net</strong>. </p>
+
+<p><img src="Images/image009.png?raw=true" alt="Getting the full server name">
+</p>
+
+<p><em>Getting the full server name</em></p></li>
+<li><p>Now that we have the <strong>Server name</strong>, we are ready to perform the migration using <strong>SQL Server Management Studio</strong>, which has the built-in tooling to perform the <strong>migration process</strong>. Launch <strong>SQL Server Management Studio</strong> and login to your on-premises database server where you would like to do your migration <strong>from</strong>. </p>
+
+<p><img src="Images/image010.png?raw=true" alt="Migrating the on-premises database">
+</p>
+
+<p><em>Migrating the on-premises database</em></p></li>
+<li><p>Right mouse click on <strong>MVC4Sample</strong> and choose <strong>Tasks | Deploy Database to SQL Azure</strong>. </p>
+
+<p><img src="Images/image011.png?raw=true" alt="Migrating the on-premises database">
+</p>
+
+<p><em>Migrating the on-premises database</em></p></li>
+<li><p>The migration wizard needs to know the <strong>Server name</strong> you wish to target with the migration. In previous steps we've identified, the <strong>full address</strong> of our <strong>server</strong>. The full name is <strong>s9d2fjlu9s.database.windows.net</strong>. You <strong>Server name</strong> will be different. <strong>Server names</strong> are globally unique. Click the <strong>Connect</strong> button to the right of <strong>Server connection</strong> on the migration wizard. </p>
+
+<p><img src="Images/image012.png?raw=true" alt="Migrating the on-premises database">
+</p>
+
+<p><em>Migrating the on-premises database</em></p></li>
+<li><p>You will now be asked for the <strong>Server name, Login/Password</strong>. Be sure to select <strong>SQL Server Authentication</strong>. You will need to recall all of this information during the <strong>Windows Azure SQL Database</strong> Server creation process in earlier steps. </p>
+
+<p><img src="Images/image013.png?raw=true" alt="Identifying the target database server in Windows Azure">
+</p>
+
+<p><em>Identifying the target database server in Windows Azure</em></p></li>
+<li><p>Once you've finished <strong>Connecting</strong> to the target server for the migration, you are ready to enter some more information, such as <strong>New database name, the edition of SQL Database (SQL Azure is the old name, btw), and the maximum database size (5 GB)</strong>. Click <strong>Next</strong> when you have entered in this information. </p>
+
+<p><img src="Images/image014.png?raw=true" alt="Deployment Settings">
+</p>
+
+<p><em>Deployment Settings</em></p></li>
+<li><p>You have now finished specifying the details for the migration to <strong>Windows Azure SQL Database</strong>. Click <strong>Finish</strong> to start the actual and physical migration. </p>
+
+<p><img src="Images/image015.png?raw=true" alt="Viewing the summary information">
+</p>
+
+<p><em>Viewing the summary information</em></p></li>
+<li><p>everything goes as planned, you will see the <strong>Operation Complete</strong> dialog box with the <strong>Result</strong> being <strong>Success</strong> for all activities. Click <strong>Close</strong> to dismiss the migration wizard. </p>
+
+<p><img src="Images/image016.png?raw=true" alt="Viewing the migration results">
+</p>
+
+<p><em>Viewing the migration results</em></p></li>
+</ol>
+
+<p><a name="GettingStartedTask1"></a></p>
+
+<h4 id="Task_4__Verifying_our_migration_to_Windows_Azure_SQL_Database">Task 4 – Verifying our migration to Windows Azure SQL Database</h4>
+
+<p>In this task you use the <strong>Windows Azure Portal</strong> as well as <strong>Microsoft SQL Server 2012 Express Management Studio ** to verify the successful migration of the database to **Windows Azure SQL Database</strong>.</p>
+
+<ol>
+<li><p>Return back to the Windows Azure Portal. Click on <strong>SQL databases</strong> on the left pane. The list of databases should include <strong>MVC4Sample</strong>. Next, click on the <strong>Manage</strong> menu so that we can take a look inside the database at specific data structures, such as the <strong>customers</strong> table.  </p>
+
+<p><img src="Images/image017.png?raw=true" alt="Confirming the migration at the Windows Azure Portal">
+</p>
+
+<p><em>Confirming the migration at the Windows Azure Portal</em></p></li>
+<li><p>Enter in your <strong>login credentials</strong>  and click on the <strong>Log on</strong> button. </p>
+
+<p><img src="Images/image018.png?raw=true" alt="Logging In">
+</p>
+
+<p><em>Logging In</em></p></li>
+<li><p>Notice that in the lower left corner there is a menu item called <strong>Design</strong>. Click on it and validate that you can see the <strong>Customers</strong> table. </p>
+
+<p><img src="Images/image019.png?raw=true" alt="Verifying the existence of the customers table">
+</p>
+
+<p><em>Verifying the existence of the customers table</em></p></li>
+<li><p>Towards the top of the window you will see a <strong>New Query</strong> button. Click on it and type in a simple select query as seen below (<strong>select * from customers</strong>). Then click the <strong>Run</strong> menu item. You should be able to see data for the <strong>customers table</strong>. </p>
+
+<p><img src="Images/image020.png?raw=true" alt="Issuing a query">
+</p>
+
+<p><em>Issuing a query</em></p></li>
+<li><p>You can also connect to the <strong>Windows Azure SQL Database</strong> from any running instance of <strong>SQL Server Management Studio</strong>. You can use it to connect to <strong>Windows Azure SQL Database</strong>. <strong>SQL Server Management Studio</strong> is a familiar tool to most developers and can boost productivity tremendously.  Launch <strong>SQL Server Management Studio</strong> from any computer connected to the Internet. Click the <strong>Connect button</strong> on <strong>Object Explorer</strong>. as stated earlier in this lab, you will need the <strong>Server Name</strong> as well as the <strong>Login Credentials</strong> to connect to the cloud hosted instance of <strong>Windows Azure SQL Database</strong>. Click <strong>Connect</strong> when you have entered in this information. </p>
+
+<p><img src="Images/image021.png?raw=true" alt="Using **SQL Server Management Studio**">
+</p>
+
+<p><em>Using <strong>SQL Server Management Studio</strong></em></p></li>
+<li><p>You can right mouse click on the <strong>customers</strong> table and select <strong>Script Table As | Select To | New Query Editor Window</strong>. Next, click on the <strong>Execute</strong> toolbar button at the top. You should see the same <strong>customer</strong> information as in the previous step. </p>
+
+<p><img src="Images/image022.png?raw=true" alt="Entering the select query">
+</p>
+
+<p><em>Entering the select query</em></p></li>
+</ol>
+
+<p><a name="GettingStartedTask1"></a></p>
+
+<h4 id="Task_4__Getting_the_connection_string_to_your_Windows_Azure_SQL_Database">Task 4 – Getting the connection string to your Windows Azure SQL Database</h4>
+
+<p>In this task you get the connection string to your newly created ##Windows Azure SQL Database##.</p>
+
+<ol>
+<li><p>The final step to this lab is to get the actual <strong>connection string</strong> that can be used by client applications. The Windows Azure portal gives this to you with just a simple mouse click. Return back to the <strong>SQL database</strong> selection at the <strong>Windows Azure portal</strong>. Note the selection at the bottom of the portal, <strong>View SQL Database connection strings for ADO .Net, ODBC, PHP, and JDBC</strong>. Click on it. </p>
+
+<p><img src="Images/image023.png?raw=true" alt="Getting the connection string">
+</p>
+
+<p><em>Getting the connection string</em></p></li>
+<li><p>You now have all the needed information to connect up to your <strong>Windows Azure SQL Database</strong>. </p>
+
+<p><img src="Images/image024.png?raw=true" alt="Viewing all available connection strings">
+</p>
+
+<p><em>Viewing all available connection strings</em></p></li>
+</ol>
+
+<h2 id="Summary">Summary</h2>
+
+<p>In this lab, you have learned how to migrate an on-premises database to <strong>Windows Azure SQL Database</strong>. The built in tooling inside of <strong>SQL Server Management Studio</strong> makes the process very easy.</p>
+
+</div>
+</body>
+</html>

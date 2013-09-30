@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Markdown Preview</title>
+<style>
+body{font-family:helvetica, arial, freesans, clean, sans-serif;color:#333;line-height:1.6;font-size:14px}.markdown-body{line-height:1.6;font-size:14px}.markdown-body > *:first-child{margin-top:0 !important}.markdown-body > *:last-child{margin-bottom:0 !important}.markdown-body a.absent{color:#c00}.markdown-body h1{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:28px;margin:20px 0 10px;padding:0}.markdown-body h2{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:24px;border-bottom-color:#ccc;border-bottom-width:1px;border-bottom-style:solid;margin:20px 0 10px;padding:0}.markdown-body h3{font-weight:700;-webkit-font-smoothing:antialiased;font-size:18px;margin:20px 0 10px;padding:0}.markdown-body h4{font-weight:700;-webkit-font-smoothing:antialiased;font-size:16px;margin:20px 0 10px;padding:0}.markdown-body h5{font-weight:700;-webkit-font-smoothing:antialiased;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body h6{font-weight:700;-webkit-font-smoothing:antialiased;color:#777;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body blockquote{color:#777;border-left-color:#ddd;border-left-width:4px;border-left-style:solid;margin:15px 0;padding:0 15px}.markdown-body dl{margin:15px 0;padding:0}.markdown-body table{border-collapse:collapse;margin:15px 0;padding:0}.markdown-body pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;margin:15px 0;padding:6px 10px}.markdown-body li p.first{display:inline-block}.markdown-body dl dt{font-size:14px;font-style:italic;font-weight:700;margin:15px 0 5px;padding:0}.markdown-body dl dt:first-child{padding:0}.markdown-body dl dd{margin:0 0 15px;padding:0 15px}.markdown-body table tr{border-top-color:#ccc;border-top-width:1px;border-top-style:solid;background-color:#fff;margin:0;padding:0}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%}.markdown-body span.frame{overflow:hidden;display:block}.markdown-body span.frame > span{border:1px solid #ddd;width:auto;overflow:hidden;float:left;display:block;margin:13px 0 0;padding:7px}.markdown-body span.frame span img{float:left;display:block}.markdown-body span.frame span span{color:#333;clear:both;display:block;padding:5px 0 0}.markdown-body span.align-center > span{text-align:center;overflow:hidden;display:block;margin:13px auto 0}.markdown-body span.align-center span img{text-align:center;margin:0 auto}.markdown-body span.align-right > span{text-align:right;overflow:hidden;display:block;margin:13px 0 0}.markdown-body span.align-right span img{text-align:right;margin:0}.markdown-body span.float-left{overflow:hidden;margin-right:13px;float:left;display:block}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{overflow:hidden;margin-left:13px;float:right;display:block}.markdown-body span.float-right > span{text-align:right;overflow:hidden;display:block;margin:13px auto 0}.markdown-body pre > code{border:currentColor;white-space:pre;margin:0;padding:0}.markdown-body .highlight pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;padding:6px 10px}.markdown-body p,.markdown-body li{margin:15px 0}.markdown-body ul,.markdown-body ol{padding-left:30px;margin:15px 0}.markdown-body > h2:first-child,.markdown-body > h1:first-child,.markdown-body > h1:first-child + h2{border:0 currentColor;padding-top:0;margin-top:0}.markdown-body > h3:first-child,.markdown-body > h4:first-child,.markdown-body > h5:first-child,.markdown-body > h6:first-child{padding-top:0;margin-top:0}.markdown-body h1 + p,.markdown-body h2 + p,.markdown-body h3 + p,.markdown-body h4 + p,.markdown-body h5 + p,.markdown-body h6 + p,.markdown-body ul li > :first-child,.markdown-body ol li > :first-child,.markdown-body dl dt > :first-child,.markdown-body dl dd > :first-child,.markdown-body blockquote > :first-child,.markdown-body table tr th > :first-child,.markdown-body table tr td > :first-child{margin-top:0}.markdown-body ul li > :last-child,.markdown-body ol li > :last-child,.markdown-body dl dt > :last-child,.markdown-body dl dd > :last-child,.markdown-body blockquote > :last-child,.markdown-body table tr th > :last-child,.markdown-body table tr td > :last-child{margin-bottom:0}.markdown-body table tr th,.markdown-body table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}.markdown-body span.align-center,.markdown-body span.align-right{overflow:hidden;clear:both;display:block}.markdown-body code,.markdown-body tt{border-radius:3px;border:1px solid #eaeaea;white-space:nowrap;background-color:#f8f8f8;margin:0 2px;padding:0 5px}.markdown-body pre code,.markdown-body pre tt{border:currentColor;background-color:transparent}span.codelanguage{display:none}
+</style>
+</head>
+<body>
+<div class="markdown-body">
+<p><a name="Title"></a></p>
+
+<h1 id="Migrating_an_On-Premises_SQL_Server_Database_to_a_Windows_Azure_Virtual_Machine_with_SQL_Server">Migrating an On-Premises SQL Server Database to a Windows Azure Virtual Machine with SQL Server</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2 id="Overview">Overview</h2>
+
+<p>This hands-on lab walks you through the process of configuring a Windows Azure Virtual Machine with SQL Server 2012 pre-installed.  You will then create a Windows Azure Storage account, and export a .bacpac file from an on-premises SQL Database into Azure Storage.  </p>
+
+<p>For this lab, we will treat the &quot;Development Virtual Machine&quot; you created as part of the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab as our &quot;on-premises&quot; server.  Yes, it really is running in Azure, but for this lab pretend it is just another Virtual Machine on your own local network.  </p>
+
+<p>Next, we'll configure the security (Firewall and SQL Logins) on the Windows Azure Virtual Machine with SQL Server to ensure that we can connect to the database remotely.</p>
+
+<p>Finally, we will deploy the .bacpac exported from our &quot;on-premises&quot; server into the SQL Server instance running the Windows Azure Virtual Machine, and verify that we can connect to it remotely.  </p>
+
+<p><img src="Images/01-highlevel.png?raw=true" alt="Exporting to Windows Azure Storage">
+</p>
+
+<p><em>Exporting to Windows Azure Storage</em></p>
+
+<p><a name="Objectives"></a></p>
+
+<h3 id="Objectives">Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Provision a Windows Azure Virtual Machine with SQL Server 2012 pre-installed</li>
+<li>Create a Windows Azure Storage Account to store the <strong>.bacpac</strong> file</li>
+<li>Use SQL Server Management Studio to Export a Data-tier Application (<strong>.bacpac</strong>) </li>
+<li>Configure security on the new Virtual Machine</li>
+<li>Deploy a .bacpac file into a Windows Azure Virtual Machine with SQL Server.<br></li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3 id="Prerequisites">Prerequisites</h3>
+
+<p>The following is required to complete this hands-on lab:</p>
+
+<!-- TODO: UPDATE THE Pre-Reqs to match the actual setup lab name  -->
+
+<!-- TODO: FIX DOWNLOAD LINK -->
+
+<ul>
+<li>A Windows Azure subscription -  <a href="http://aka.ms/WATK-FreeTrial">sign up for a free trial</a> </li>
+<li><strong>Either</strong> Completing the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab to create a Windows Azure Virtual Machine for use as your development environment, <strong>OR</strong> A development workstation with <strong>Visual Studio 2013 Ultimate RC</strong> and <strong>SQL Server 2012 Express</strong> installed. </li>
+<li>Successful completion of the <strong>&quot;02-AzureStorageLab&quot;</strong>.  The steps in that lab create the <strong>&quot;MVC4Sample&quot;</strong> database we will export in this lab. </li>
+<li>Download of the <a href="http://aka.ms/BLabs">Lab Files</a></li>
+</ul>
+
+<p><a name="Setup"></a></p>
+
+<h3 id="Setup">Setup</h3>
+
+<p>The instructions in the lab assume you are remoted into the development Virtual Machine created during the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab.  If you prefer can follow the exact same steps on a Windows machine with <strong>Visual Studio 2013 Ultimate RC</strong> and <strong>SQL Server 2012 Express</strong> installed, however the instructions assume the environment created in the setup lab.</p>
+
+<ol>
+<li>Open a <strong>Remote Desktop Connection</strong> to the development Virtual Machine you created in the <strong>&quot;01-SetupVS2013SQLVM&quot;</strong> lab.</li>
+</ol>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2 id="Exercises">Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:</p>
+
+<ul>
+<li><a href="#Exercise1">Exercise 1: Create a Windows Azure Virtual Machine with SQL Server</a></li>
+<li><a href="#Exercise2">Exercise 2: Create a Windows Azure Storage Account to Store Bacpac Files</a></li>
+<li><a href="#Exercise3">Exercise 3: Use SQL Server Management Studio to Export a SQL bacpac file to Windows Azure Storage</a></li>
+<li><a href="#Exercise4">Exercise 4: Configure Security on the Windows Azure Virtual Machine with SQL Server</a></li>
+<li><a href="#Exercise5">Exercise 5: Deploy the .bacpac to SQL Server running in a Windows Azure Virtual Machine with SQL Server</a></li>
+</ul>
+
+<!--
+========================================
+Exercise 1
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise1"></a></p>
+
+<h3 id="Exercise_1_Create_a_Windows_Azure_Virtual_Machine_with_SQL_Server_2012">Exercise 1: Create a Windows Azure Virtual Machine with SQL Server 2012</h3>
+
+<p>In this exercise, you will provision a new <strong>Windows Azure Virtual Machine</strong> with <strong>SQL Server 2012</strong> already installed.  We will later deploy the <strong>.bacpac</strong> we created above into the SQL Server instance in that Virtual Machine.    </p>
+
+<p><a name="Exercise1Task1"></a></p>
+
+<h4 id="Task_1__Create_a_Windows_Azure_Virtual_Machine_with_SQL_Server_2012">Task 1 – Create a Windows Azure Virtual Machine with SQL Server 2012</h4>
+
+<ol>
+<li><p>In the management portal, select &quot;VIRTUAL MACHINES&quot; along the left hand side, then click the &quot;+ NEW&quot; button in the bottom left hand corner:</p>
+
+<p><img src="images/15-new-virtual-machine.png?raw=true" alt="15-New-Virtual-Machine" title="New Virtual Machine">
+</p>
+
+<p><em>Create a new Virtual Machine</em></p></li>
+<li><p>In the <strong>&quot;NEW&quot;</strong> panel, select <strong>&quot;COMPUTE&quot;</strong> | <strong>&quot;VIRTUAL MACHINE&quot;</strong> | <strong>&quot;FROM GALLERY&quot;</strong>.</p>
+
+<p><img src="images/16-from-gallery.png?raw=true" alt="16-From-Gallery" title="From Gallery">
+</p>
+
+<p><em>Create a new Virtual Machine from the Gallery</em></p></li>
+<li><p>Pick the <strong>&quot;SQL Server 2012 SP1 Enterprise on WS 2012&quot;</strong> image.  As it's name implies, this will be a <strong>Windows Server 2012 Virtual Machine</strong> with <strong>SQL Server 2012 SP1 Enterprise</strong> pre-installed.  Click the <strong>right arrow</strong> to continue:</p>
+
+<p><img src="images/17-ws2012-sql2012.png?raw=true" alt="17-WS2012-SQL2012" title="Windows Server 2012 with SQL Server 2012">
+</p>
+
+<p><em>Windows Server 2012 with SQL Server 2012</em></p></li>
+<li><p>Give the new Virtual Machine a <strong>name</strong>, <strong>size</strong> and <strong>user name</strong> and password.  You may want to use the same user name and password that you used for the development Virtual Machine to help reduce confusion.  Click the <strong>right arrow</strong> to continue:</p>
+
+<p><img src="images/18-vm-config.png?raw=true" alt="18-VM-Config" title="Virtual Machine Configuration">
+</p>
+
+<p><em>Virtual Machine Name, Size, User Name and Password</em></p></li>
+<li><p><strong>Create a new cloud service</strong> for the Virtual Machine.  Make sure the cloud service has a <strong>unique DNS name</strong>, then assign an appropriate <strong>subscription</strong>, <strong>Region</strong>, <strong>Storage Account</strong> and <strong>Availability Set</strong>.  Clic the <strong>right arrow</strong> to continue:</p>
+
+<p><img src="images/19-vm-cloud-service.png?raw=true" alt="19-VM-Cloud-Service" title="Cloud Service">
+</p>
+
+<p><em>Virtual Machine Cloud Service Settings</em></p></li>
+<li><p>We will want to connect to this Virtual Machine from other servers (for example, a Windows Azure Web Site).  Since we know that already we can provision the Cloud Service with an Endpoint that maps <strong>MSSQL traffic (port 1433)</strong> to the Virtual Machine's port 1433.  To do this, click the drop-down arrow next to <strong>&quot;ENTER OR SELECT A VALUE&quot;</strong> and select <strong>&quot;MSSQL&quot;</strong> from the list.  Then click the checkmark button in the lower right corner to finish the wizard:</p>
+
+<p><img src="images/20-pick-mssql.png?raw=true" alt="20-Pick-MSSQL" title="Pick MSSQL From the List">
+</p>
+
+<p><em>Pick MSSQL From the list of values</em></p>
+
+<p><img src="images/21-mssql-endpoint.png?raw=true" alt="21-MSSQL-Endpoint" title="MSSQL Endpoint">
+</p>
+
+<p><em>MSSQL Endpoint</em></p></li>
+<li><p>Provisioning the Virtual Machine will take anywhere from 5-15 minutes.  While the provisioning is being done go ahead and continue with Exercises 2 and 3.  </p></li>
+</ol>
+
+<!--
+========================================
+Exercise 2
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise2"></a></p>
+
+<h3 id="Exercise_1_Create_a_Windows_Azure_Storage_Account_to_Store_Bacpac_Files">Exercise 1: Create a Windows Azure Storage Account to Store Bacpac Files</h3>
+
+<p>In this exercise you will use create a <strong>Windows Azure Storage</strong> account and to store the <strong>.bacpac</strong> files we will export using <strong>SSMS</strong> in the next exercise.  </p>
+
+<p><a name="Exercise2Task1"></a></p>
+
+<h4 id="Task_1__Create_a_Windows_Azure_Storage_Account">Task 1 – Create a Windows Azure Storage Account</h4>
+
+<ol>
+<li><p>On the remote development Virtual Machine, open the <strong>Windows Azure Management Portal</strong>, and select the <strong>&quot;Storage&quot;</strong> icon along the left.  Click the <strong>&quot;+ NEW&quot;</strong> button in the lower left corner. </p>
+
+<p><img src="images/01-storage-portal.png?raw=true" alt="01-Storage-Portal" title="Storage Accounts in the Portal">
+</p>
+
+<p><em>Storage accounts in the portal</em></p></li>
+<li><p>In the <strong>&quot;NEW&quot;</strong> Panel, select <strong>&quot;DATA SERVICES&quot;</strong> | <strong>&quot;STORAGE&quot;</strong> | <strong>&quot;QUICK CREATE&quot;</strong>.  Give your new storage account a unique name, a location, a subscription (if needed) and click <strong>&quot;CREATE STORAGE ACCOUNT&quot;</strong>.</p>
+
+<p><img src="images/02-new-storage-account.png?raw=true" alt="02-New-Storage-Account" title="New Storage Account">
+</p>
+
+<p><em>Create a new storage account</em></p></li>
+<li><p>Once the storage accont is created, select it by clicking to the right of it's name in the Management Portal.  Click <strong>&quot;MANAGE ACCESS KEYS&quot;</strong> along the bottom to view the access keys for the account.  </p>
+
+<p><img src="images/03-select-new-account.png?raw=true" alt="03-Select-New-Account" title="Select the New Storage Account">
+</p>
+
+<p><em>Select the New Storage Account</em></p></li>
+<li><p>In the <strong>&quot;Manage Access Keys&quot;</strong> window, click the copy button (<img src="images/04-copy-icon.png?raw=true" alt="04-Copy-Icon" title="Copy Icon">
+) next to the <strong>&quot;PRIMARY ACCESS KEY&quot;</strong> to copy the key to the clipboard.  If prompted to allow access to the clipboard, click <strong>&quot;Allow&quot;</strong>:</p>
+
+<p><img src="images/05-copy-primary-access-key.png?raw=true" alt="05-Copy-Primary-Access-Key" title="Copy Primary Access Key">
+</p>
+
+<p><em>Copy the Storage Account's Primary Access Key to the Clipboard</em></p></li>
+<li><p>Make note of the storage account name and primary access key. You will need these both in a later exercise.</p></li>
+</ol>
+
+<!--
+========================================
+Exercise 3
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise3"></a></p>
+
+<h3 id="Exercise_3_Use_SQL_Server_Management_Studio_to_Export_a_SQL_bacpac_file_to_Windows_Azure_Storage">Exercise 3: Use SQL Server Management Studio to Export a SQL bacpac file to Windows Azure Storage</h3>
+
+<p>In this section you will use <strong>SQL Server Management Studio Express (SSMS)</strong> to export a database to <strong>&quot;.bacpac&quot;</strong> file.  <strong>&quot;.Bacpac&quot;</strong> files include all the information needed to recreate a database, including it's data, where as <strong>&quot;.dacpac&quot;</strong> files include just the database schema.</p>
+
+<p><strong>SSMS</strong> has the ability to create both <strong>.bacpac</strong> and <strong>.dacpac</strong> files. You can do this in both the <strong>Express</strong> version of <strong>SQL Server Management Studio (SSMS)</strong>, or the full version installed with SQL Server itself.   </p>
+
+<p><a name="Exercise3Task1"></a></p>
+
+<h4 id="Task_1__Exporting_the_on-premises_database">Task 1 – Exporting the on-premises database</h4>
+
+<p>This exercise is about creating a <strong>bacpac</strong> file and putting it in <strong>Windows Azure Storage</strong>. As you recall, in <a href="#Exercise2">Exercise 2</a> we created a storage account for this very purpose.  </p>
+
+<p>For this lab, assume the development Virtual Machine is your <strong>&quot;on-premises&quot;</strong> server.  We will export the <strong>MVC4Sample</strong> database on the on-premises SQL Server to a <strong>.bacpac</strong> file in <strong>Windows Azure Storage</strong>.  We will then later deploy that <strong>.bacpac</strong> file to the <strong>SQL Server</strong> instance running the <strong>Windows Azure Virtual Machine</strong> we created in <a href="#Exercise1">Exercise 1</a>.</p>
+
+<ol>
+<li><p>In the development workstation VM, open <strong>SQL Server Management Studio</strong>, and connect to the &quot;<strong>(local)\SQLEXPRESS&quot;</strong> instance.  </p></li>
+<li><p>In the <strong>SSMS Object Explorer</strong>, expand <strong>&quot;(local)\SQLEXPRESS...)&quot;</strong> | <strong>&quot;Databases&quot;</strong>.  <strong>Right-click</strong> on <strong>MVC4Sample</strong>. Choose <strong>Tasks</strong> | <strong>Export Data-tier Application</strong>. </p>
+<blockquote>
+<p><strong>Note:</strong> There are actually a number of ways to move a database into Windows Azure.  From this menu you can see options like <strong>&quot;Generate Scripts...&quot;</strong>, <strong>&quot;Deploy Database to SQL Azure&quot;</strong>, <strong>&quot;Extract Data-tier Application...&quot;</strong> and <strong>&quot;Export Data-tier Application...&quot;</strong>.  In this lab we will use the <strong>&quot;Export Data-tier Application&quot;</strong> option so that we create an independent bacpac file we can use later.</p>
+</blockquote>
+<p><img src="images/06-export-data-tier-application.png?raw=true" alt="02-Export-Data-Tier-Application" title="Export Data Tier Application">
+</p>
+
+<p><em>Export Data Tier Application</em></p></li>
+<li><p>In the <strong>&quot;Export Data-tier Application 'MVC4Sample'&quot;</strong> wizard click <strong>&quot;Next&quot;</strong> to continue:</p>
+
+<p><img src="images/07-export-data-tier-application-wizard.png?raw=true" alt="07-Export-Data-Tier-Application-Wizard" title="Export Data-tier Application Wizard">
+</p>
+
+<p><em>Export Data-tier Application Wizard</em></p></li>
+<li><p>On the <strong>&quot;Export Settings&quot;</strong> page, select <strong>&quot;Save to Windows Azure&quot;</strong> and click <strong>&quot;Connect...&quot;</strong> to connect to the Storage Account we created above:</p>
+
+<p><img src="images/08-save-to-azure.png?raw=true" alt="08-Save-To-Azure" title="Save to Windows Azure">
+</p>
+
+<p><em>Save to Windows Azure</em></p></li>
+<li><p>In the &quot;Connect to Windows Azure Storage&quot; window, In the <strong>&quot;Storage account:&quot;</strong> field enter the name of the storage account you created above.  In the <strong>&quot;Account key:&quot;</strong> paste in the <strong>Primary Access Key</strong> for the storage account that we copied to the clipboard above.  Click <strong>&quot;Connect&quot;</strong> to connect.  </p>
+
+<p><img src="images/09-connect-to-storage.png?raw=true" alt="09-Connect-To-Storage" title="Connect to Storage Account">
+</p>
+
+<p><em>Connect to Storage Account</em></p></li>
+<li><p>Back on the <strong>&quot;Export Settings&quot;</strong> page enter the name of the blob storage container you want the .bacpac to be stored in.  If the container doesn't exist, it will be created during the export and click <strong>&quot;Next&quot;</strong>:</p>
+
+<p><img src="images/10-select-container.png?raw=true" alt="10-Select-Container" title="Enter the Container Name">
+</p>
+
+<p><em>Enter the Container Name</em></p></li>
+<li><p>On the <strong>&quot;Summary&quot;</strong> page, click <strong>&quot;Finish&quot;</strong> to complete the <strong>&quot;Export Data-tier Application 'MVC4Sample'&quot;</strong> Wizard:</p>
+
+<p><img src="images/11-finish.png?raw=true" alt="11-Finish" title="Finish">
+</p>
+
+<p><em>Finish the Wizard</em></p></li>
+<li><p>On the <strong>&quot;Results&quot;</strong> page, verify that the operation completed successfully and click <strong>&quot;Close&quot;</strong>:</p>
+
+<p><img src="images/12-export-results.png?raw=true" alt="12-Export-Results" title="Verify Export Results">
+</p>
+
+<p><em>Verify the Export Results</em></p></li>
+<li><p>Return to the <strong>Azure Management Portal</strong>, and open the <strong>Storage Account</strong> we just created.  Select the <strong>&quot;Containers&quot;</strong> page, and then click on the container name you created during the Export wizard above.  </p>
+
+<p><img src="images/13-open-new-container.png?raw=true" alt="13-Open-New-Container" title="Open the New Storage Container">
+</p>
+
+<p><em>Open the new Storage Container</em></p></li>
+<li><p>Verify that the <strong>.bacpac</strong> file exists in the container:</p>
+
+<p><img src="images/14-verify-bacpac.png?raw=true" alt="14-Verify-BacPac" title="Verify the BacPac File in the Container">
+</p>
+
+<p><em>Verify that the <strong>.bacpac</strong> file exists in the container</em></p></li>
+</ol>
+
+<!--
+========================================
+Exercise 4
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise4"></a></p>
+
+<h3 id="Exercise_4_Configure_Security_on_the_Windows_Azure_Virtual_Machine_with_SQL_Server">Exercise 4: Configure Security on the Windows Azure Virtual Machine with SQL Server</h3>
+
+<p>In this exercise you will first complete the configuraiton of the Windows Azure Virtual Machine with SQL Server 2012 that we provisioned in <a href="#Exercise1">Exercise 1</a>.  </p>
+
+<p>There are two basic tasks here.  First is to open the Windows Firewall to allow traffic on port 1433 to make it into the SQL Server Instance.  The second task is to configure SQL Server to allow both SQL Server and Windows Authentication, as well as to provision a SQL Server Authenticated login that can be used for remote connections.</p>
+
+<p><a name="Exercise4Task1"></a></p>
+
+<h4 id="Task_1__Open_the_Windows_Firewall_to_Allow_Port_SQL_Server_Traffic">Task 1 – Open the Windows Firewall to Allow Port SQL Server Traffic</h4>
+
+<p>Even though we created an Endpoint for <strong>&quot;MSSQL&quot; (port 1433)</strong> when we provisioned the Virtual Machine, that was for the external firewall on our Cloud Service.  We need to also open 1433 on the Windows Firewall inside the Virtual Machine if we want the traffic to be able to make it all the way in to the SQL Server instance on the Virtual Machine.  We'll do that here.</p>
+
+<ol>
+<li><p>On the development Virtual Machine (remember it is playing the role of our &quot;on-premises&quot; server for this lab), in the Windows Azure Managment Portal, select the new <strong>Windows Azure Virtual Machine with SQL Server</strong> we created in <a href="#Exercise1">Exercise1</a>, click <strong>&quot;CONNECT&quot;</strong> along the bottom:</p>
+
+<p><img src="images/22-connect-to-sqlvm.png?raw=true" alt="22-Connect-To-SQLVM" title="Connect to the SQL Server Virtual Machine">
+</p></li>
+<li><p>Open the .RDP file and follow the prompts to connect to the SQL Server VM with Remote Desktop:</p>
+
+<p><em>Connect to the SQL Server Virtual Machine</em></p>
+
+<p><img src="images/23-open-rdp.png?raw=true" alt="23-Open-RDP" title="Open the .RDP File">
+</p>
+
+<p><em>Open the .RDP file</em></p></li>
+<li><p>In the <strong>SQL Server VM</strong> Remote Desktop Connection, move your mouse to the lower left corner, then click &quot;Start&quot;</p>
+
+<p><img src="images/24-go-to-start.png?raw=true" alt="24-Go-To-Start" title="Go to the Start Screen">
+</p>
+
+<p><em>Go to the Start Screen</em></p></li>
+<li><p>From the Start Screen, pick <strong>&quot;Administrative Tools&quot;</strong>:</p>
+
+<p><img src="images/25-select-admin-tools.png?raw=true" alt="25-Select-Admin-Tools" title="Administrative Tools">
+</p>
+
+<p><em>Administrative Tools</em></p></li>
+<li><p>Double click on &quot;Windows Firewall with Advanced Security&quot;:</p>
+
+<p><img src="images/26-windows-firewall.png?raw=true" alt="26-Windows-Firewall" title="Windows Firewall with Advanced Security">
+</p>
+
+<p><em>Windows Firewall with Advanced Security</em></p></li>
+<li><p>In the <strong>&quot;Windows Firewall with Advanced Security&quot;</strong> window, right click <strong>&quot;Inbound Rules&quot;</strong> and select <strong>&quot;New Rule...&quot;</strong> from the pop-up menu:</p>
+
+<p><img src="images/27-new-rule.png?raw=true" alt="27-New-Rule" title="New Rule">
+</p>
+
+<p><em>New Rule</em></p></li>
+<li><p>In the <strong>&quot;New Inbound Rule Wizard&quot;</strong>, on the <strong>&quot;Rule Type&quot;</strong> page, select <strong>&quot;Port&quot;</strong> and click <strong>&quot;Next&quot;</strong>:</p>
+
+<p><img src="images/28-port.png?raw=true" alt="28-Port" title="Port">
+</p>
+
+<p><em>Select Port</em></p></li>
+<li><p>On the <strong>&quot;Protocol and Ports&quot;</strong> page, select <strong>&quot;TCP&quot;</strong>.  Then select <strong>&quot;Specific local ports:&quot;</strong> and enter <strong>&quot;1433&quot;</strong>.  SQL Server traffic goes to port 1433 by default.  Click &quot;Next&quot; to continue:</p>
+
+<p><img src="images/29-enable-port-1433.png?raw=true" alt="29-Enable-Port-1433" title="Enable Port 1433">
+</p>
+
+<p><em>Enable port 1433</em></p></li>
+<li><p>On the <strong>&quot;Action&quot;</strong> page, select <strong>&quot;Allow the connection&quot;</strong> and click <strong>&quot;Next&quot;</strong> to continue:</p>
+
+<p><img src="images/30-allow-connection.png?raw=true" alt="30-Allow-Connection" title="Allow the Connection">
+</p>
+
+<p><em>Allow the Connection</em></p></li>
+<li><p>On the <strong>&quot;Profile&quot;</strong> page, enable all the profiles and click &quot;Next&quot; to continue:</p>
+
+<p><img src="images/31-all-profiles.png?raw=true" alt="31-All-Profiles" title="All Profiles">
+</p>
+
+<p><em>Enable All Profiles</em></p></li>
+<li><p>On the <strong>&quot;Name&quot;</strong> page, enter a <strong>Name</strong> and <strong>Description</strong>, then click <strong>&quot;Finish&quot;</strong>:</p>
+
+<p><img src="images/32-rule-name.png?raw=true" alt="32-Rule-Name" title="Rule Name">
+</p>
+
+<p><em>Rule Name and Description</em></p></li>
+<li><p>You can close the <strong>&quot;Windows File with Advanced Security&quot;</strong> window.</p></li>
+</ol>
+
+<p><a name="Exercise4Task2"></a></p>
+
+<h4 id="Task_2__Configure_SQL_Server_Security_and_Create_a_SQL_Server_Login">Task 2 – Configure SQL Server Security and Create a SQL Server Login</h4>
+
+<p>The SQL Server 2012 Instance installed via the gallery image is setup for Windows Authentication Only.  Because the computers in this lab don't belong to the same Active Directory Domain, security will be easier in general if we used SQL Server Authentication rather than Windows Authentication.  It should be said that in the long-run Windows Authentication would be preferred, but would require a little more configuration that we have time for in this lab.  </p>
+
+<p>With that in mind, in this task, we will configured the SQL Server instance to support both SQL Server and Windows Authentication, then create a SQL Server Authenticated login that we can use to connect.</p>
+
+<ol>
+<li><p>In the &quot;Windows Azure VM with SQL Server&quot; Remote Desktop Connection, open SQL Server Management Studio.  To do so you can go to the <strong>Start</strong> screen and start typing <strong>SSMS</strong>, then click the &quot;SQL Server Management Studio&quot; shortcut:</p>
+
+<p><img src="images/33-find-ssms.png?raw=true" alt="33-Find-SSMS" title="Lanch SSMS">
+</p>
+
+<p><em>Start SQL Server Management Studio</em></p></li>
+<li><p>When SSMS Opens, connect to the SQL Instance on the Virtual Machine with Windows Authentication:</p>
+
+<p><img src="images/34-connect-ssms.png?raw=true" alt="34-Connect-SSMS" title="Connect SSMS">
+</p>
+
+<p><em>Connect to the SQL Server Instance in the Virtual Machine</em></p></li>
+<li><p>In the SSMS <strong>&quot;Object Explorer&quot;</strong>, right click on the server node and select &quot;Properties&quot;</p>
+
+<p><img src="images/35-server-properties.png?raw=true" alt="35-Server-Properties" title="Server Properties">
+</p>
+
+<p><em>Go to the Server Properties</em></p></li>
+<li><p>In the &quot;Server Properties&quot; window, go to the &quot;Security&quot; and select &quot;SQL Server and Windows Authentication mode&quot;.  Click &quot;OK&quot; to close the window:</p>
+
+<p><img src="images/36-mixed-mode-security.png?raw=true" alt="36-Mixed-Mode-Security" title="Mixed Mode Security">
+</p>
+
+<p><em>Enable SQL Server and Windows Authentication</em></p></li>
+<li><p>A dialog appear informing you to restart the SQL Server instance for the new settings to take effect.  Click &quot;OK&quot;:</p>
+
+<p><img src="images/37-restart-warning.png?raw=true" alt="37-Restart-Warning" title="Restart Warning">
+</p>
+
+<p><em>Restart Warning</em></p></li>
+<li><p>In the SSMS <strong>&quot;Object Explorer&quot;</strong> right click the server node again and select <strong>&quot;Restart&quot;</strong>.  Click &quot;Yes&quot; in the window that appears to confirm the restart:</p>
+
+<p><img src="images/38-restart-sql.png?raw=true" alt="38-Restart-SQL" title="Restart SQL">
+</p>
+
+<p><em>Restart SQL Server</em></p></li>
+<li><p>Once the SQL Server Instance has restarted, in the <strong>&quot;Object Explorer&quot;</strong> window, expand <strong>&quot;Security&quot;</strong> | <strong>&quot;Logins&quot;</strong>.  Right click on <strong>&quot;Logins&quot;</strong> and select <strong>&quot;New Login...&quot;</strong>:</p>
+
+<p><img src="images/39-new-login.png?raw=true" alt="39-New-Login" title="New Login">
+</p>
+
+<p><em>Create a new Login</em></p></li>
+<li><p>In the <strong>&quot;Login - New&quot;</strong> window, on the <strong>&quot;General&quot;</strong> page, select <strong>&quot;SQL Server authentication&quot;</strong> and enter a SQL <strong>Login name</strong> and <strong>Password</strong>.  <strong><em>Again, you might want to use the same credentials as you have been using for the Virtual Machine login credentials just to reduce confusion.</em></strong>  Ensure that the <strong>&quot;Enforce password policy&quot;</strong> check box is <strong>CLEARED</strong>:</p>
+
+<p><img src="images/40-login-general.png?raw=true" alt="40-Login-General" title="Login General Settings">
+</p>
+
+<p><em>General Settings</em></p></li>
+<li><p>Switch to the <strong>&quot;Server Roles&quot;</strong> page and select <strong>&quot;sysadmin&quot;</strong>.  The click <strong>&quot;OK&quot;</strong> to create the new login:</p>
+<blockquote>
+<p><strong>Note:</strong> Making this new login a sysadmin is overkill, but for the lab we don't want to have any security related issues.  You should consider a more restricted security configuration for production use.  </p>
+</blockquote>
+<p><img src="images/41-make-sysadmin.png?raw=true" alt="41-Make-Sysadmin" title="Make Sysadmin">
+</p>
+
+<p><em>Make the new Login a Sysadmin</em></p></li>
+</ol>
+
+<!--
+========================================
+Exercise 5
+========================================
+-->
+
+<hr>
+
+<p><a name="Exercise5"></a></p>
+
+<h3 id="Exercise_5_Deploy_the_bacpac_to_SQL_Server_running_in_a_Windows_Azure_Virtual_Machine_with_SQL_Server">Exercise 5: Deploy the .bacpac to SQL Server running in a Windows Azure Virtual Machine with SQL Server</h3>
+
+<p>In this final exercise, we will deploy the .bacpac file created back in Exercises <a href="#Exercise2">2</a> and <a href="#Exercise3">3</a> into the Windows Azure Virtual Machine with SQL Server.</p>
+
+<p>First, we'll deploy the .bacpac to the Windows Azure Virtual Machine with SQL Server.  Then, we'll return to our development VM to verify that we can connect to the database remotely. </p>
+
+<p><a name="Exercise5Task1"></a></p>
+
+<h4 id="Task_1__Deploy_the_bacpac">Task 1 – Deploy the .bacpac</h4>
+
+<ol>
+<li><p>In the Remote Desktop Connection to the Windows Azure Virtual Machine with SQL Server, in SQL Server Management Studio, right click on the &quot;Databases&quot; node and select &quot;Import Data-tier Application&quot;:</p>
+
+<p><img src="images/32-import-bacpac.png?raw=true" alt="32-Import-Bacpac" title="Import Data-tier Application">
+</p>
+
+<p><em>Import Data-tier Application</em></p></li>
+<li><p>In the &quot;Import Data-tier Application&quot; wizard, on the &quot;Introduction&quot; page, click &quot;Next&quot; to continue:</p>
+
+<p><img src="images/43-import-intro.png?raw=true" alt="43-Import-Intro" title="Import Introduction">
+</p>
+
+<p><em>Introduction</em></p></li>
+<li><p>For the next step, you will need to recall the <strong>Windows Azure Storage Account Name</strong> and <strong>Primary Access Key</strong>.  We saw these back in <a href="#Exercise2">Exercise 2</a>.  If you need to return to the Management Portal to copy those values again, do so now.  Having the Primary Access Key copied to the clipboard will help with the next step.</p></li>
+<li><p>On the &quot;Import Settings&quot; page, select &quot;Import from Windows Azure&quot; and click &quot;Connect&quot;:</p>
+
+<p><img src="images/44-import-settings-connect.png?raw=true" alt="44-Import-Settings-Connect" title="Import Settings">
+</p>
+
+<p><em>Import Settings</em></p></li>
+<li><p>In the <strong>&quot;Connect to Windows Azure Storage&quot;</strong> window, enter your <strong>&quot;Storage account:&quot;</strong> name, and paste your <strong>Primary Access Key</strong> in for the <strong>&quot;Account key:&quot;</strong>.  Click <strong>&quot;Connect&quot;</strong> to close the window:</p>
+
+<p><img src="images/45-connect-to-storage.png?raw=true" alt="45-Connect-To-Storage" title="Connect to Windows Azure Storage">
+</p>
+
+<p><em>Connect to Windows Azure Storage</em></p></li>
+<li><p>Back on the &quot;Import Settings&quot; page, select the appropriate <strong>&quot;Container:&quot;</strong> and <strong>&quot;File name:&quot;</strong> values, then click <strong>&quot;Next&quot;</strong> to continue:</p>
+
+<p><img src="images/46-pick-blob.png?raw=true" alt="46-Pick-Blob" title="Pick Blob">
+</p>
+
+<p><em>Select the Blob Container and File Name</em></p></li>
+<li><p>On the <strong>&quot;Database Settings&quot;</strong> page, make sure the database name is &quot;MVC4Sample&quot; and click &quot;Next&quot;.  </p>
+<blockquote>
+<p><strong>Note:</strong> If you change the database name you will need to remember that for all future steps.  The instructions assume a databas name of MVC4Sample.</p>
+</blockquote>
+<p><img src="images/47-database-name.png?raw=true" alt="47-Database-Name" title="Database Name">
+</p>
+
+<p><em>Target Database Name</em></p></li>
+<li><p>On the &quot;Summary&quot; page, click &quot;Finish&quot;:</p>
+
+<p><img src="images/48-finish.png?raw=true" alt="48-Finish" title="Finish">
+</p>
+
+<p><em>Finish</em></p></li>
+<li><p>On the &quot;Results&quot; page, verify that the operation completed successfully and click &quot;Close&quot;:</p>
+
+<p><img src="images/49-close-wizard.png?raw=true" alt="49-Close-Wizard" title="Close Wizard">
+</p>
+
+<p><em>Verify Successful Completion</em></p></li>
+</ol>
+
+<p><a name="Exercise5Task1"></a></p>
+
+<h4 id="Task_2__Connect_to_the_new_database">Task 2 – Connect to the new database</h4>
+
+<ol>
+<li><p>Return to the <strong>development workstation VM</strong>, and open <strong>SQL Server Management Studio</strong>.  In the connect dialog, enter in the DNS name of the Cloud Service that hosts the Windows Azure Virtual Machine with SQL Server we created in <a href="#Exercise1">Exercise 1</a>.  Change the Authentication to &quot;SQL Server Authentication&quot; and enter the credentials for the SQL Server Login you created in (Exercise 4)[#Exercise4], then click &quot;Connect&quot;:</p>
+
+<p><img src="images/50-sql-connection.png?raw=true" alt="50-SQL-Connection" title="SQL Connection">
+</p>
+
+<p><em>Connect remotely to the Windows Azure Virtual Machine with SQL Server</em></p></li>
+<li><p>In the SSMS <strong>&quot;Object Explorer&quot;</strong>, expand <strong>&quot;Databases&quot;</strong> | <strong>&quot;MVC4Sample&quot;</strong> | <strong>&quot;Tables&quot;</strong>. Right click on the <strong>&quot;dbo.Customers&quot;</strong> table and select <strong>&quot;Select Top 1000 Rows&quot;</strong> and in the query window that appears, verify that your records appear.  </p>
+
+<p><img src="images/51-verify-connection.png?raw=true" alt="51-Verify-Connection" title="Verify Connection">
+</p>
+
+<p><em>Verify Connection</em></p></li>
+</ol>
+
+<!--
+========================================
+Summary
+========================================
+-->
+
+<hr>
+
+<p><a name="Summary"></a></p>
+
+<h2 id="Summary">Summary</h2>
+
+<p>Wow, that was a long lab, but you got a lot accomplished.  </p>
+
+</div>
+</body>
+</html>

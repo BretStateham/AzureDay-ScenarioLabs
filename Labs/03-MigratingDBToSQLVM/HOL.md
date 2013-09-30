@@ -1,5 +1,5 @@
 ﻿<a name="Title"></a>
-# Exporting an On-Premises Database to Windows Azure Storage #
+# Migrating an On-Premises SQL Server Database to a Windows Azure Virtual Machine with SQL Server #
 
 ---
 <a name="Overview"></a>

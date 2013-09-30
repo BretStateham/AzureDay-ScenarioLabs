@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Markdown Preview</title>
+<style>
+body{font-family:helvetica, arial, freesans, clean, sans-serif;color:#333;line-height:1.6;font-size:14px}.markdown-body{line-height:1.6;font-size:14px}.markdown-body > *:first-child{margin-top:0 !important}.markdown-body > *:last-child{margin-bottom:0 !important}.markdown-body a.absent{color:#c00}.markdown-body h1{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:28px;margin:20px 0 10px;padding:0}.markdown-body h2{font-weight:700;-webkit-font-smoothing:antialiased;color:#000;font-size:24px;border-bottom-color:#ccc;border-bottom-width:1px;border-bottom-style:solid;margin:20px 0 10px;padding:0}.markdown-body h3{font-weight:700;-webkit-font-smoothing:antialiased;font-size:18px;margin:20px 0 10px;padding:0}.markdown-body h4{font-weight:700;-webkit-font-smoothing:antialiased;font-size:16px;margin:20px 0 10px;padding:0}.markdown-body h5{font-weight:700;-webkit-font-smoothing:antialiased;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body h6{font-weight:700;-webkit-font-smoothing:antialiased;color:#777;font-size:14px;margin:20px 0 10px;padding:0}.markdown-body blockquote{color:#777;border-left-color:#ddd;border-left-width:4px;border-left-style:solid;margin:15px 0;padding:0 15px}.markdown-body dl{margin:15px 0;padding:0}.markdown-body table{border-collapse:collapse;margin:15px 0;padding:0}.markdown-body pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;margin:15px 0;padding:6px 10px}.markdown-body li p.first{display:inline-block}.markdown-body dl dt{font-size:14px;font-style:italic;font-weight:700;margin:15px 0 5px;padding:0}.markdown-body dl dt:first-child{padding:0}.markdown-body dl dd{margin:0 0 15px;padding:0 15px}.markdown-body table tr{border-top-color:#ccc;border-top-width:1px;border-top-style:solid;background-color:#fff;margin:0;padding:0}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%}.markdown-body span.frame{overflow:hidden;display:block}.markdown-body span.frame > span{border:1px solid #ddd;width:auto;overflow:hidden;float:left;display:block;margin:13px 0 0;padding:7px}.markdown-body span.frame span img{float:left;display:block}.markdown-body span.frame span span{color:#333;clear:both;display:block;padding:5px 0 0}.markdown-body span.align-center > span{text-align:center;overflow:hidden;display:block;margin:13px auto 0}.markdown-body span.align-center span img{text-align:center;margin:0 auto}.markdown-body span.align-right > span{text-align:right;overflow:hidden;display:block;margin:13px 0 0}.markdown-body span.align-right span img{text-align:right;margin:0}.markdown-body span.float-left{overflow:hidden;margin-right:13px;float:left;display:block}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{overflow:hidden;margin-left:13px;float:right;display:block}.markdown-body span.float-right > span{text-align:right;overflow:hidden;display:block;margin:13px auto 0}.markdown-body pre > code{border:currentColor;white-space:pre;margin:0;padding:0}.markdown-body .highlight pre{border-radius:3px;border:1px solid #ccc;line-height:19px;overflow:auto;font-size:13px;background-color:#f8f8f8;padding:6px 10px}.markdown-body p,.markdown-body li{margin:15px 0}.markdown-body ul,.markdown-body ol{padding-left:30px;margin:15px 0}.markdown-body > h2:first-child,.markdown-body > h1:first-child,.markdown-body > h1:first-child + h2{border:0 currentColor;padding-top:0;margin-top:0}.markdown-body > h3:first-child,.markdown-body > h4:first-child,.markdown-body > h5:first-child,.markdown-body > h6:first-child{padding-top:0;margin-top:0}.markdown-body h1 + p,.markdown-body h2 + p,.markdown-body h3 + p,.markdown-body h4 + p,.markdown-body h5 + p,.markdown-body h6 + p,.markdown-body ul li > :first-child,.markdown-body ol li > :first-child,.markdown-body dl dt > :first-child,.markdown-body dl dd > :first-child,.markdown-body blockquote > :first-child,.markdown-body table tr th > :first-child,.markdown-body table tr td > :first-child{margin-top:0}.markdown-body ul li > :last-child,.markdown-body ol li > :last-child,.markdown-body dl dt > :last-child,.markdown-body dl dd > :last-child,.markdown-body blockquote > :last-child,.markdown-body table tr th > :last-child,.markdown-body table tr td > :last-child{margin-bottom:0}.markdown-body table tr th,.markdown-body table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}.markdown-body span.align-center,.markdown-body span.align-right{overflow:hidden;clear:both;display:block}.markdown-body code,.markdown-body tt{border-radius:3px;border:1px solid #eaeaea;white-space:nowrap;background-color:#f8f8f8;margin:0 2px;padding:0 5px}.markdown-body pre code,.markdown-body pre tt{border:currentColor;background-color:transparent}span.codelanguage{display:none}
+</style>
+</head>
+<body>
+<div class="markdown-body">
+<p><a name="Title"></a></p>
+
+<h1 id="DevTest_on_Windows_Azure">DevTest on Windows Azure</h1>
+
+<hr>
+
+<p><a name="Overview"></a></p>
+
+<h2 id="Overview">Overview</h2>
+
+<p><a name="Objectives"></a></p>
+
+<h3 id="Objectives">Objectives</h3>
+
+<p>In this hands-on lab, you will learn how to:</p>
+
+<ul>
+<li>Create a Team Foundation Service Account</li>
+<li>Create a Team Foundation Service Project</li>
+<li>Add a Visual Studio 2013 RC project to Team Foundation Service</li>
+<li>Use Team Foundation Service for Continuous Deployment to Windows Azure</li>
+<li>Create and run unit tests using Team Foundation Service</li>
+<li>Create and run load tests using Team Foundation Service</li>
+</ul>
+
+<p><a name="Prerequisites"></a></p>
+
+<h3 id="Prerequisities">Prerequisities</h3>
+
+<p>The following is required to complete this hands-on lab:
+- A Windows Azure subscription - <a href="http://aka.ms/thecloud">sign up for a free trial</a>
+- A Windows Azure virtual machine with Visual Studio 2013 RC - <a href="https://github.com/agrocholski/VS2013OnAzure-HOL">instructions</a></p>
+
+<hr>
+
+<p><a name="Exercises"></a></p>
+
+<h2 id="Exercises">Exercises</h2>
+
+<p>This hands-on lab includes the following exercises:
+- <a href="#Exercise1">Exercise 1: Setting up Team Foundation Service</a>
+- <a href="#Exercise2">Exercise 2: Continuous Deployment</a>
+- <a href="#Exercise3">Exercies 3: Unit Testing</a>
+- <a href="#Exercise4">Exercise 4: Load Testing</a></p>
+
+<p><a name="Exercise1"></a></p>
+
+<h3 id="Exercise_1_Setting_up_Team_Foundation_Service">Exercise 1: Setting up Team Foundation Service</h3>
+
+<p>In this exercise you will create a Team Foundation Service account and set up your first Team Foundation Service project.</p>
+
+<p><a name="Ex1Task1"></a></p>
+
+<h4 id="Task_1_Creating_a_Team_Foundation_Service_Account">Task 1: Creating a Team Foundation Service Account</h4>
+
+<ol>
+<li><p>Open Internet Explorer and go to the <a href="https://tfs.visualstudio.com">Team Foundation Service site</a>.</p></li>
+<li><p>Click the <strong>Sign up for free</strong> button</p>
+
+<p><img src="Images/Ex1Task1-01-tfs-sign-up.png?raw=true" alt="Signing up for a Team Foundation Service account" title="Signing up for a Team Foundation Service account">
+</p>
+
+<p><em>Signing up for a Team Foundation Service account</em></p></li>
+<li><p>Enter the <strong>Account URL</strong> you would like to use for your Team Foundation Service account.</p>
+
+<p><img src="Images/Ex1Task1-02-tfs-account-creation.png?raw=true" alt="Creating a Team Foundation Service account" title="Creating a Team Foundation Service account">
+</p>
+
+<p><em>Creating a Team Foundation Service account</em></p></li>
+<li><p>After your account is created you will be redirected to a sign in page. Sign in with your Microsoft account.</p>
+
+<p><img src="Images/Ex1Task1-03-tfs-sign-in.png?raw=true" alt="Sign in with your Microsoft account" title="Sign in with your Microsoft account">
+</p>
+
+<p><em>Sign in with your Microsoft account</em></p></li>
+<li><p>Upon successful sign in you will be redirected to your the dashboard for your Team Foundation Service account.</p>
+
+<p><img src="Images/Ex1Task1-04-tfs-dashboard.png?raw=true" alt="Team Foundation Service dashboard" title="Team Foundation Service dashboard">
+</p>
+
+<p><em>Team Foundation Service dashboard</em></p></li>
+</ol>
+
+<p><a name="Ex1Task2"></a></p>
+
+<h4 id="Task_2_Creating_a_Team_Foundation_Service_Project">Task 2: Creating a Team Foundation Service Project</h4>
+
+<p>If the dashboard for your Team Foundation Service account is still open from Task 1. You can skip ahead to step 3.</p>
+
+<ol>
+<li><p>Open Internet Explorer and go to the <a href="https://tfs.visualstudio.com">Team Foundation Service site</a>.</p></li>
+<li><p>Click the <strong>Sign in</strong> button.</p>
+
+<p><img src="Images/Ex1Task2-01-tfs-sign-in.png?raw=true" alt="Team Foundation Service sign in" title="Team Foundation Service sign in">
+</p>
+
+<p><em>Team Foundation Service sign in</em></p></li>
+<li><p>You will be redirected to a sign in page. Sign in with your Microsoft account.</p>
+
+<p><img src="Images/Ex1Task2-02-msft-sign-in.png?raw=true" alt="Sign in with your Microsoft account" title="Sign in with your Microsoft account">
+</p>
+
+<p><em>Sign in with your Microsoft account</em></p></li>
+<li><p>Upon successful sign in you will be redirected to a page that lists the Team Foundation Service accounts associated with your Microsoft account.</p>
+
+<p><img src="Images/Ex1Task2-03-tfs-accounts.png?raw=true" alt="Team Foundation Service accounts" title="Team Foundation Service accounts">
+</p>
+
+<p><em>Team Foundation Service accounts</em></p></li>
+<li><p>Click the link of the Team Foundation Service account you created earlier. This will redirect you to the dashbaord for teh account.</p>
+
+<p><img src="Images/Ex1Task2-04-tfs-dashboard.png?raw=true" alt="Team Foundation Service dashboard" title="Team Foundation Service dashboard">
+</p>
+
+<p><em>Team Foundation Service dashboard</em></p></li>
+<li><p>Click the <strong>New team project</strong> button</p>
+
+<p><img src="Images/Ex1Task2-05-new-team-project.png?raw=true" alt="New team project" title="New team project">
+</p>
+
+<p><em>New team project</em></p></li>
+<li><p>Enter a <strong>Project name</strong> and a <strong>Description</strong> for your new team project. Use the defaults for <strong>Process template</strong> and <strong>Version control</strong>. Click the <strong>Create project</strong> button.</p>
+
+<p><img src="Images/Ex1Task2-06-create-new-team-project.png?raw=true" alt="Create new team project" title="Create new team project">
+</p>
+
+<p><em>Create new team project</em></p></li>
+<li><p>After the project has been successfully created, click the <strong>Navigate to project</strong> button.</p>
+
+<p><img src="Images/Ex1Task2-07-project-created.png?raw=true" alt="Project created" title="Project created">
+</p>
+
+<p><em>Project created</em></p></li>
+<li><p>You will be redirected to the dashboard for your Team Foundation Service project.</p>
+
+<p><img src="Images/Ex1Task2-08-project-dashboard.png?raw=true" alt="Project dashboard" title="Project dashboard">
+</p>
+
+<p><em>Project dashboard</em></p></li>
+</ol>
+
+<p><a name="Exercise2"></a></p>
+
+<h3 id="Exercise_2_Continuous_Deployment">Exercise 2: Continuous Deployment</h3>
+
+<p>In this exercise you will create a new Windows Azure Web Site, use Visual Studio to update the Web Site, and automatically deploy changes using Team Foundation Service.</p>
+
+<p><a name="Ex2Task1"></a></p>
+
+<h4 id="Task_1_Creating_a_Windows_Azure_Web_Site">Task 1: Creating a Windows Azure Web Site</h4>
+
+<ol>
+<li><p>Open Internet Explorer and go to the <a href="https://manage.windowsazure.com">Windows Azure management portal</a>. Sign in using the Microsoft credentials associated with your subscription.</p>
+
+<p><img src="Images/Ex2Task1-01-azure-sign-in.png?raw=true" alt="Log on to the Windows Azure management portal" title="Log on to the Windows Azure management portal">
+</p>
+
+<p><em>Log on to the Windows Azure management portal</em></p></li>
+<li><p>Click <strong>New</strong> on the command bar</p>
+
+<p><img src="Images/Ex2Task1-02-new-web-site.png?raw=true" alt="Creating a new Web Site" title="Creating a new Web Site">
+</p>
+
+<p><em>Creating a new Web Site</em></p></li>
+<li><p>Click <strong>Compute</strong>, <strong>Web Site</strong> and then <strong>Quick Create</strong>. Provide an available URL for the new web site and click <strong>Create Web Site</strong>.</p>
+
+<p><img src="Images/Ex2Task1-03-create-web-site.png?raw=true" alt="Creating a new Web Site using Quick Create" title="Creating a new Web Site using Quick Create">
+</p>
+
+<p><em>Creating a new Web Site using Quick Create</em></p></li>
+<li><p>Wait until the new <strong>Web Site</strong> is created.</p></li>
+</ol>
+
+<p><a name="Ex2Task2"></a></p>
+
+<h4 id="Task_2_Set_Up_Deployment_from_Team_Foundation_Service">Task 2: Set Up Deployment from Team Foundation Service</h4>
+
+<ol>
+<li><p>Once the Web Site is created, click the <strong>arrow</strong> next to the name of the Web Site in the list of web sites.</p>
+
+<p><img src="Images/Ex2Task2-01-web-site-list.png?raw=true" alt="Web Site list" title="Web Site list">
+</p>
+
+<p><em>Web Site list</em></p></li>
+<li><p>This will redirect you to the <strong>Quick Start</strong> page for your site. Click the <strong>DASHBOARD</strong> link.</p>
+
+<p><img src="Images/Ex2Task2-02-dashboard.png?raw=true" alt="Web Site dashboard" title="Web Site dashboard">
+</p>
+
+<p><em>Web Site dashboard</em></p></li>
+<li><p>In the <strong>Dashboard</strong> page, under the <strong>quick glance</strong> section, click the <strong>Set up deployment from source control</strong> link.</p>
+
+<p><img src="Images/Ex2Task2-03-quick-glance.png?raw=true" alt="Quick Glance" title="Quick Glance">
+</p>
+
+<p><em>Quick Glance</em></p></li>
+<li><p>In the <strong>Set up Deployment</strong> wizard, select <strong>Team Foundation Service</strong> as the location for your source code, then click the <strong>Next</strong> button.</p>
+
+<p><img src="Images/Ex2Task2-04-source-code-location.png?raw=true" alt="Source Code Location" title="Source Code Location">
+</p>
+
+<p><em>Source Code Location</em></p></li>
+<li><p>Enter the <strong>URL</strong> to your Team Foundation Service account and click the <strong>Authorize Now</strong> button.</p>
+
+<p><img src="Images/Ex2Task2-05-authorize-tfs.png?raw=true" alt="Authorize TFS Connection" title="Authorize TFS Connection">
+</p>
+
+<p><em>Authorize TFS Connection</em></p></li>
+<li><p>Accept the connection request by clicking the <strong>Accept</strong> button.</p>
+
+<p><img src="Images/Ex2Task2-06-accept.png?raw=true" alt="Accept Connection Request" title="Accept Connection Request">
+</p>
+
+<p><em>Accept Connection Request</em></p></li>
+<li><p>After authorization succeeds, select the <strong>Repository</strong> that you want to use to manage source code for your Web Site. This should correspond to the Team Foundation Service project you create earlier. Finish by clicking the <strong>Checkmark</strong> button.</p>
+
+<p><img src="Images/Ex2Task2-07-choose-repo.png?raw=true" alt="Choose Repository" title="Choose Repository">
+</p>
+
+<p><em>Choose Repository</em></p></li>
+<li><p>Wait for the Team Foundation Service project to be linked to your Web Site.</p>
+
+<p><img src="Images/Ex2Task2-08-project-linked.png?raw=true" alt="Project Linked" title="Project Linked">
+</p>
+
+<p><em>Project Linked</em></p></li>
+</ol>
+
+<p><a name="Ex2Task3"></a></p>
+
+<h4 id="Task_3_Create_a_new_ASPNET_MVC_Project_Connected_to_Team_Foundation_Service">Task 3: Create a new ASP.NET MVC Project Connected to Team Foundation Service</h4>
+
+<ol>
+<li><p>Open Internet Explorer and go to the <a href="https://manage.windowsazure.com">Windows Azure management portal</a>. Sign in using the Microsoft credentials associated with your subscription.</p>
+
+<p><img src="Images/Ex2Task3-01-azure-sign-in.png?raw=true" alt="Log on to the Windows Azure management portal" title="Log on to the Windows Azure management portal">
+</p>
+
+<p><em>Log on to the Windows Azure management portal</em></p></li>
+<li><p>Go to the <strong>Virtual Machine</strong> portion of the portal and click on your virtual machine that is running Visual Studio 2013 Ultimate RC.</p>
+
+<p><img src="Images/Ex2Task3-02-select-vm.png?raw=true" alt="Select the Virtual Machine" title="Select the Virtual Machine">
+</p>
+
+<p><em>Select the Virtual Machine</em></p></li>
+<li><p>Click <strong>Connect</strong> on the command bar and log in to your virtual machine using the credentials you provided when creating the machine.</p>
+
+<p><img src="Images/Ex2Task3-03-connect.png?raw=true" alt="Connect to the Virtual Machine" title="Connect to the Virtual Machine">
+</p>
+
+<p><em>Connect to the Virtual Machine</em></p></li>
+<li><p>Once connected to the virtual machine, launch <strong>Microsoft Visual Studio 2013 Ultimate RC</strong>.</p></li>
+<li><p>Select <strong>File</strong>, <strong>New</strong>, <strong>Project</strong>.</p></li>
+<li><p>In the <strong>New Project</strong> dialog, expand the <strong>Visual C#</strong> node, select <em>Web</em>, select <strong>ASP.NET Web Application</strong>, enter a name for the project, specify a location on your machine, and make sure <strong>Add to source control</strong> is checked, and click <strong>OK</strong>.</p>
+
+<p><img src="Images/Ex2Task3-04-project-creation.png?raw=true" alt="Project Creation" title="Project Creation">
+</p>
+
+<p><em>Project Creation</em></p></li>
+<li><p>In the <strong>New ASP.NET Project</strong> dialog, select the <strong>MVC</strong> template, and check the <strong>Add unit tests</strong> checkbox. Click the <strong>Create Project</strong> button.</p>
+
+<p><img src="Images/Ex2Task3-05-aspnet-project.png?raw=true" alt="New ASP.NET Project" title="New ASP.NET Project">
+</p>
+
+<p><em>New ASP.NET Project</em></p></li>
+<li><p>In the <strong>Connect to Team Foundation Server</strong> dialog, click the <strong>Servers</strong> button.</p>
+
+<p><img src="Images/Ex2Task3-06-connect-to-tfs.png?raw=true" alt="Connect to Team Foundation Server" title="New Connect to Team Foundation Server">
+</p>
+
+<p><em>Connect to Team Foundation Server</em></p></li>
+<li><p>Click the <strong>Add</strong> button to add a new Team Foundation Server.</p>
+
+<p><img src="Images/Ex2Task3-07-add-server.png?raw=true" alt="Add Server" title="Add Server">
+</p>
+
+<p><em>Add Server</em></p></li>
+<li><p>Enter the <strong>URL</strong> of your Team Foundation Service account</p>
+
+<p><img src="Images/Ex2Task3-08-add-account.png?raw=true" alt="Enter Team Foundation Service URL" title="Enter Team Foundation Service URL">
+</p>
+
+<p><em>Enter Team Foundation Service URL</em></p></li>
+<li><p>Sign in using the Microsoft credentials associated with your Team Foundation Service account.</p>
+
+<p><img src="Images/Ex2Task3-09-sign-in.png?raw=true" alt="Sign in" title="Sign in">
+</p>
+
+<p><em>Sign in</em></p></li>
+<li><p>Once authentication is successful and the server has been added to the list of servers, click <strong>Close</strong>.</p>
+
+<p><img src="Images/Ex2Task3-10-server-added.png?raw=true" alt="Server Added" title="Server Added">
+</p>
+
+<p><em>Server Added</em></p></li>
+<li><p>Select your <strong>Team Project</strong> and click <strong>Connect</strong>.</p>
+
+<p><img src="Images/Ex2Task3-11-connect.png?raw=true" alt="Connect" title="Connect">
+</p>
+
+<p><em>Connect</em></p></li>
+<li><p>Keep the defaults when prompted to add the solution to source control and click <strong>OK</strong>.</p>
+
+<p><img src="Images/Ex2Task3-12-add-to-source-control.png?raw=true" alt="Add to Source Control" title="Add to Source Control">
+</p>
+
+<p><em>Add to Source Control</em></p></li>
+<li><p>Press <strong>F5</strong> to run the project.</p>
+
+<p><img src="Images/Ex2Task3-13-run-project.png?raw=true" alt="Run the Project" title="Run the Project">
+</p>
+
+<p><em>Run the Project</em></p></li>
+</ol>
+
+<p><a name="Ex2Task4"></a></p>
+
+<h4 id="Task_4_Deploy_Changes_using_Team_Foundation_Service">Task 4: Deploy Changes using Team Foundation Service</h4>
+
+<ol>
+<li><p>In Internet Explorer, browse to your Team Foundation Service account (<strong>https://[your account name].visualstudio.com</strong>) and click on your project.</p>
+
+<p><img src="Images/Ex2Task4-01-open-project.png?raw=true" alt="Select Project" title="Select Project">
+</p>
+
+<p><em>Select Project</em></p></li>
+<li><p>On your project's dashboard, click the <strong>Build</strong> link.</p>
+
+<p><img src="Images/Ex2Task4-02-build.png?raw=true" alt="Build" title="Build">
+</p>
+
+<p><em>Build</em></p></li>
+<li><p>Open a second tab in Internet Explorer and navigate to the <a href="https://manage.windowsazure.com">Windows Azure management portal</a>. Sign in using the Microsoft credentials associated with your subscription.</p></li>
+<li><p>Go to the <strong>Web Sites</strong> portion of the portal and click on your Web Site.</p>
+
+<p><img src="Images/Ex2Task4-03-web-site.png?raw=true" alt="Web Site" title="Web Site">
+</p>
+
+<p><em>Web Site</em></p></li>
+<li><p>Click on the <strong>Dashboard</strong> link, then clikc on the <strong>Site URL</strong> link in the <strong>Quick Glance</strong> portion of the dashboard.</p>
+
+<p><img src="Images/Ex2Task4-04-site-url.png?raw=true" alt="Launch Web Site" title="Launch Web Site">
+</p>
+
+<p><em>Launch Web Site</em></p></li>
+<li><p>Your Web Site should now be displayed in a separate tab in Internet Explorer.</p>
+
+<p><img src="Images/Ex2Task4-05-default.png?raw=true" alt="Default Page" title="Default Page">
+</p>
+
+<p><em>Default Page</em></p></li>
+<li><p>Go back to the tab in Interent Explorer containing the Windows Azure management portal and click the <strong>Deployments</strong> link.</p>
+
+<p><img src="Images/Ex2Task4-06-deployments.png?raw=true" alt="Deployments" title="Deployments">
+</p>
+
+<p><em>Deployments</em></p></li>
+<li><p>In the virtual machine running Visual Studio 2013 Ultimate RC, click <strong>Pending Changes</strong> in <strong>Team Explorer</strong></p>
+
+<p><img src="Images/Ex2Task4-07-pending-changes.png?raw=true" alt="Pending Changes" title="Pending Changes">
+</p>
+
+<p><em>Pending Changes</em></p></li>
+<li><p>Enter a <strong>Comment</strong> and click the <strong>Check In</strong> button.</p>
+
+<p><img src="Images/Ex2Task4-08-check-in.png?raw=true" alt="Check In" title="Check In">
+</p>
+
+<p><em>Check In</em></p></li>
+<li><p>If prompted, confirm the check-in.</p>
+
+<p><img src="Images/Ex2Task4-09-confirm.png?raw=true" alt="Confirm Check In" title="Confirm Check In">
+</p>
+
+<p><em>Confirm Check In</em></p></li>
+<li><p>Once the check in completes, go to the tab in Internet Explorer that contains the <strong>Build</strong> dashboard for your Team Foundation Service project. Click <strong>Queued</strong>. A build for your project should display.</p>
+
+<p><img src="Images/Ex2Task4-10-queued-build.png?raw=true" alt="Queued Build" title="Queued Build">
+</p>
+
+<p><em>Queued Build</em></p></li>
+<li><p>After several minutes the build should complete. Click on the <strong>Completed</strong> link to see the results.</p>
+
+<p><img src="Images/Ex2Task4-11-completed-build.png?raw=true" alt="Completed Build" title="Completed Build">
+</p>
+
+<p><em>Completed Build</em></p></li>
+<li><p>Once the build completes it will automatically deploy to your Windows Azure Web Site. Click the <strong>Deployed</strong> link to see the deployment results.</p>
+
+<p><img src="Images/Ex2Task4-12-deployed-build.png?raw=true" alt="Deployed Build" title="Deployed Build">
+</p>
+
+<p><em>Deployed Build</em></p></li>
+<li><p>Go to the tab in Internet Explorer that contains the <strong>Deployments</strong> page for your Windows Azure Web Site. The Team Foundation Service deployment should display.</p>
+
+<p><img src="Images/Ex2Task4-13-deployed-build-azure.png?raw=true" alt="Deployed Build in Windows Azure" title="Deployed Build in Windows Azure">
+</p>
+
+<p><em>Deployed Build in Windows Azure</em></p></li>
+<li><p>Go to the tab in Internet Explorer that contains your Windows Azure Web Site and press <strong>F5</strong> to refresh the page. Your ASP.NET MVC application should display.</p>
+
+<p><img src="Images/Ex2Task4-14-app-in-azure.png?raw=true" alt="ASP.NET MVC Application Running in Windows Azure" title="ASP.NET MVC Application Running in Windows Azure">
+</p>
+
+<p><em>ASP.NET MVC Application Running in Windows Azure</em></p></li>
+</ol>
+
+<p><a name="Exercise3"></a></p>
+
+<h3 id="Exercise_3_Unit_Testing">Exercise 3: Unit Testing</h3>
+
+<p>In this exercise you will modify unit tests to leverage the continuous integration and deployment features of Team Foundation Service and Windows Azure.</p>
+
+<p><a name="Ex3Task1"></a></p>
+
+<h4 id="Task_1_Creating_a_Failing_Unit_Test">Task 1: Creating a Failing Unit Test</h4>
+
+<ol>
+<li><p>In the virtual machine running Visual Studio Ultimate 2013 RC, open the <strong>HomeControllTest.cs</strong> file from <strong>Solution Explorer</strong>.</p>
+
+<p><img src="Images/Ex3Task1-01-home-controller.png?raw=true" alt="HomeControllerTest.cs" title="HomeControllerTest.cs">
+</p>
+
+<p><em>HomeControllerTest.cs</em></p></li>
+<li><p>Change the <strong>Index()</strong> method to the following:</p>
+
+<!--mark:1-4-->
+
+<span class="codelanguage">C#</span><pre><code class="C#"><strong class="markLine"><span style="color:#0000FF">public</span> <span style="color:#0000FF">void</span> Index()</strong>
+<strong class="markLine">{</strong>
+<strong class="markLine">    Assert.AreEqual(1, 0);</strong>
+<strong class="markLine">}</strong>
+</code></pre></li>
+<li><p>In <strong>Solution Explorer</strong> righ-click your solution and click <strong>Check In...</strong></p>
+
+<p><img src="Images/Ex3Task1-02-check-in.png?raw=true" alt="Check In" title="Check In">
+</p>
+
+<p><em>Check In</em></p></li>
+<li><p>Enter a <strong>Comment</strong> in Team Explorer and click the <strong>Check In</strong> button.</p>
+
+<p><img src="Images/Ex3Task1-03-check-in.png?raw=true" alt="Check In from Team Explorer" title="Check In from Explorer">
+</p>
+
+<p><em>Check In from Team Explorer</em></p></li>
+<li><p>If prompted, confirm the check-in.</p></li>
+<li><p>Go back to the Internet Explorer tab that contains the <strong>Build</strong> dashboard for your Team Foundation Service project. Your build should appear as <strong>Queued</strong>.</p>
+
+<p><img src="Images/Ex3Task1-04-build-queued.png?raw=true" alt="Queued Build" title="Queued Build">
+</p>
+
+<p><em>Queued Build</em></p></li>
+<li><p>After a few minutes, the build should complete. Click the <strong>Completed</strong> link. The build should be listed as <strong>Failed</strong>.</p>
+
+<p><img src="Images/Ex3Task1-05-build-failed.png?raw=true" alt="Failed Build" title="Failed Build">
+</p>
+
+<p><em>Failed Build</em></p></li>
+<li><p>Double-click on the failed build and you can drill into the details. In this case you will see that the text for <strong>Index</strong> failed.</p>
+
+<p><img src="Images/Ex3Task1-06-build-failed-details.png?raw=true" alt="Failed Build Details" title="Failed Build Details">
+</p>
+
+<p><em>Failed Build Details</em></p></li>
+<li><p>Go back to the <strong>Build</strong> dashboard and click the <strong>Deployed</strong> link. The deployment failed as well.</p>
+
+<p><img src="Images/Ex3Task1-07-deployment-failed.png?raw=true" alt="Failed Deployment" title="Failed Deployment">
+</p>
+
+<p><em>Failed Deployment</em></p></li>
+<li><p>Go to the tab in Internet Explorer that contains the <strong>Deployments</strong> page for your Windows Azure Web Site. You should see the failed deployment here as well.</p>
+
+<p><img src="Images/Ex3Task1-08-deployment-failed-azure.png?raw=true" alt="Failed Deployment" title="Failed Deployment">
+</p>
+
+<p><em>Failed Deployment</em></p></li>
+</ol>
+
+<p><a name="Ex3Task2"></a></p>
+
+<h4 id="Task_2_Fix_the_Failing_Unit_Test">Task 2: Fix the Failing Unit Test</h4>
+
+<ol>
+<li><p>In the virtual machine running Visual Studio Ultimate 2013 RC, open the <strong>HomeControllTest.cs</strong> file from <strong>Solution Explorer</strong>.</p>
+
+<p><img src="Images/Ex3Task2-01-home-controller.png?raw=true" alt="HomeController.cs" title="HomeController.cs">
+</p>
+
+<p><em>HomeController.cs</em></p></li>
+<li><p>Change the <strong>Index()</strong> method to the following:</p>
+
+<!--mark:1-4-->
+
+<span class="codelanguage">C#</span><pre><code class="C#"><strong class="markLine"><span style="color:#0000FF">public</span> <span style="color:#0000FF">void</span> Index()</strong>
+<strong class="markLine">{</strong>
+<strong class="markLine">    Assert.AreEqual(1, 1);</strong>
+<strong class="markLine">}</strong>
+</code></pre></li>
+<li><p>In <strong>Solution Explorer</strong> righ-click your solution and click <strong>Check In...</strong></p>
+
+<p><img src="Images/Ex3Task2-02-check-in.png?raw=true" alt="Check In" title="Check In">
+</p>
+
+<p><em>Check In</em></p></li>
+<li><p>Enter a <strong>Comment</strong> in Team Explorer and click the <strong>Check In</strong> button.</p>
+
+<p><img src="Images/Ex3Task2-03-check-in.png?raw=true" alt="Check In" title="Check In">
+</p>
+
+<p><em>Check In</em></p></li>
+<li><p>If prompted, confirm the check-in.</p></li>
+<li><p>Go back to the Internet Explorer tab that contains the <strong>Build</strong> dashboard for your Team Foundation Service project. Your build should appear as <strong>Queued</strong>.</p>
+
+<p><img src="Images/Ex3Task2-04-queued-build.png?raw=true" alt="Queued Build" title="Queued Build">
+</p>
+
+<p><em>Queued Build</em></p></li>
+<li><p>After a few minutes, the build should complete. Click the <strong>Completed</strong> link. The build should be listed as <strong>Succeeded</strong>.</p>
+
+<p><img src="Images/Ex3Task2-05-build-succeeded.png?raw=true" alt="Build Succeeded" title="Build Succeeded">
+</p>
+
+<p><em>Build Succeeded</em></p></li>
+<li><p>Click the <strong>Deployed</strong> link. The deployment succeeded as well.</p>
+
+<p><img src="Images/Ex3Task2-06-deployment-succeeded.png?raw=true" alt="Deployment Suceeded" title="Deployment Suceeded">
+</p>
+
+<p><em>Deployment Succeeded</em></p></li>
+<li><p>Go to the tab in Internet Explorer that contains the <strong>Deployments</strong> page for your Windows Azure Web Site. You should see the successful deployment here as well.</p>
+
+<p><img src="Images/Ex3Task2-07-deployment-succeeded-azure.png?raw=true" alt="Deployment Succeeded" title="Deployment Succeeded">
+</p>
+
+<p><em>Deployment Succeeded</em></p></li>
+</ol>
+
+<p><a name="Exercise4"></a></p>
+
+<h3 id="Exercise_4_Load_Test">Exercise 4: Load Test</h3>
+
+<p>In this exercise you will learn how to create and record a web performance test, create a load test, and run a load test using Team Foundation Service.</p>
+
+<p><a name="Ex4Task1"></a></p>
+
+<h4 id="Task_1_Disable_Enhanced_Protected_Mode_in_Internet_Explorer">Task 1: Disable Enhanced Protected Mode in Internet Explorer</h4>
+
+<p>In order to record web performance tests in Internet Explorer, you need to disable Enhanced Protected Mode. The following steps will walk you through how to disable this feature. It is recommended at the end of this excercise that enable Enhanced Protected Mode.</p>
+
+<ol>
+<li><p>Start <strong>Internet Explorer</strong> for the desktop.</p></li>
+<li><p>Tap or click <strong>Tools</strong>, and then tap or click <strong>Internet options</strong>.</p></li>
+<li><p>On the <strong>Advanced</strong> tab, clear teh <strong>Enabled Enhanced Protected Mode</strong> check box under <strong>Security</strong>.</p></li>
+<li><p>Tap or click <strong>OK</strong>.</p>
+
+<p><img src="Images/Ex4Task1-01-enhanced-protected-mode.png?raw=true" alt="Disable Enhanced Protected Mode" title="Disable Enhanced Protected Mode">
+</p>
+
+<p><em>Disable Enhanced Protected Mode</em></p></li>
+</ol>
+
+<p><strong>Note</strong> You must restart your browser for this setting to take effect.</p>
+
+<p><a name="Ex4Task2"></a></p>
+
+<h4 id="Task_2_Create_and_Record_a_Web_Performance_Test">Task 2: Create and Record a Web Performance Test</h4>
+
+<ol>
+<li><p>In the Interet Explorer navigate to the <a href="https://manage.windowsazure.com">Windows Azure management portal</a>, log in, go to the <strong>Dashboard</strong> for your Windows Azure Web Site. Copy your the <strong>Site URL</strong> from the <strong>Quick Glance</strong> portion of the dashboard.</p>
+
+<p><img src="Images/Ex4Task2-01-site-url.png?raw=true" alt="Copy Site URL" title="Copy Site URL">
+</p>
+
+<p><em>Copy Site URL</em></p></li>
+<li><p>In the virtual machine running Visual Studio 2013 Ultimate RC, right-click the solution in <strong>Solution Explorer</strong>, select <strong>Add</strong>, and select <strong>New Project...</strong></p>
+
+<p><img src="Images/Ex4Task2-02-add-project.png?raw=true" alt="Add New Project" title="Add New Project">
+</p>
+
+<p><em>Add New Project</em></p></li>
+<li><p>In the <strong>Add New Project</strong> dialog, under <strong>Visual C##</strong> select <strong>Test</strong>, then select <strong>Web Performance and Load Test Project</strong>. Give the project a <strong>Name</strong> and click <strong>OK</strong>.</p>
+
+<p><img src="Images/Ex4Task2-03-perf-load.png?raw=true" alt="Add Web Performance and Load Test Project" title="Add Web Performance and Load Test Project">
+</p>
+
+<p><em>Add Web Performance and Load Test Project</em></p></li>
+<li><p>In Solution Explorer, right-click the new web performance and load test project, select <strong>Add</strong>, and select <strong>Web Performance Test...</strong>. Your web browser will open.</p>
+
+<p><img src="Images/Ex4Task2-04-add-web-perf-test.png?raw=true" alt="Add Web Performance Test" title="Add Web Performance Test">
+</p>
+
+<p><em>Add Web Performance Test</em></p></li>
+<li><p>You may be prompted to enable add-ons. Click <strong>Choose add-ons</strong>. Enable <strong>Microsoft Web Test Recorder 12.0 Helper</strong> and <strong>Web Test Recorder 12.0</strong> and click <strong>Done</strong>. The <strong>Web Test Recorder</strong> should now display in the browser.</p>
+
+<p><img src="Images/Ex4Task2-05-web-test-recorder.png?raw=true" alt="Web Test Recorder" title="Web Test Recorder">
+</p>
+
+<p><em>Web Test Recorder</em></p></li>
+<li><p>Enter the URL for your Windows Azure Web Site.</p>
+
+<p><img src="Images/Ex4Task2-06-site-url.png?raw=true" alt="Enter Site URL" title="Enter Site URL">
+</p>
+
+<p><em>Enter Site URL</em></p></li>
+<li><p>Start clicking through your Web Site to record HTTP requests and responses. Once you have a list of 15-20 items in the Web Test Record click <strong>Stop</strong>.</p>
+
+<p><img src="Images/Ex4Task2-07-stop.png?raw=true" alt="Stop Recording" title="Stop Recording">
+</p>
+
+<p><em>Stop Recording</em></p></li>
+<li><p>Visual Studio will look for dynamic parameters for teh HTTP responses to each of your HTTP requests. A progress bar is displayed while this happens. If dynamic properties are found, a table displays allowing you to assign constant values to each of the dynamic parameters.</p></li>
+<li><p>Right-click on a test and select <strong>Properties</strong>. Change the <strong>Response Time Goal (seconds)</strong> property value to 1.</p>
+
+<p><img src="Images/Ex4Task2-08-properties.png?raw=true" alt="Web Test Properties" title="Web Test Properties">
+</p>
+
+<p><em>Web Test Properties</em></p></li>
+<li><p>Modify the properties of other tests in your recording and <strong>Save</strong>.</p></li>
+</ol>
+
+<p><a name="Ex4Task3"></a></p>
+
+<h4 id="Task_3_Createa_a_Load_Test">Task 3: Createa a Load Test</h4>
+
+<ol>
+<li><p>In <strong>Solution Explorer</strong>, right-click the <strong>Web Peformance and Load Test</strong> project, click <strong>Add*, and click **Load Test...</strong></p>
+
+<p><img src="Images/Ex4Task3-01-add-load-test.png?raw=true" alt="Add Load Test" title="Add Load Test">
+</p>
+
+<p><em>Add Load Test</em></p></li>
+<li><p>When the <strong>New Load Test Wizard</strong> appears, choose the <strong>Load Pattern</strong> steop. Change the load patter to step load which gradually adds users over time.</p>
+
+<p><img src="Images/Ex4Task3-02-load-pattern.png?raw=true" alt="Load Pattern" title="Load Pattern">
+</p>
+
+<p><em>Load Pattern</em></p></li>
+<li><p>Choose the <strong>Test Mix</strong> step, click <strong>Add</strong>, move the test you recorded to the list of test runs. Click <strong>OK</strong> to dismiss the <strong>Add Tests</strong> dialog.</p>
+
+<p><img src="Images/Ex4Task3-03-test-mix.png?raw=true" alt="Test Mix" title="Test Mix">
+</p>
+
+<p><em>Test Mix</em></p></li>
+<li><p>Click <strong>Finish</strong> to complete the <strong>New Load Test Wizard</strong>. The web performance test is added to teh load test and appears in the load test editor.</p>
+
+<p><img src="Images/Ex4Task3-04-load-test-editor.png?raw=true" alt="Load Test Editor" title="Load Test Editor">
+</p>
+
+<p><em>Load Test Editor</em></p></li>
+</ol>
+
+<p><a name="Ex4Task4"></a></p>
+
+<h4 id="Task_4_Run_a_Load_Test_Using_Team_Foundation_Service">Task 4: Run a Load Test Using Team Foundation Service</h4>
+
+<ol>
+<li><p>In <strong>Solution Explorer</strong> expand the <strong>Solution Items</strong> folder and double-click the <strong>Local.testsettings</strong> file.</p>
+
+<p><img src="Images/Ex4Task4-01-test-settings.png?raw=true" alt="Local.testsettings" title="Local.testsettings">
+</p>
+
+<p><em>Local.testsettings</em></p></li>
+<li><p>In the <strong>Test Settings</strong> dialog, select <strong>Run tests using Visual Studio Team Foundation Service</strong>, click <strong>Apply</strong>, and click <strong>Close</strong>.</p>
+
+<p><img src="Images/Ex4Task4-02-tfs.png?raw=true" alt="Use Team Foundation Service" title="Use Team Foundation Service">
+</p>
+
+<p><em>Use Team Foundation Service</em></p></li>
+<li><p>In the <strong>Load Test Editor</strong>, click the <strong>Run Load Test</strong> button to run the load test using Team Foundation Service.</p>
+
+<p><img src="Images/Ex4Task4-03-run.png?raw=true" alt="Run Load Test" title="Run Load Test">
+</p>
+
+<p><em>Run Load Test</em></p></li>
+<li><p>You can see when your test is in the queue for the service. When the test is ready to be run, the status changes to <strong>Acquiring Resources</strong>.</p>
+
+<p><img src="Images/Ex4Task4-04-queued-run.png?raw=true" alt="Queued Run" title="Queued Run">
+</p>
+
+<p><em>Queued Run</em></p></li>
+<li><p>When the test is running, you can see the performance.</p>
+
+<p><img src="Images/Ex4Task4-05-performance.png?raw=true" alt="Test Performance" title="Test Performance">
+</p>
+
+<p><em>Test Performance</em></p></li>
+<li><p>You can also view the throughput.</p>
+
+<p><img src="Images/Ex4Task4-06-throughput.png?raw=true" alt="Test Throughput" title="Test Throughput">
+</p>
+
+<p><em>Test Throughput</em></p></li>
+<li><p>After the load test is finished, you can download the report.</p>
+
+<p><img src="Images/Ex4Task4-07-download-report.png?raw=true" alt="Download Report" title="Download Report">
+</p>
+
+<p><em>Download Report</em></p></li>
+<li><p>You can view the report once it has downloaded.</p>
+
+<p><img src="Images/Ex4Task4-08-view-report.png?raw=true" alt="View Report" title="View Report">
+</p>
+
+<p><em>View Report</em></p></li>
+<li><p>The results for the completed test includes performance counter data, threshold violations, and error information. Choose the <strong>Detail</strong> view. by analyzing the step load pattern for users, you can identify the user count where your performance fails to meet your requirements.</p>
+
+<p><img src="Images/Ex4Task4-09-report-detail-view.png?raw=true" alt="Report Detail View" title="Report Detail View">
+</p>
+
+<p><em>Report Detail View</em></p></li>
+</ol>
+
+</div>
+</body>
+</html>
