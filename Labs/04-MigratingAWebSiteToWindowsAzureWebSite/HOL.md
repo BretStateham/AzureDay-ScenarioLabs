@@ -25,7 +25,7 @@ The following is required to complete this hands-on lab:
 - A Windows Azure subscription -  [sign up for a free trial](http://aka.ms/WATK-FreeTrial) 
 - **Either** Completing the **"01-SetupVS2013SQLVM"** lab to create a Windows Azure Virtual Machine for use as your development environment, **OR** A development workstation with **Visual Studio 2013 Ultimate RC** and **SQL Server 2012 Express** installed. 
 - Successful completion of the **"02-AzureStorageLab"**.  The steps in that lab create the **"MVC4Sample"** database we will export in this lab. 
-- Successful completion of the **"03-CreatingBacPacInAzureStorage"** lab and either the **"04-MigratingDBToSQLDatabase"** or **"04-MigratingDBToSQLVM"** labs.
+- Successful completion of either the **"03-MigratingDBToSQLVM"** or the **"03-MigratingDBToSQLDatabase"** labs.
 
 <a name="Setup"></a>
 ### Setup ###
