@@ -5,9 +5,7 @@
 <a name="Overview"></a>
 ## Overview ##
 
-This hands-on lab walks you step by step through the process of creating a Windows Azure Virtual Machine that includes Visual Studio 2013 RC and SQL Server 2012 Express. You will use the virtual machin you create in this lab as the development for other labs. 
-
-In the following exercises you will explore the basic elements of setting up an **Windows Azure Virtual Machine** using the Windows Azure Gallery for Vitual Machines. Once a basic virtual machine has been setup, we will install SQL Server 2012 Express Edition and SQL Server Management Studio.
+This hands-on lab walks you step by step through the process of creating a **Windows Azure Virtual Machine** that includes **Visual Studio 2013 RC**, **SQL Server 2012 Express**, and **SQL Server 2012 Management Studio Express**. You will use the virtual machine you create in this lab as the development environment for other labs. 
 
 <a name="Objectives"></a>
 ### Objectives ###
@@ -30,7 +28,7 @@ The following is required to complete this hands-on lab:
 
 In order to execute the exercises in this hands-on lab you need to set up your environment.
 
-1. Start by logging into the **Windows Azure Portal** (http://manage.windowsazure.com) to ensure that you have a valid Windows Azure subscription that you wish to create the Virtual Machine in.  
+1. Start by logging into the **Windows Azure Portal** (https://manage.windowsazure.com) to ensure that you have a valid Windows Azure subscription that you wish to create the Virtual Machine in.  
 
 
 ---
@@ -69,9 +67,10 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 
 	_Creating a new Virtual Machine from the Gallery_
  
-1. In the **Virtual Machine image Selection** page, click **Platform Images** on the left menu and select the **Visual Studio Ultimate 2013 RC** from the list. Click the arrow in the lower right corner to continue.	
+1. In the **Virtual Machine image Selection** page, click **Platform Images** on the left menu and select the **Visual Studio Ultimate 2013 RC** from the list. Click the **arrow in the lower right corner** to continue.	
 
 	![03VMImageSelection](images/03vmimageselection.png?raw=true "Virtual Machine Iamge Selection")
+
 	_Selecting Visual Studio 2013 Ultimate 2013 RC_
 
 
@@ -83,7 +82,7 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 
 	_Configuring the VM's Name, Size and User Info_
 
-1. Next, configure the "Cloud Service" that the virtual machine will run within.  Cloud services provide administrative and security boundaries around a collection of virtual machines and network endpoints.  Each cloud service needs::
+1. Next, configure the **"Cloud Service"** that the virtual machine will run within.  Cloud services provide administrative and security boundaries around a collection of virtual machines and network endpoints.  Each cloud service needs::
 
 	- **Cloud Service**: Create a new cloud service. 
 	- **Cloud Service DNS Name**: When creating a new cloud service you need to supply a unique cloud service name (see note)
@@ -98,13 +97,13 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 
 	> **Note:** The URL used for the virtual machine corresponds to a DNS name and is subject to standard DNS naming rules. Moreover, the name is publicly visible and must therefore be unique. The portal ensures that the name is valid by verifying that the name complies with the naming rules and is currently available. A validation error will be shown if you enter a name that does not satisfy the rules.
 
-1. Finally, configure the public endpoints to allow connections from outside the Windows Azure data center into the Cloud Service and it's VMs. For this lab, you don't need to change anything.  Just review them and click the checkmark in the lower right corner to continue.
+1. Finally, configure the public **endpoints** to allow connections from outside the Windows Azure data center into the Cloud Service and it's VMs. For this lab, **you don't need to change anything**.  Just review them and **click the checkmark in the lower right corner** to continue.
 
 	![06CloudServiceEndpoints](images/06cloudserviceendpoints.png?raw=true "Cloud Service Endpoints")
 
 	_Cloud Service Endpoint Configuration_
 
-1. It will take somewhere between **5 to 15 minutes** to fully provision the virtual machine. You can monitor the process in the management portal.  Eventually, the Virtual Machine "STATUS" should read "Running":
+1. It will take somewhere between **5 to 15 minutes** to fully provision the virtual machine. You can monitor the process in the management portal.  Eventually, the Virtual Machine **"STATUS"** should read **"Running"**:
 
 	![07VMRunning](images/07vmrunning.png?raw=true "Virtual Machine Running")	
 
@@ -115,25 +114,25 @@ In this section, you will log into the Windows Azure Portal and create an Azure 
 
 Now that the Virtual Machine has been provisioned, it's just like any  other Virtual Machine, or remote Windows Server you have worked with in the past.  You can connect to the Virtual Machine using standard management tools, provided that the appropriate endpoints and ports have been opened.  In the previous task, we configured our cloud service with an endpoint for **Remote Desktop (port 3389)** that we can use to remotely manage our Virtual Machine.  In addition we can connect with **PowerShell (port 5986)** to perform automated management tasks.   In this next task, you will connect to the new Virtual Machine using remote desktop, and disable the **Internet Explorer Enhanced Security Configuration (ESC)**. We need to disable it so we can download and install **SQL Server Management Studio Express** in a later exercise.  
 
-1. In the Windows Azure Management Portal, on the "VIRTUAL MACHINES" page, select the Virtual Machine we just created.  and click the "CONNECT" button along the bottom:
+1. In the **Windows Azure Management Portal**, on the **"VIRTUAL MACHINES"** page, select the Virtual Machine we just created.  and click the **"CONNECT"** button along the bottom:
 
 	![08ConnectToVM](images/08connecttovm.png?raw=true "Connect to the Virtual Machine")
 
 	_Connect to the new Virtual Machine using Remote Desktop_
 
-1. The portal will display a notification about the .rdp file being downloaded.  You can click "OK" to clear the notification:
+1. The portal will display a notification about the .rdp file being downloaded.  You can **click "OK" to clear the notification**:
 
 	![09PortalRdpNotification](images/09portalrdpnotification.png?raw=true "Portal RDP File Download Notification")
 
 	_Portal RDP File Download Notification_
 
-1. Internet Explorer will prompt you to open or save the .RDP file.  For this lab you can just click "**Open**". However, saving it would allow you to configure the .RDP file settings (like display size, available resources, etc) for repeated use.  
+1. Internet Explorer will prompt you to open or save the .RDP file.  For this lab you can just **click "Open"**. However, saving it would allow you to configure the .RDP file settings (like display size, available resources, etc) for repeated use.  
 
 	![10OpenRDPFile](images/10openrdpfile.png?raw=true "Open the RDP File")
 
 	_Open the RDP File_
 
-1. You may see a "Remote Desktop Connection" publisher confirmation dialog.  If so, click "**Connect**" to continue:
+1. You may see a **"Remote Desktop Connection"** publisher confirmation dialog.  If so, click "**Connect**" to continue:
 
 	![11RDPPublisherConfirmation](images/11rdppublisherconfirmation.png?raw=true "Remote Desktop Publisher Confirmation")
 
@@ -145,7 +144,7 @@ Now that the Virtual Machine has been provisioned, it's just like any  other Vir
 
 	_Enter the credentials for the virtual machine_
 
-1. You will likely be prompted to confirm the certificate for the Remote Desktop Connection.  If so, click "**Yes**" to continue:
+1. You will likely be prompted to confirm the certificate for the **Remote Desktop Connection**.  If so, click "**Yes**" to continue:
 
 	![13RemoteDesktopCertificationConfirmation](images/13remotedesktopcertificationconfirmation.png?raw=true "Remote Desktop Certificate Confirmation")
 
@@ -187,12 +186,12 @@ Exercise 2
 <a name="Exercise2"></a>
 ### Exercise 2: Installing SQL Server 2012 Express ###
 
-In this exercise, we will install SQL Server 2012 Express on the Virtual Machine we just created.  You could of course install a full version of SQL Server, but the "Visual Studio Ultimate 2013 RC" virtual machine image we used to create the VM already has the installation files for SQL Server 2012 Express, so we will just use that for convenience.   
+In this exercise, we will install **SQL Server 2012 Express** on the Virtual Machine we just created.  You could of course install a full version of SQL Server, but the "Visual Studio Ultimate 2013 RC" virtual machine image we used to create the VM already has the installation files for SQL Server 2012 Express, so we will just use that for convenience.   
 
 <a name="Exercise2Task1"></a>
 #### Task 1 – Install SQL Server 2012 Express ####
 
-1. In the Remote Desktop Connection window for the remote Virtual Machine, ensure that you are on the Desktop.  There is a shortcut on the desktop to a folder named **"Configure Developer Desktop"**.  Double Click that shortcut to open the folder. 
+1. In the **Remote Desktop Connection** window for the remote Virtual Machine, ensure that you are on the Desktop.  There is a shortcut on the desktop to a folder named **"Configure Developer Desktop"**.  Double Click that shortcut to open the folder. 
 
 	![17ConfigureDevelopDesktopShortcut](images/17configuredevelopdesktopshortcut.png?raw=true "Configure Developer Desktop Shortcut")
 
@@ -210,13 +209,13 @@ In this exercise, we will install SQL Server 2012 Express on the Virtual Machine
 	
 	_Run "ConfigureSQLExpress" in PowerShell_
 
-1. You will be prompted to confirm the PowerShell "Execution Policy Change".  Type "Y" at the prompt and press "Enter" to confirm it.  The script will start the SQL Server Express installation:
+1. You will be prompted to confirm the **PowerShell "Execution Policy Change"**.  Type **"Y"** at the prompt and press **"Enter"** to confirm it.  The script will start the SQL Server Express installation:
 
 	![20PowerShellExecutionPolicyChangeConfirmation](images/20powershellexecutionpolicychangeconfirmation.png?raw=true "PowerShell Execution Policy Change Confirmation")
 
 	_PowerShell Execution Policy Change Confirmation_
 
-1. A second command prompt will appear to run the actual SQL Server Express Setup.  The setup process will run for 5-15 minutes.  You won't see any changes until the script is complete.  Please be patient and wait for it to finish:
+1. A second command prompt window will appear to run the actual SQL Server Express Setup.  **The setup process will run for 5-15 minutes.**  You won't see any changes until the script is complete.  Please be patient and wait for it to finish:
 
 	![21SQLServerExpressSetup](images/21sqlserverexpresssetup.png?raw=true "SQL Server Express Setup")
 
@@ -225,21 +224,21 @@ In this exercise, we will install SQL Server 2012 Express on the Virtual Machine
 <a name="Exercise2Task2"></a>
 #### Task 2 – Connect to SQL Express from Visual Studio Ultimate 2013 RC ####
 
-Now that SQL Server Express is installed, we will verify it by connecting to it from Visual Studio Ultimage 2013 RC.  This will confirm the installation, but also give us a chance to prepare Visual Studio for use. 
+Now that **SQL Server 2012 Express** is installed, we will verify it by connecting to it from V**isual Studio Ultimate 2013 RC**.  This will confirm the installation, but also give us a chance to prepare Visual Studio for use. 
 
-1. In the Remote Desktop Connection window for the virtual machine, return to the desktop and double click the "Visual Studio 2013 RC" shortcut.  
+1. In the **Remote Desktop Connection** window for the virtual machine, return to the desktop and double click the **"Visual Studio 2013 RC"** shortcut.  
 
 	![22VS2013Shortcut](images/22vs2013shortcut.png?raw=true "Visual Studio 2013 RC Shortcut")
 
 	_Open the **"Visual Studio 2013 RC"** Shortcut_
 
-1. When prompted, click "Sign In" button to sign in with your Microsoft Account:
+1. When prompted, click **"Sign In"** button to sign in with your **Microsoft Account**:
 
 	![23SignIntoVS2013](images/23signintovs2013.png?raw=true "Sign In")
 
 	_Sign In_
 
-	> **Note:** You are be required to sign in with a valid Microsoft Account in order to activate the Visual Studio Ultimate 2013 RC license.
+	> **Note:** You are required to sign in with a valid Microsoft Account in order to activate the Visual Studio Ultimate 2013 RC license.
 
 1. Enter your Microsoft Account credentials and click **"Sign in"**:
 
@@ -271,7 +270,7 @@ Now that SQL Server Express is installed, we will verify it by connecting to it 
 
 	_Connect to **"(local)\SQLEXPRESS"** using Windows Authentication_
 
-1. Once connected, expand the "(local)\SQLXPRESS ..." node, then expand "Databases".  You should see that there are no user databases on this brand new instance of SQL Server Express.  Databases will be created in other labs.  
+1. Once connected, expand the **"(local)\SQLXPRESS ..."** node, then expand **"Databases"**.  You should see that **there are no user databases** on this brand new instance of SQL Server Express.  **Databases will be created in other labs.**  
 
 	![29NoUserDatabases](images/29nouserdatabases.png?raw=true "No User Databases")
 
@@ -289,12 +288,12 @@ Exercise 3
 <a name="Exercise3"></a>
 ### Exercise 3 – Installing SQL Server Management Studio Express ###
 
-In the previous exercise we installed SQL Server 2012 Express, and verified that we could connect to it from Visual Studio.  Visual Studio does have basic SQL Server management capabilities, but it can't do everything we will need for future labs.  To solve that problem, we will install SQL Server Management Studio Express.  This is a free version of SQL Server Management Studio that can be used with SQL Server Express installations, and has all the functionality we need for the other labs in this series.  
+In the previous exercise we installed **SQL Server 2012 Express**, and verified that we could connect to it from Visual Studio.  Visual Studio does have basic SQL Server management capabilities, but it can't do everything we will need for future labs.  To solve that problem, we will install **SQL Server 2012 Management Studio Express**.  This is a free version of SQL Server Management Studio that can be used with SQL Server Express installations, and has all the functionality we need for the other labs in this series.  
 
 <a name="Exercise3Task1"></a>
 #### Task 1 - Install SQL Server Management Studio Express ###
 
-1. In the Remote Desktop Connection window for your development virtual machine, open Internet Explorer, and navigate to http://aka.ms/sqlexp12 .  This link should take you to the "Microsoft SQL Server 2012 Express" download page.  On that page click the "Download" button:
+1. In the **Remote Desktop Connection** window for your development virtual machine, open **Internet Explorer**, and navigate to **http://aka.ms/sqlexp12** .  This link should take you to the **"Microsoft SQL Server 2012 Express"** download page.  On that page click the **"Download"** button:
 
 	> **Note:** The first time you launch Internet Explorer you may be prompted to use the recommended settings.  If so select the **"Use recommended security and compatability settings"** option and click **"OK"** to continue.
 
@@ -308,7 +307,7 @@ In the previous exercise we installed SQL Server 2012 Express, and verified that
 
 	_Choose **ONLY** **"ENU\x64\SQLManagementStudio_x64_ENU.exe"**_
 
-1. If the pop-up is blocked by IE click "Allow Once" to continue:
+1. If the pop-up is blocked by IE click **"Allow Once"** to continue:
 
 	![32AllowPopUp](images/32allowpopup.png?raw=true "Allow Pop-ups ")
 
@@ -320,7 +319,7 @@ In the previous exercise we installed SQL Server 2012 Express, and verified that
 
 	_Save to default Downloads folder_
 
-1. The download may take a couple of minutes to complete (it is a 600MB file).  Remember that you are downloading into the Virtual Machine running in Azure, not to your local computer.  Once the download has completed, click the "Run" button to install SQL Server Management Studio Express (SSMS) into the remote Virtual Machine:
+1. The download may take a couple of minutes to complete (it is a 600MB file).  Remember that you are downloading into the Virtual Machine running in Azure, not to your local computer.  Once the download has completed, click the **"Run"** button to install SQL Server Management Studio Express (SSMS) into the remote Virtual Machine:
 
 	![34RunSSMSInstall](images/34runssmsinstall.png?raw=true "Run the SSMS Installation")
 
@@ -350,13 +349,13 @@ In the previous exercise we installed SQL Server 2012 Express, and verified that
 	
 	_Select "Management Tools - Basic"_
 
-1. Accept the defaults on the "Error Reporting" page and click "Next" to continue:
+1. Accept the defaults on the **"Error Reporting"** page and click **"Next"** to continue:
 
 	![39ErrorReportingDefaults](images/39errorreportingdefaults.png?raw=true "Accept the Error Reporting Defaults")
 
 	_Accept the Error Reporting defaults_
 
-1. The installation may take 5-10 minutes to complete.  When it does, the "Complete" page will appear.  Click "Close" to exit:
+1. **The installation may take 5-10 minutes to complete**.  When it does, the **"Complete"** page will appear.  Click **"Close"** to exit:
 
 	![40InstallationComplete](images/40installationcomplete.png?raw=true "Installation Complete")
 	
