@@ -5,14 +5,14 @@
 <a name="Overview"></a>
 ## Overview ##
 
-This hands-on lab walks you step by step through the process of creating a **Windows Azure Virtual Machine** that includes **Visual Studio 2013 RC**, **SQL Server 2012 Express**, and **SQL Server 2012 Management Studio Express**. You will use the virtual machine you create in this lab as the development environment for other labs. 
+This hands-on lab walks you step by step through the process of creating a **Windows Azure Virtual Machine** that includes **Visual Studio 2013 Ultimate**, **SQL Server 2012 Express and SQL Server 2012 Management Studio Express**, and the **Windows Azure SDK and Tools for Visual Studio 2013**. You will use the virtual machine you create in this lab as the development environment for other labs. 
 
 <a name="Objectives"></a>
 ### Objectives ###
 
 In this hands-on lab, you will learn how to:
 
-- Create a Virtual Machine with Visual Studio 2013 RC from the Windows Azure Management Portal
+- Create a Windows Server 2012 R2 Virtual Machine from the Windows Azure Management Portal
 - Remotely manage Azure Virtual Machine instances
 - Install additional software into Virtual Machines
 
@@ -38,8 +38,13 @@ In order to execute the exercises in this hands-on lab you need to set up your e
 This hands-on lab includes the following exercises:
 
 - [Exercise 1: Creating an Azure Virtual Machine using the Windows Azure Virtual Image Gallery](#Exercise1)
-- [Exercise 2: Installing SQL Server 2012 Express](#Exercise2)
-- [Exercise 3: Installing SQL Server Management Studio Express](#Exercise3)
+- [Exercise 2: Installing Visual Studio 2013 Ultimate Evaluation](#Exercise2)
+- [Exercise 3: Installing SQL Server 2012 Express](#Exercise3)
+- [Exercise 4: Installing the Windows Azure SDK and Tools](#Exercise4)
+- [Exercise 5: Installing the Lab Files](#Exercise5)
+- [Exercise 6: Creating Shortcuts for Common Tools](#Exercise6)
+
+---
 
 <!--  
 ========================================
@@ -50,132 +55,128 @@ Exercise 1
 <a name="Exercise1"></a>
 ### Exercise 1: Creating an Azure Virtual Machine using the Windows Azure Virtual Image Gallery ###
 
-In this section, you will log into the Windows Azure Portal and create an Azure Virtual Machine using the Windows Azure Gallery. 
+1. Sign into the **[Windows Azure Management Portal](https://manage.windowsazure.com)** (https://manage.windowsazure.com/) with the Microsoft Account for the subscription you wish to use.
+1. On the left menu, select **Virtual Machines**, the click the **"+ NEW"** button in the lower left corner. 
 
-<a name="Exercise1Task1"></a>
-#### Task 1 – Creating an Azure Virtual Machine using the Windows Azure Virtual Image Gallery ####
+	![Virtual Machines New Button](images/01virtual-machines-new-button.png?raw=true "Virtual Machines New Button")
 
-1. Go to the [Windows Azure Management Portal](https://manage.windowsazure.com/) and sign in using the Microsoft credentials associated with your subscription. On the left menu, select **Virtual Machines**, then click the "**+ NEW**" button in the lower left corner.
+	_Virtual Machines page in the Manamagement Portal_
 
-	![01AzurePortalNewButton](images/01azureportalnewbutton.png?raw=true "Azure Portal "+ NEW" Button")
+1. Click **+ NEW** | **COMPUTE** | **VIRTUAL MACHINE** | **FROM GALLERY**
 
-	_Log into the Windows Azure Management Portal and click **"+ NEW"**_
+	![Using The Gallery](images/02using-the-gallery.png?raw=true "Using The Gallery")
 
-1. In the menu located at the bottom, select **New | Compute | Virtual Machine | From Gallery** to start creating a new virtual machine.
+	_Creating a New Virtual Machine from the Gallery_
 
-	![02CreateAzureVM](images/02createazurevm.png?raw=true "Create a new Virtual Machine")	
+1. Chose the **“Windows Server 2012 R2 Datacenter”** from the list of gallery images, and **click the "next" (right arrow) button** to continue...
 
-	_Creating a new Virtual Machine from the Gallery_
- 
-1. In the **Virtual Machine image Selection** page, click **Platform Images** on the left menu and select the **Visual Studio Ultimate 2013 RC** from the list. Click the **arrow in the lower right corner** to continue.	
+	![Windows Server 2012 R2 Datacenter Gallery Image](images/03windows-server-2012-r2-datacenter-gallery-ima.png?raw=true "Windows Server 2012 R2 Datacenter Gallery Image")
 
-	![03VMImageSelection](images/03vmimageselection.png?raw=true "Virtual Machine Iamge Selection")
+	_Windows Server 2012 R2 Datacenter Gallery Image_
 
-	_Selecting Visual Studio 2013 Ultimate 2013 RC_
+	> **Note:** Gallery images are often updated with newer versions.  If the Windows Server 2012 R2 Datacenter image isn't available, choose an appropriate operating system that is Windows Server 2012 R2 or later. 
 
+1. **Supply values** for the following, then **click the next (right arrow) button to continue**: 
 
-1. The wizard will start by having you specify a **virtual machine name**. You will also choose the **machine size**. Finally, you need to supply an administrative Windows **User Name** and **Password**.  The password must conform to basic password complexity requirements. You will need to know your **user name** and **password** for later, when you log into the machine with **Remote Desktop**.  Click the next arrow when done. 
+	- **Virtual Machine Name:**  This will be the Windows computer name
+	- **Size:** A **"Medium (2 cores, 3.5GB memory)"** virtual machine should be powerful enough for these labs.  You can choose a smaller size (to save cores or cost) or a larger size (for better performance) as desired.
+	- **Administrator User Name and Password:** Make a note of the admin credentials if needed.  You will need to remember these creditentials to log into the Virtual Machine later.
 
-	> **Note:** **Be sure to pick an appropriate machine size!**  The [price per hour](http://www.windowsazure.com/en-us/pricing/details/virtual-machines/ "Virtual Machine Pricing") increases with each step up in Virtual Machine size.  The time used by this virtual machine will be billed against the subscription you select in the next screen according to the subscription's benefits.  This Virtual Machine's cores will also count against your subscriptions total core count.  Ensure that you choose a machine size with those details in mind. A "**Medium (2 cores, 3.5 GB memory)**" image should perform reasonably well throughout the lab.  You can also always increase it or decrease it later as needed.  
+	![Virtual Machine Configuration](images/04virtual-machine-configuration.png?raw=true "Virtual Machine Configuration")
 
-	![04VMNameSizeUser](images/04vmnamesizeuser.png?raw=true "Virtual Machine Name, Size and User Info")
+	_Virtual Machine Configuration_
 
-	_Configuring the VM's Name, Size and User Info_
+1. **Supply values as follows** for the new Cloud Service, and **click the next (right arrow) button to continue**:
 
-1. Next, configure the **"Cloud Service"** that the virtual machine will run within.  Cloud services provide administrative and security boundaries around a collection of virtual machines and network endpoints.  Each cloud service needs::
+	- **Cloud Service:** Choose **"Create a new cloud service"** 
+	- **Cloud Service DNS Name**: Choose a valid host name for the cloud service.  It will default to the same name as the Virtual Machine (from the previous step).  Change it to create a valid, unique name if needed. You will know if the name is valid when the green circle with the checkmark appears: ![Valid Checkmark](images/valid-checkmark.png?raw=true "Valid Checkmark")
+	- **Region / Affinity Group / Virtual Network:** Pick a region (data center) close to you.
+	- **Storage Account:** Select **"User an automatically generated storage account"**
+	- **Availability Set:** Select **"(None)"**  
 
-	- **Cloud Service**: Create a new cloud service. 
-	- **Cloud Service DNS Name**: When creating a new cloud service you need to supply a unique cloud service name (see note)
-   - **Subscripton**: The Windows Azure subscription to use for the VM (only appears if you have more than one subscription)
-	- **Region**: The data center to you want the virtual machine to run in
-	- **Storage Account**: The Windows Azure Storage account where you want the Virtual Hard Drive (vhd) blob to be stored.  You can choose an existing storage account, or let the wizard create one on the fly for you. 
-	- **Availability Set**: We won't use Availability Sets in this lab, so leave it at "(None)".  You can learn more about Availability Sets [here](http://www.windowsazure.com/en-us/manage/windows/common-tasks/manage-vm-availability/ "Manage the Availability of Virtual Machines").
+	![Cloud Service Configuration](images/05cloud-service-configuration.png?raw=true "Cloud Service Configuration")
 
-	![05VMCloudServiceRegionStorage](images/05vmcloudserviceregionstorage.png?raw=true "Virtual Machine Cloud Service, Region and Storage")
+	_Cloud Service Configuration_
 
-	_Configuring the VM's Cloud Service, Region and Storage_
+1. **Leave the Endpoints at the default** (Remote Desktop & PowerShell), **Click the ok (checkmark) button to complete the wizard**:
 
-	> **Note:** The URL used for the virtual machine corresponds to a DNS name and is subject to standard DNS naming rules. Moreover, the name is publicly visible and must therefore be unique. The portal ensures that the name is valid by verifying that the name complies with the naming rules and is currently available. A validation error will be shown if you enter a name that does not satisfy the rules.
+	![Endpoints Configuration](images/06endpoints-configuration.png?raw=true "Endpoints Configuration")
 
-1. Finally, configure the public **endpoints** to allow connections from outside the Windows Azure data center into the Cloud Service and it's VMs. For this lab, **you don't need to change anything**.  Just review them and **click the checkmark in the lower right corner** to continue.
+	_Endpoint Configuration_
 
-	![06CloudServiceEndpoints](images/06cloudserviceendpoints.png?raw=true "Cloud Service Endpoints")
+1. **It will take approximately 10 minutes for the new Virtual Machine to be provisioned**.  Now might be a good time to take a quick break if needed.  While the virtual machine is being provisioned, you can monitor it's status on the **"VIRTUAL MACHINES"** page of the [Windows Azure Management Portal](https://manage.windowsazure.com/):
 
-	_Cloud Service Endpoint Configuration_
+	![Virtual Machine Provisioning Status](images/07virtual-machine-provisioning-status.png?raw=true "Virtual Machine Provisioning Status")
 
-1. It will take somewhere between **5 to 15 minutes** to fully provision the virtual machine. You can monitor the process in the management portal.  Eventually, the Virtual Machine **"STATUS"** should read **"Running"**:
+	_Virtual Machine Provisioning Status_
 
-	![07VMRunning](images/07vmrunning.png?raw=true "Virtual Machine Running")	
+1. Once the new virtual machine's status is **“Running”**, select it in the Management Portal and click the **“CONNECT”** button along the bottom:
 
-	_The virtual machine running_
+	![Connect to the new VM](images/08connect-to-the-new-vm.png?raw=true "Connect to the new VM")
 
-<a name="Exercise1Task2"></a>
-#### Task 2 – Connecting to the Virtual Machine using Remote Desktop ####
+	_CONNECT Button_
 
-Now that the Virtual Machine has been provisioned, it's just like any  other Virtual Machine, or remote Windows Server you have worked with in the past.  You can connect to the Virtual Machine using standard management tools, provided that the appropriate endpoints and ports have been opened.  In the previous task, we configured our cloud service with an endpoint for **Remote Desktop (port 3389)** that we can use to remotely manage our Virtual Machine.  In addition we can connect with **PowerShell (port 5986)** to perform automated management tasks.   In this next task, you will connect to the new Virtual Machine using remote desktop, and disable the **Internet Explorer Enhanced Security Configuration (ESC)**. We need to disable it so we can download and install **SQL Server Management Studio Express** in a later exercise.  
+1. The management portal will display a notification that an ".rdp" file will be retrieved.  Click "OK" to clear the notification:
 
-1. In the **Windows Azure Management Portal**, on the **"VIRTUAL MACHINES"** page, select the Virtual Machine we just created.  and click the **"CONNECT"** button along the bottom:
+	![RDP File Retrieval Notification](images/09rdp-file-retrieval-notification.png?raw=true "RDP File Retrieval Notification")
 
-	![08ConnectToVM](images/08connecttovm.png?raw=true "Connect to the Virtual Machine")
+	_".rdp" File Notification_
 
-	_Connect to the new Virtual Machine using Remote Desktop_
+1. Internet Explorer will prompt you to open or save the ".rpd" file. Click the "Open" button to download and open the ".rdp" file:
 
-1. The portal will display a notification about the .rdp file being downloaded.  You can **click "OK" to clear the notification**:
+	![Open the RDP File](images/10open-the-rdp-file.png?raw=true "Open the RDP File")
 
-	![09PortalRdpNotification](images/09portalrdpnotification.png?raw=true "Portal RDP File Download Notification")
+	_Open the ".rdp" file_
 
-	_Portal RDP File Download Notification_
+1. In the **"Remote Desktop Connection"** publisher verification window click the **"Connect"** button to continue:
 
-1. Internet Explorer will prompt you to open or save the .RDP file.  For this lab you can just **click "Open"**. However, saving it would allow you to configure the .RDP file settings (like display size, available resources, etc) for repeated use.  
+	![RDP Publisher Verification](images/11rdp-publisher-verification.png?raw=true "RDP Publisher Verification")
 
-	![10OpenRDPFile](images/10openrdpfile.png?raw=true "Open the RDP File")
+	_".rdp" File Publisher Verfication_
 
-	_Open the RDP File_
+1. Enter the administrator **User Name and Password** you specified earlier to connect to the Virtual Machine:
 
-1. You may see a **"Remote Desktop Connection"** publisher confirmation dialog.  If so, click "**Connect**" to continue:
+	![Administrator Credentials](images/12administrator-credentials.png?raw=true "Administrator Credentials")
 
-	![11RDPPublisherConfirmation](images/11rdppublisherconfirmation.png?raw=true "Remote Desktop Publisher Confirmation")
+1. In the **"Remote Desktop Connection"** Identity Verfication window, **click "Yes"** to continue:
 
-	_Remote Desktop Publisher Confirmation_
+	![RDP Identity Verification](images/13rdp-identity-verification.png?raw=true "RDP Identity Verification")
 
-1. When prompted, enter the Virtual Machine administrative credentials you created in the previous task.  
+	_Remote Computer Identity Verfication_
 
-	![12EnterVMCredentials](images/12entervmcredentials.png?raw=true "Enter Virtual Machine Credentials")
+1. In the **"Remote Desktop Connection"** window, if you are asked **"Do you want to find PCs, ..."** click **"Yes"**:
 
-	_Enter the credentials for the virtual machine_
+	![Enable Network Discovery](images/14enable-network-discovery.png?raw=true "Enable Network Discovery")
 
-1. You will likely be prompted to confirm the certificate for the **Remote Desktop Connection**.  If so, click "**Yes**" to continue:
+	_Enable network discovery_
 
-	![13RemoteDesktopCertificationConfirmation](images/13remotedesktopcertificationconfirmation.png?raw=true "Remote Desktop Certificate Confirmation")
+1. On the remote machine, if **"Server Manager"** is not running, you can launch it from the Server Manager icon on the taskbar:
 
-	_Remote Desktop Certificate Confirmation_
+	![Server Manager Icon](images/15server-manager-icon.png?raw=true "Server Manager Icon")
 
-1. Once you have successfully connected to the Virtual Machine in Remote Desktop, you will see the desktop of the remote machine, and the Windows "**Server Manager**" will run automatically (***it may take some time for it to appear when you first log in***).  Once it appears, click the "**Configure this local server**" link:
-
-	> **Note:** If "Server Manager" doesn't run automatically, you can launch it from the icon on the remote machine's task bar. 
+	_Server Manager icon_
 
 
-	![14ConfigureLocalServer](images/14configurelocalserver.png?raw=true "Configure Local Server in Server Manager")
+1. In the Remote Desktop window, in the **Server Manager**, click the **“Configure this local server”** link along the top:
 
-	_Configure the Local Server in Server Manager_
+	![Configure Local Server](images/16configure-local-server.png?raw=true "Configure Local Server")
+
+	_Configure the local server_
+
+1. Next to **“IE Enhanced Security Configuration”** click the **“On”** link:
 
 
-1. On the "**Properties**" page for the Local Server, next to "**IE Enhanced Security Configuration**", click the "**Off**" link:
+	![IE Enhanced Security On](images/17ie-enhanced-security-on.png?raw=true "IE Enhanced Security On")
 
-	![15IeEscLink](images/15ieesclink.png?raw=true "IE Enhanced Security Configuration Settings Link")
+1. In the **"Internet Explorer Enhanced Security Configuration"** window, change both **“Administrators”** and **“Users”** to **“Off”**. Click **“OK”**, and then close the Server Manager window:
 
-	_IE Enhanced Security Configuration Settings Link_
+	![Turn IE ESC Off](images/18turn-ie-esc-off.png?raw=true "Turn IE ESC Off")
 
-1. In the **"Internet Explorer Enhanced Security Configuration"**, select **"Off"** for both **Administrators** and **Users**.  Click **"OK"** to close the window:
+	_Turn "Internet Explorer Ehnanced Security Configuration" off_
 
-	![16IeEscTurnedOff](images/16ieescturnedoff.png?raw=true "IE Enhanced Security Configuration Turned Off")
+At this point we have built a Windows Server 2012 R2 Virtual Machine in Windows Azure!  In the next exercise we'll install the Visual Studio 2013 Ultimate Evaluation.
 
-	_IE Enhanced Security Configuration Turned Off_
-
-	> **Note:** For a normal server you would want to leave this on.  However because will be using the Virtual Machine more like a workstation, and we need to download and install other software later, we will turn it off.  
-
-1. Close the **"Server Manager"** window.  At this point you have successfully created a Windows Azure Virtual Machine using an image from the Gallery.  You have also connected to that Virtual Machine using Remote Desktop and configured it!  Congratulations!   Keep the remote desktop connection open for the next exercise. 
-
+---
 
 <!--  
 ========================================
@@ -184,204 +185,408 @@ Exercise 2
 -->
 
 <a name="Exercise2"></a>
-### Exercise 2: Installing SQL Server 2012 Express ###
+### Exercise 2: Installing Visual Studio 2013 Ultimate Evaluation ###
 
-In this exercise, we will install **SQL Server 2012 Express** on the Virtual Machine we just created.  You could of course install a full version of SQL Server, but the "Visual Studio Ultimate 2013 RC" virtual machine image we used to create the VM already has the installation files for SQL Server 2012 Express, so we will just use that for convenience.   
+In this exercise, we'll install a **evaluation** edition of **Visual Studio 2013 Ultimate** into the new Virtual Machine we just created. It should be noted that if you have an MSDN subscription that provides Visual Studio 2013 Ultimate to you, then you may want to start the download from there rather than using the trial link provided in these steps.  
 
-<a name="Exercise2Task1"></a>
-#### Task 1 – Install SQL Server 2012 Express ####
+**The steps in this exercise should all be performed in using a Remote Desktop Connection to the Virtual Machine we created in [Exercise 1](#Exercise1).**
 
-1. In the **Remote Desktop Connection** window for the remote Virtual Machine, ensure that you are on the Desktop.  There is a shortcut on the desktop to a folder named **"Configure Developer Desktop"**.  Double Click that shortcut to open the folder. 
+1. In the **Remote Desktop** window to the virtual machine we just created, click the **“Start Button”** in the lower left corner of the desktop to return to the **Start Screen**:
 
-	![17ConfigureDevelopDesktopShortcut](images/17configuredevelopdesktopshortcut.png?raw=true "Configure Developer Desktop Shortcut")
+	![Start Button](images/19start-button.png?raw=true "Start Button")
 
-	_Open the "Configure Developer Desktop" folder shortcut_
+1. From the **Start Screen**, click **“Internet Explorer”**
 
-1. In the **"ConfigureDeveloperDesktop"** folder, double click on the **"Scripts"** folder to open it:
-
-	![18ScriptsFolder](images/18scriptsfolder.png?raw=true "Open the Scripts Folder")
-
-	_Open the Scripts Folder_
-
-1. Right click on the **"ConfigureSQLExpress"** icon, and select **"Run with PowerShell"**:
-
-	![19ConfigureSQLExpressInPowerShell](images/19configuresqlexpressinpowershell.png?raw=true "Run ConfigureSQLExpress in PowerShell")
+	![Start Internet Explorer](images/20start-internet-explorer.png?raw=true "Start Internet Explorer")
 	
-	_Run "ConfigureSQLExpress" in PowerShell_
+	_Open Internet Explorer_
 
-1. You will be prompted to confirm the **PowerShell "Execution Policy Change"**.  Type **"Y"** at the prompt and press **"Enter"** to confirm it.  The script will start the SQL Server Express installation:
+1. If you are prompted to **"Set up Internet Explorer 11"**, select **"Use recommended security, privacy, and compatability settings"** and click **"OK"**:
 
-	![20PowerShellExecutionPolicyChangeConfirmation](images/20powershellexecutionpolicychangeconfirmation.png?raw=true "PowerShell Execution Policy Change Confirmation")
+	![Setup Internet Explorer 11](images/21setup-internet-explorer-11.png?raw=true "Setup Internet Explorer 11")
 
-	_PowerShell Execution Policy Change Confirmation_
+	_Setup Internet Explorer 11_
 
-1. A second command prompt window will appear to run the actual SQL Server Express Setup.  **The setup process will run for 5-15 minutes.**  You won't see any changes until the script is complete.  Please be patient and wait for it to finish:
+1. Go to **<http://aka.ms/vs13trial>**, and click the **"Download"** button: 
 
-	![21SQLServerExpressSetup](images/21sqlserverexpresssetup.png?raw=true "SQL Server Express Setup")
+	![Download Visual Studio 2013](images/22download-visual-studio-2013.png?raw=true "Download Visual Studio 2013")
 
-	_SQL Server Express setup could take as long as 15 minutes_
+	_Downlaod Visual Studio 2013_
 
-<a name="Exercise2Task2"></a>
-#### Task 2 – Connect to SQL Express from Visual Studio Ultimate 2013 RC ####
+1. Select the **“vs_ultimate.exe”** (1.1MB) download and click **“Next”**:
 
-Now that **SQL Server 2012 Express** is installed, we will verify it by connecting to it from V**isual Studio Ultimate 2013 RC**.  This will confirm the installation, but also give us a chance to prepare Visual Studio for use. 
+	![Visual Studio 2013 Installer](images/23visual-studio-2013-installer.png?raw=true "Visual Studio 2013 Installer")
 
-1. In the **Remote Desktop Connection** window for the virtual machine, return to the desktop and double click the **"Visual Studio 2013 RC"** shortcut.  
+	_Visual Studio 2013 Installer_
 
-	![22VS2013Shortcut](images/22vs2013shortcut.png?raw=true "Visual Studio 2013 RC Shortcut")
+1. IE will block the pop-up. Click **“Allow once”**:
 
-	_Open the **"Visual Studio 2013 RC"** Shortcut_
+	![Allow Pop-Up](images/24allow-pop-up.png?raw=true "Allow Pop-Up")
 
-1. When prompted, click **"Sign In"** button to sign in with your **Microsoft Account**:
+	_Allow the Pop-up"
 
-	![23SignIntoVS2013](images/23signintovs2013.png?raw=true "Sign In")
+1. Then, when prompted, click **“Run”** to start the Visual Studio 2013 Installation after the download:
 
-	_Sign In_
+	![Run Installer](images/25run-installer.png?raw=true "Run Installer")
 
-	> **Note:** You are required to sign in with a valid Microsoft Account in order to activate the Visual Studio Ultimate 2013 RC license.
+	_Run the installer after the download_
 
-1. Enter your Microsoft Account credentials and click **"Sign in"**:
+1. Once the **Visual Studio Ultimate 2013** installation begins, check the **"I agree to the License Terms and Privacy Policy"** checkbox, and click **"Next"**:
 
-	![24MicrosoftAccountCredentials](images/24microsoftaccountcredentials.png?raw=true "Enter your Microsoft Account Credentials (aka Live ID)")
+	![Start VS 2013 Install](images/26start-vs-2013-install.png?raw=true "Start VS 2013 Install")
 
-	_Enter your Microsoft Account (previously known as your "Live ID") credentials_
+	_Visual Studio 2013 Installation_
 
-1. If you didn't sign in, or you don't have a Visual Studio profile stored for your Microsoft Account, you will be prompted to select the Visual Studio **"Development Settings"** and **"theme"**.  Select what you desire and click **"Start Visual Studio"**:
+1. In the Visual Studio 2013 Installation, **select all** options **_except_ “Windows Phone 8.0. SDK”**, and click **"INSTALL"**:
 
-	![25VSEnvironmentSettings](images/25vsenvironmentsettings.png?raw=true "Visual Studio Environment Settings")
+	![VS 2013 Options](images/27vs-2013-options.png?raw=true "VS 2013 Options")
 
-	_If prompted, select your Visual Studio environment settings_
+	_Visual Studio 2013 Options_
 
-1. Once Visual Studio is running, from the menu bar select **"VIEW"** | **"SQL Server Object Explorer"**:
+	> **Note:** If you know **you won't be doing Windows Store App development** in this VM, you can **leave the "Tools for Maintaining Store apps for Windows 8" de-selected** to speed up the download and install. 
 
-	![26ViewSQLServerObjectExplorer](images/26viewsqlserverobjectexplorer.png?raw=true "View SQL Server Object Explorer")
+	> **Note:** The installation will **take approximately 20-30 minutes**.  Now is a good time to stretch your legs, or to read ahead in the lab.  
 
-	_Open the SQL Server Object Explorer_
+1. Once Visual Studio 2013 installation has completed, click **“LAUNCH”** to start it.
 
-1. In the **"SQL Server Object Explorer"** window, right click **"SQL Server"** and select **"Add SQL Server..."**:
+	![Launch Visual Studio 2013](images/28launch-visual-studio-2013.png?raw=true "Launch Visual Studio 2013")
 
-	![27AddSQLServer](images/27addsqlserver.png?raw=true "Add a SQL Server Connection")
+	_Launch Visual Studio 2013_
+ 
+1. **Sign in with your Microsoft Account** (Live ID) to allow Visual Studio to sync your preferences, **or click “Not now maybe later” and select a theme**. 
 
-	_Add a SQL Server Connection_
+	![Sign In](images/29sign-in.png?raw=true "Sign In")
 
-1. In the **"Connect to Server"** window, enter **"(local)\SQLEXPRESS"** as the server name.  Keep the Authentication as **"Windows Authentication"** and click **"Connect"**:
+	_Sign in with your Microsoft Account_
 
-	![28ConnectLocaSQLExpress](images/28connectlocasqlexpress.png?raw=true "Connect to (local)\SQLEXPRESS")
+1. Verify that Visual Studio starts correctly, then **close Visual Studio 2013**. 
 
-	_Connect to **"(local)\SQLEXPRESS"** using Windows Authentication_
+	![Close Visual Studio](images/30close-visual-studio.png?raw=true "Close Visual Studio")
 
-1. Once connected, expand the **"(local)\SQLXPRESS ..."** node, then expand **"Databases"**.  You should see that **there are no user databases** on this brand new instance of SQL Server Express.  **Databases will be created in other labs.**  
+	_Close Visual Studio 2013_
 
-	![29NoUserDatabases](images/29nouserdatabases.png?raw=true "No User Databases")
+Great, you now have a virtual machine that you can use for general development purposes.  In the next exercise, we'll install SQL Server 2012 Express With Tools, which includes SQL Server Management Studio Express. 
 
-	_No User Databases_
-
-1. Close **Visual Studio Ultimate 2013 RC** and return to the desktop of the remote machine.  Keep the remote connection window open for the next exercise.
-
+---
 
 <!--  
 ========================================
-Exercise 3 
+Exercise 3
 ========================================
 -->
 
 <a name="Exercise3"></a>
-### Exercise 3 – Installing SQL Server Management Studio Express ###
+### Exercise 3: Installing SQL Server 2012 Express ###
 
-In the previous exercise we installed **SQL Server 2012 Express**, and verified that we could connect to it from Visual Studio.  Visual Studio does have basic SQL Server management capabilities, but it can't do everything we will need for future labs.  To solve that problem, we will install **SQL Server 2012 Management Studio Express**.  This is a free version of SQL Server Management Studio that can be used with SQL Server Express installations, and has all the functionality we need for the other labs in this series.  
+In a later exercise, we'll be migrating an "on-premise" database into either an Azure SQL Database or another Azure VM with a full version of SQL Server 2012 installed.   Visual Studio 2013's "SQL Server Data Tools" has some basic functionality to support that, but a more complete set of database migration features is supported in the SQL Server Management Studio tool.  In this exercise, we'll install SQL Server 2012 Express (that will later be used to host our "on-premise" database) and SQL Server Management Studio Express (SSMS).  SSMS supports migrating both the database structures _and their data_ to Azure. 
 
-<a name="Exercise3Task1"></a>
-#### Task 1 - Install SQL Server Management Studio Express ###
+**The steps in this exercise should all be performed in using a Remote Desktop Connection to the Virtual Machine we created in [Exercise 1](#Exercise1).** 
 
-1. In the **Remote Desktop Connection** window for your development virtual machine, open **Internet Explorer**, and navigate to **http://aka.ms/sqlexp12** .  This link should take you to the **"Microsoft SQL Server 2012 Express"** download page.  On that page click the **"Download"** button:
+1. In the **Remote Desktop** window, again, open **Internet Explorer**, go to **<http://aka.ms/sqlexp12>** , and click the **"Download"** Button:
 
-	> **Note:** The first time you launch Internet Explorer you may be prompted to use the recommended settings.  If so select the **"Use recommended security and compatability settings"** option and click **"OK"** to continue.
+	![Download SQL Server 2012 Express](images/31download-sql-server-2012-express.png?raw=true "Download SQL Server 2012 Express")
 
-	![30ClickDownload](images/30clickdownload.png?raw=true "Click the Download Button")
+	_Download SQL Server 2012 Express_
 
-	_Click the "Download" button_
+1. Select the **“ENU\x64\SQLEXPRWT_x64_ENU.exe”** (669.9MB) download. This is a 64bit installation of **SQL Server Express WITH TOOLS** (that includes the SQL Server Management Studio Express) and click **“Next”**:
 
-1. In the "Choose the download you want" list, select ***ONLY*** **"ENU\x64\SQLManagementStudio_x64_ENU.exe"** and click **"Next"**:
+	![Download SQL Express with Tools](images/32download-sql-express-with-tools.png?raw=true "Download SQL Express with Tools")
 
-	![31ChooseSSMS](images/31choosessms.png?raw=true "Choose the SQL Management Studio Download")
+	_Download 64Bit SQL Server 2012 Express With Tools_
 
-	_Choose **ONLY** **"ENU\x64\SQLManagementStudio_x64_ENU.exe"**_
+	> **Note:** Make sure to get the file with **"WT"** in the name (“ENU\x64\SQLEXPR**WT**_x64_ENU.exe”).  The **"WT"** means **"With Tools"** and includes **SQL Server Management Studio** Express (**SSMS**) in the installation.  **We'll need SSMS later to migrate databases into Azure**. 
 
-1. If the pop-up is blocked by IE click **"Allow Once"** to continue:
+1. IE will block the pop-up. Click **“Allow once”** to continue, then click "Run" to download and start the SQL Server 2012 Express Installation:
 
-	![32AllowPopUp](images/32allowpopup.png?raw=true "Allow Pop-ups ")
+	![Install SQL Express with Tools](images/33install-sql-express-with-tools.png?raw=true "Install SQL Express with Tools")
 
-	_Allow Pop-ups_
+	_Download and run the SQL Server 2012 Express With Tools Installation_
 
-1. When prompted to save the download, click **"Save"** to save it to the default **"Downloads"** folder on the remote machine:
+	> **Note:** The installation file is 670MB in size, but it should still come down quickly.  Remember the download is being done within an Azure VM running in a Microsoft Datacenter.  Those data center's have plenty of bandwidth to support fast downloads.
 
-	![33SaveToDownloads](images/33savetodownloads.png?raw=true "Save to Downloads")
+1. When the **"SQL Server Installation Center"** appears, click **“New SQL Server stand-alone installation or add features to an existing installation”**:
 
-	_Save to default Downloads folder_
+	![New Installation](images/34new-installation.png?raw=true "New Installation")
 
-1. The download may take a couple of minutes to complete (it is a 600MB file).  Remember that you are downloading into the Virtual Machine running in Azure, not to your local computer.  Once the download has completed, click the **"Run"** button to install SQL Server Management Studio Express (SSMS) into the remote Virtual Machine:
+	_Start a new installation_
 
-	![34RunSSMSInstall](images/34runssmsinstall.png?raw=true "Run the SSMS Installation")
+1. **Accept the license terms** and click **"Next"** to continue:
 
-	_Run the downloaded SSMS Installation_
+	![Accept the License Terms](images/35accept-the-license-terms.png?raw=true "Accept the License Terms")
 
-1. In the **"SQL Server Installation Center"** window, on the **"Installation"** page, click **"New SQL Server stand-alone installation or add features to an existing installation"**:
+	_Accept the license terms_
 
-	![35AddFeatures](images/35addfeatures.png?raw=true "Add Features to an Existing Installation")
+1. **If there are any updates** to be installed (there may not be), ensure that **"Include SQL Server product updates"** is **checked** and **click "Next"** to continue:
 
-	_Add Features to an Existing Installation_
+	![Install SQL Product Updates](images/36install-sql-product-updates.png?raw=true "Install SQL Product Updates")
 
-1. If prompted to install any updates, do so.  Otherwise, click **"Next"** to continue:
+	_Install any SQL Server product updates_
 
-	![36ConfirmUpdates](images/36confirmupdates.png?raw=true "Confirm Updates")
+	> **Note:** The product updates (if any) may take a few minutes to install after you move to the next step.  Be patient and wait for them to install.
 
-	_Confirm Updates_
+1. If you are shown a **"Computer restart required"** notification, **click "OK"** to clear it.  **We will restart the virtual machine at the end of the exercise**. 
 
-1. On the **"Installation Type"** page, select **"Add features to an existing instance of SQL Server 2012"**, and select **"SQLEXPRESS"** from the dropdown list:
+	![Computer Restart Required Notification](images/37computer-restart-required-notification.png?raw=true "Computer Restart Required Notification")
 
-	![37AddToSQLExpress](images/37addtosqlexpress.png?raw=true "Add features to SQLEXPRESS")
+	_Computer Restart Required Notification_
 
-	_Add features to the **"SQLEXPRESS"** instance_
+1.  On the **"Feature Selection"** page, **ensure that all features are selected** and **click "Next"** to continue:
 
-1. On the **"Feature Selection"** page, turn ***ON*** the checkbox next to **"Management Tools - Basic"** and click **"Next"** to continue:
+	![Select All Features](images/38select-all-features.png?raw=true "Select All Features")
 
-	![38SelectManagementToolsBasic](images/38selectmanagementtoolsbasic.png?raw=true "Select Management Tools - Basic")
+	_SQL Server Feature Selection_
+
+1. On the **"Instance Configuration"** page, ensure that the **"Named instance:"** name and **"Instance ID:"** are both **"SQLEXPRESS"** and click **"Next"** to continue:  
+
+	![SQLEXPRESS Instance](images/39sqlexpress-instance.png?raw=true "SQLEXPRESS Instance")
+
+	_**SQLEXPRESS** Instance Configuration_
+
+1. On the **"Server Configuration"**, **"Database Engine Configuration"** and **"Error Reporting"** pages, **accept the defaults** and click **"Next"** to continue:
+
+	![Accept Configuration Defaults](images/40accept-configuration-defaults.png?raw=true "Accept Configuration Defaults")	
+
+	_Accept configuration defaults_
+
+	> **Note:** The installation will begin.  This **installation will take approximately 20-30 minutes** to complete.  
+
+1. Again, if given a **"Computer Restart Required"** notification, **click "OK"** to clear it. **We will restart the vm in a couple of steps**.  
+
+	![Computer Restart Required Notification](images/41computer-restart-required-notification.png?raw=true "Computer Restart Required Notification")
+
+	_Computer Restart Required Notification_
+
+1. Once the SQL Server 2012 Express installation is complete, click "Close" to exit, and close any other windows open in the virtual machine. 
+
+	![Close the Installation](images/42close-the-installation.png?raw=true "Close the Installation")
+
+	_Close the installation and any other windows_
+
+1. **COMPLETE THIS STEP ON YOUR LOCAL MACHINE, _NOT_ IN THE REMOTE DESKTOP CONNECTION FOR THE VIRTUAL MACHINE**: Open the **[Windows Azure Management Portal](https://manage.windowsazure.com/)** (<https://manage.windowsazure.com>) and go to the **"VIRTUAL MACHINES"** page.
+
+1. On the **"VIRTUAL MACHINES"** page, **click to the right of the name of your development workstation VM** (clicking on the name itself opens the dashboard for the VM, and we don't need that right now).  **With the VM selected**, along the bottom, **click the "RESTART" button** to shutdown and restart the virtual machine:
+
+	![Restart the Development Workstation VM](images/43restart-the-development-workstation-vm.png?raw=true "Restart the Development Workstation VM")
+
+	_Restart the Developer Workstation VM_
+
+1. When prompted click "Yes" to confirm the restart:
+
+	![Confirm the VM Restart](images/44confirm-the-vm-restart.png?raw=true "Confirm the VM Restart")
+
+1. **Wait for the status of your Virtual Machine to return to "Running"** before going on to the next exercise:
+
+	![VM Restarted](images/45vm-restarted.png?raw=true "VM Restarted")
+
+	_Wait for the VM status to be "Running" again_
+
+We're getting close to done!  We now have a Windows Server 2012 Virtual Machine with Visual Studio Ultimate 2013, SQL Server 2012 Express & SQL Server Management Studio.  We just need to install the Windows Azure SDK, the Lab Files, setup some shortcuts and we're done.  
+
+---
+
+<!--  
+========================================
+Exercise 4
+========================================
+-->
+
+<a name="Exercise4"></a>
+### Exercise 4: Installing the Windows Azure SDK and Tools ###
+
+In this exercise, we'll install the Azure SDK and Tools for Visual Studio into our development workstation Virtual Machine.
+
+**All but the first step in this exercise should all be performed in using a Remote Desktop Connection to the Virtual Machine we created in [Exercise 1](#Exercise1).** 
+
+
+1. In the **Windows Azure Management Portal**, once the Virtual Machine status reads “Running” again (after having been restarted above), select the development Virtual Machine and click the **“CONNECT”** button along the bottom, and again, **follow the prompts** to connect to the VM using Remote Desktop:
+
+	![Reconnect to the VM](images/46reconnect-to-the-vm.png?raw=true "Reconnect to the VM")
+
+	_Reconnect to the Virtual Machine using Remote Desktop_
+
+1. In the **Remote Desktop Window**, open **Internet Explorer**, and go to **<http://aka.ms/azsdks>**, and click the **"VS 2013"** link:
+
+	![Downlaod the Azure SDK for VS2013](images/47downlaod-the-azure-sdk-for-vs2013.png?raw=true "Downlaod the Azure SDK for VS2013")
+
+	_Download the Azure SDK and Tools for VS 2013_
+
+1. Click **“Run”** to start the installation of the Windows Azure SDK:
+
+	![Run the Azure SDK Installer](images/48run-the-azure-sdk-installer.png?raw=true "Run the Azure SDK Installer")
+
+	_Run the Azure SDK Installer_
+
+1. In the **“Web Platform Installer”** window click the **“Install”** button to install the SDK and tools:
+
+	![Install the Azure SDK](images/49install-the-azure-sdk.png?raw=true "Install the Azure SDK")
+
+	_Web Platform Installer_
+
+1. On the **"PREREQUISITES"** page click **"I Accept"**:
+
+	![Accept Prerequisites](images/50accept-prerequisites.png?raw=true "Accept Prerequisites")
+
+	_Accept the Prerequisites_
+
+	> **Note:** **This installation is quick** and should only take **five minutes** at most.  
+
+1. When the installation is complete, if prompted, click "Continue" to continue:
+
+	![Continue Installation](images/51continue-installation.png?raw=true "Continue Installation")
+
+	_Continue the Installation_
+
+1. A browser window with details about the Windows Azure SDK may appear.  If it does, read as much about the SDK as you like, then **close the browser window**:
+
+	![New SDK Details](images/52new-sdk-details.png?raw=true "New SDK Details")
+
+	_Read about the changes in the latest Azure SDK_
+
+1. Back in the **"Web Platform Installer"** window, click **"Finish"**:
+
+	![Finish the Installation](images/53finish-the-installation.png?raw=true "Finish the Installation")
+
+	_Finish the Installation_
+
+1. Close the **"Web Platform Installer"** window by clicking "Exit":
+
+	![Exit Web PI](images/54exit-web-pi.png?raw=true "Exit Web PI")
 	
-	_Select "Management Tools - Basic"_
+	_Exist the Web Platform Installer_
 
-1. Accept the defaults on the **"Error Reporting"** page and click **"Next"** to continue:
+Great!  Now we can create Azure Cloud Service projects in Visual Studio!  Next, we'll grab the lab files.  
 
-	![39ErrorReportingDefaults](images/39errorreportingdefaults.png?raw=true "Accept the Error Reporting Defaults")
+---
 
-	_Accept the Error Reporting defaults_
+<!--  
+========================================
+Exercise 5
+========================================
+-->
 
-1. **The installation may take 5-10 minutes to complete**.  When it does, the **"Complete"** page will appear.  Click **"Close"** to exit:
+<a name="Exercise5"></a>
+### Exercise 5: Installing the Lab Files ###
 
-	![40InstallationComplete](images/40installationcomplete.png?raw=true "Installation Complete")
+In this exercise, we'll download the latest version of the lab files into the development workstation Virtual Machine.  
+
+**The steps in this exercise should all be performed in using a Remote Desktop Connection to the Virtual Machine we created in [Exercise 1](#Exercise1).** 
+
+1. In the **Remote Desktop** window, in **Internet Explorer**, go to **<http://aka.ms/slabs>**, then **right click** on the **"Windows Azure Dev Camp - Scenario Format"** zip file and select **"Download"**:
+
+	![Download Lab Files](images/55download-lab-files.png?raw=true "Download Lab Files")
+
+	_Download the latest lab files_
+
+1. Click the **“Save”** button to download the files to the default Downloads folder:
+
+	![Save the Lab Files](images/56save-the-lab-files.png?raw=true "Save the Lab Files")
+
+	_Save the lab files to the Downloads folder_
+
+1. Once the download is complete click the **“Open folder”** button to open the Downloads folder:
+
+	![Open the Downloads Folder](images/57open-the-downloads-folder.png?raw=true "Open the Downloads Folder")
+
+	_Open the Downloads Folder_
+
+1. **Right-Click** on the **“Windows Azure Dev Camp - Scenario Format”** file and select **“Properties”**
+
+	![Zip File Properties](images/58zip-file-properties.png?raw=true "Zip File Properties")
+
+	_Open Zip File Properties_
+
+1. In the **"Properties"** window, click the **“Unblock”** button, then click **“OK”**:
+
+	![Unblock the Zip File](images/59unblock-the-zip-file.png?raw=true "Unblock the Zip File")
+
+	_Unblock the .zip file_
+
+	> **Note:** Because the .zip file came from the Internet, Windows doesn't "trust" it by default.  "Unblock"ing it removes any security restrictions from the .zip file and prevents Visual Studio from warning about the untrusted source each time a project is opened.  
+
+1. Again, **Right-Click** on the **“Windows Azure Dev Camp - Scenario Format”** file and select **“Extract All…”**:
+
+	![Extract the Zip File](images/60extract-the-zip-file.png?raw=true "Extract the Zip File")
+
+1. In the **“Files will be extracted to this folder”** text box **type**  **“C:\Labs”** (the folder doesn't exist, so you can't "Browse" to it) and click **“Extract”**:
+
+	![Extract Dialog](images/61extract-dialog.png?raw=true "Extract Dialog")
+
+	_Extract to C:\Labs_
+
+1. The files will be extracted to the **"C:\Labs\Scenario"** directory:
+
+	![Scenario Lab Files](images/62scenario-lab-files.png?raw=true "Scenario Lab Files")
+
+	_Scenario Lab Files_
+
+1.  **Close any windows that are open**.
+
+Great!  We've got the lab files installed, lastly, let's setup some shortcuts to simplify your life throughout the rest of the lab...
+
+---
+
+<!--  
+========================================
+Exercise 6
+========================================
+-->
+
+<a name="Exercise6"></a>
+### Exercise 6: Creating Shortcuts for Common Tools ###
+
+In this last exerise, we'll setup some shortcuts for both Visual Studio and SQL Server Management Studio on the Start Screen and taskbar.  This will make it easier to launch those tools in subsuequent labs.  Feel free to add any other shortcuts you like! 
+
+**The steps in this exercise should all be performed in using a Remote Desktop Connection to the Virtual Machine we created in [Exercise 1](#Exercise1).** 
+
+1. In the Remote Desktop window, return to the Start Screen and clic the "down arrow" icon along the bottom to see all apps on the machine:
+
+	![All Apps Button](images/63all-apps-button.png?raw=true "All Apps Button")
+
+	_All Apps Button_
+
+1. Scroll through the list of apps to find **“Visual Studio 2103”**.  **Right-click** the “Visual Studio 2013” icon and select **“Pin to taskbar”**, the **repeat** and select **"Pin to Start"**:
+
+	![Pin Visual Studio ](images/64pin-visual-studio.png?raw=true "Pin Visual Studio")
+
+	_Pin Visual Studio 2013 to the Taskbar and to Start_
+
+1. Repeat the process to pin SQL Server Management Studio to both the taskbar and to Start:
+
+	![Pin SSMS](images/65pin-ssms.png?raw=true "Pin SSMS")
+
+	_Pin SQL Server Management Studio to the Taskbar to Start_
 	
-	_Installation Complete_
+1. Once you are done, you should now have convenient shortcuts for both Visual Studio 2013 and SQL Server Management Studio on your Start Screen:
 
-1. You can close the **"SQL Server Installation Center"** and **"Internet Explorer"** windows if they are still open.  
+	![Shortcuts on Start Screen](images/66shortcuts-on-start-screen.png?raw=true "Shortcuts on Start Screen")
 
-1. To get to the start screen on the remote virtual machine, first **left click** with your mouse inside the **"Remote Desktop Connection"** window for the virtual machine.  Then **press the "Windows" key** on the keyboard.  You can also move your mouse into the lower left hand corner of the remote desktop, or in either the upper or lower right corner to get to the Charms bar, and click "Start" from there. Regardless, you should now see a **"SQL Server Management Studio"** tile on the start screen.  **Click that tile to launch SSMS**.  
+	_Shotcuts on Start Screen_
 
-	![41SSMSTile](images/41ssmstile.png?raw=true "SSMS Tile")
+1. And on the taskbar:
 
-	_Click the SQL Server Management Studio Tile_
-
-1. In the **"Connect to Server"** window, enter **"(local)\SQLEXPRESS"** for the server name, leave the authentication as **"Windows Authentication"** and click **"Connect"**:
-
-	![42SSMSConnectWindows](images/42ssmsconnectwindows.png?raw=true "SSMS Connection Window")
-
-	_SSMS Connection Window_
-
-1. You should be successfully connected, and the server should appear in the **SSMS** **"Object Explorer"** window.  
-
-	![43SSMSObjectExplorer](images/43ssmsobjectexplorer.png?raw=true "SSMS Object Explorer")
-
-	_**"(local)\SQLEXPRESS"** Connection in SSMS Object Explorer_
+	![Shortcuts on Taskbar](images/67shortcuts-on-taskbar.png?raw=true "Shortcuts on Taskbar")
 
 
-***Congratulations!  You have successfully added SQL Server 2012 Express & SQL Server Management Studio Express to a Virtual Machine running in Windows Azure!***
+All done!  
 
+---
 
+<!--  
+========================================
+Summary
+========================================
+-->
+
+<a name="Summary"></a>
+## Summary ##
+
+This hands-on lab walked you step by step through building a Windows Azure Virtual Machine with the following:
+
+ - Windows Server 2012 R2
+ - Visual Studio Ultimate 2013
+ - SQL Server 2012 Express with Tools
+ - Windows Azure SDK and Tools for Visual Studio 2013
+
+Feel free to customize the virtual machine to your liking.  You can use this virtual machine as the "development workstation" for future labs.  When you do that, it will help if you think of the VM as if it were a local workstation or laptop.  
+
+***Lastly, make sure that you shutdown the Virtual Machine when you are not using it.  Windows Azure Virtual Machines that are shutdown have a "Stopped (deallocated)" status and do NOT INCUR HOURLY CPU USAGE COSTS.  If you leave your VM running however, those costs will continue to be charged.***
